@@ -1,0 +1,23 @@
+# Build & IDE
+.gradle/
+build/
+app/build/
+.idea/
+*.iml
+.cxx/
+.externalNativeBuild/
+captures/
+local.properties
+*.apk
+*.aab
+!dist/.gitkeep
+
+# Signing secrets
+keystore.properties
+keystore/
+*.jks
+*.keystore
+
+# OS
+.DS_Store
+*.backup

@@ -1,0 +1,19 @@
+{
+  "name": "West Newcomer Manual",
+  "short_name": "Newcomer Manual",
+  "description": "Practical cultural and systems guide for newcomers to the West — 2026 edition.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#1a56a8",
+  "lang": "en",
+  "icons": [
+    {
+      "src": "./icons/icon-192x192.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

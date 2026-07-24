@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Practical cultural and systems guide for newcomers to Western Europe, the UK, the US, and related regions — updated for 2026 realities: digital bureaucracy, housing, work rights, and safety.">
+    <meta name="theme-color" content="#1a56a8">
+    <title>West Newcomer Manual — Cultural Assimilation Guide 2026</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" href="icons/icon-192x192.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="styles/interactive-styles.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="header-inner">
+            <a class="brand" href="#top">
+                <div class="brand-mark">W</div>
+                <div class="brand-text">
+                    <strong>West Newcomer Manual</strong>
+                    <span>Cultural assimilation · 2026 edition</span>
+                </div>
+            </a>
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+            <nav id="main-nav" aria-label="Main">
+                <ul class="nav-list">
+                    <li><a href="#today">Today</a></li>
+                    <li><a href="#region-select">Regions</a></li>
+                    <li><a href="#roles">Role</a></li>
+                    <li><a href="#employment">Work</a></li>
+                    <li><a href="#quizzes">Quizzes</a></li>
+                    <li><a href="#scenarios">Scenarios</a></li>
+                    <li><a href="#progress">Progress</a></li>
+                    <li><a href="#download">App</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div id="top" class="hero">
+        <div class="hero-inner">
+            <div>
+                <span class="hero-badge">Updated for 2025–2026 immigration realities</span>
+                <h1>Assimilate with clarity — not guesswork</h1>
+                <p class="hero-lead">
+                    A practical survival guide for newcomers to the West: digital government, tight housing markets,
+                    work rights, paperwork, health systems, and everyday cultural norms — offline-friendly and privacy-first.
+                </p>
+                <div class="hero-actions">
+                    <a class="btn btn-primary" href="#today">Start with today’s essentials</a>
+                    <a class="btn btn-secondary" href="#region-select">Choose your region</a>
+                    <a class="btn btn-secondary" href="#download">Get the Android app</a>
+                </div>
+            </div>
+            <div class="hero-stats">
+                <div class="stat"><strong>9</strong><span>regions + shared essentials</span></div>
+                <div class="stat"><strong>0</strong><span>accounts required</span></div>
+                <div class="stat"><strong>100%</strong><span>progress stored on-device</span></div>
+                <div class="stat"><strong>2026</strong><span>edition focus: systems that matter now</span></div>
+            </div>
+        </div>
+    </div>
+
+    <main>
+        <section class="section" id="about">
+            <div class="card">
+                <h2>Why this manual exists</h2>
+                <p>
+                    Moving West is not only about customs and small talk. In the mid‑2020s, newcomers also face
+                    <strong>appointment portals</strong>, <strong>housing competition</strong>,
+                    <strong>stricter documentation checks</strong>, <strong>scams aimed at migrants</strong>,
+                    and workplaces that expect self-advocacy. This guide combines cultural fluency with systems literacy.
+                </p>
+                <div class="grid-3" style="margin-top:1.25rem;">
+                    <div class="feature">
+                        <div class="icon">🧭</div>
+                        <h3>Culture that travels</h3>
+                        <p class="muted">Greetings, time, neighbors, dating norms, and workplace tone by region.</p>
+                    </div>
+                    <div class="feature">
+                        <div class="icon">🖥️</div>
+                        <h3>Systems that gatekeep</h3>
+                        <p class="muted">Registration, e‑IDs, right-to-work/rent checks, GP/NHS-style care paths.</p>
+                    </div>
+                    <div class="feature">
+                        <div class="icon">🛡️</div>
+                        <h3>Safety & scams</h3>
+                        <p class="muted">Fake landlords, phishing “immigration officers,” and cash-work traps.</p>
+                    </div>
+                </div>
+                <p class="disclaimer">
+                    Educational guide only — not legal advice. Immigration and benefits rules change. Confirm critical steps on official government sites or with a licensed adviser / recognized NGO.
+                </p>
+            </div>
+        </section>
+
+        <section class="section" id="today">
+            <div class="card">
+                <h2>📅 Today in the West</h2>
+                <p id="today-intro" class="muted">Loading present-day essentials…</p>
+                <div id="today-pillars" class="pillars"></div>
+            </div>
+        </section>
+
+        <section class="section" id="region-select">
+            <div class="card">
+                <h2>🌍 Select your region</h2>
+                <p>Localized quizzes, country notes, and scenarios load after you pick a region.</p>
+                <div id="region-selector">
+                    <button class="region-btn" data-region="united_states">🇺🇸 United States</button>
+                    <button class="region-btn" data-region="united_kingdom">🇬🇧 United Kingdom</button>
+                    <button class="region-btn" data-region="central_europe">🇩🇪🇦🇹🇨🇭 Central Europe</button>
+                    <button class="region-btn" data-region="scandinavia">🇸🇪🇳🇴🇩🇰 Scandinavia</button>
+                    <button class="region-btn" data-region="finland">🇫🇮 Finland</button>
+                    <button class="region-btn" data-region="baltics">🇪🇪🇱🇻🇱🇹 Baltics</button>
+                    <button class="region-btn" data-region="balkans">🇷🇸🇭🇷🇧🇦 Balkans</button>
+                    <button class="region-btn" data-region="greece">🇬🇷 Greece</button>
+                    <button class="region-btn" data-region="mediterranean">🇮🇹🇫🇷🇪🇸🇵🇹 Mediterranean</button>
+                </div>
+                <div id="current-region-display" style="display:none;">
+                    <strong>Currently viewing:</strong> <span id="current-region-name"></span>
+                    <button id="change-region" type="button">Change region</button>
+                </div>
+                <div id="region-guide"></div>
+            </div>
+        </section>
+
+        <section class="section" id="roles">
+            <div class="card">
+                <h2>👤 Your situation</h2>
+                <p class="muted">Scenarios can filter to roles like students, professionals, or people still awaiting documentation.</p>
+                <div id="role-selection">
+                    <label><input type="radio" name="role" value="student"> 🎓 International student</label>
+                    <label><input type="radio" name="role" value="remote"> 💻 Remote worker</label>
+                    <label><input type="radio" name="role" value="spouse"> 👨‍👩‍👧 Partner / family arrival</label>
+                    <label><input type="radio" name="role" value="professional"> 💼 Working professional</label>
+                    <label><input type="radio" name="role" value="entrepreneur"> 🚀 Entrepreneur</label>
+                    <label><input type="radio" name="role" value="retiree"> 🌅 Retiree</label>
+                    <label><input type="radio" name="role" value="undocumented"> 📋 Awaiting documentation</label>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="employment">
+            <div class="card">
+                <h2>🛠️ Work & waiting time</h2>
+                <p>Legal status defines what work you may do. Within the law, mid‑2020s demand is often strong in care, logistics, trades, hospitality, and parts of tech — while credential recognition can lag.</p>
+                <h3>Use waiting time well</h3>
+                <ul>
+                    <li><strong>Language:</strong> free classes, library conversation groups, job-oriented vocabulary.</li>
+                    <li><strong>Proof of local activity:</strong> volunteering where legal, short courses, portfolio pieces.</li>
+                    <li><strong>Paper trail:</strong> scans of every letter, appointment, and payslip.</li>
+                    <li><strong>Scam resistance:</strong> no fees for “guaranteed jobs” or “guaranteed visas.”</li>
+                    <li><strong>Mental load:</strong> stable sleep and community reduce costly mistakes.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section" id="quizzes">
+            <div class="card" id="quizzes-container">
+                <h2>📝 Interactive quizzes</h2>
+                <p class="muted">Answer to learn — explanations stay on screen. Progress saves in this browser/device.</p>
+            </div>
+        </section>
+
+        <section class="section" id="scenarios">
+            <div class="card" id="scenarios-container">
+                <h2>🎯 Scenario-based learning</h2>
+                <p class="muted">Flip cards for Do’s and Don’ts. Select a role above to personalize.</p>
+            </div>
+        </section>
+
+        <section class="section" id="progress">
+            <div class="card">
+                <h2>📊 My progress</h2>
+                <div id="progress-container"></div>
+                <p style="margin-top:1rem;">
+                    <button class="btn btn-outline" id="reset-progress" type="button">Reset progress</button>
+                </p>
+            </div>
+        </section>
+
+        <section class="section" id="snapshot">
+            <div class="card">
+                <h2>📸 Cultural snapshot</h2>
+                <p class="muted">Generate a simple progress image you can save.</p>
+                <button class="btn btn-primary" id="generate-snapshot" type="button">Generate snapshot</button>
+                <div id="snapshot-message" role="status" aria-live="polite" style="display:none;margin:10px 0;color:#059669;font-weight:700;"></div>
+                <canvas id="snapshot-canvas" width="800" height="400" style="display:none;max-width:100%;margin-top:1rem;border-radius:12px;"></canvas>
+                <p><button class="btn btn-dark" id="download-snapshot" type="button" style="display:none;margin-top:0.75rem;">Download snapshot</button></p>
+            </div>
+        </section>
+
+        <section class="section" id="download">
+            <div class="download-band">
+                <div>
+                    <h2 style="margin:0;color:#fff;">Android app</h2>
+                    <p>Same content offline in a signed release APK — ideal when data is expensive or portals are flaky.</p>
+                </div>
+                <div class="hero-actions">
+                    <a class="btn btn-secondary" id="apk-link" href="https://github.com/gilbertbouic/west-newcomer-manual/releases/latest">Download latest APK</a>
+                    <a class="btn btn-secondary" href="https://github.com/gilbertbouic/west-newcomer-manual">View source</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p><a href="PRIVACY.md">Privacy</a> · Open source · Progress stored locally</p>
+        <p style="opacity:0.7;font-size:0.9rem;">West Newcomer Manual · Cultural Assimilation Guide · 2026 edition</p>
+    </footer>
+
+    <script src="scripts/core/data.core.js" defer></script>
+    <script src="scripts/core/today-essentials.js" defer></script>
+    <script src="scripts/app.js" defer></script>
+    <script src="scripts/navigation.js" defer></script>
+    <script src="scripts/interactive.js" defer></script>
+    <script src="scripts/regions/united_states.data.js" defer></script>
+    <script src="scripts/regions/united_kingdom.data.js" defer></script>
+    <script src="scripts/regions/central_europe.data.js" defer></script>
+    <script src="scripts/regions/scandinavia.data.js" defer></script>
+    <script src="scripts/regions/finland.data.js" defer></script>
+    <script src="scripts/regions/baltics.data.js" defer></script>
+    <script src="scripts/regions/balkans.data.js" defer></script>
+    <script src="scripts/regions/greece.data.js" defer></script>
+    <script src="scripts/regions/mediterranean.data.js" defer></script>
+    <script src="scripts/scenarios/united_states.scenarios.js" defer></script>
+    <script src="scripts/scenarios/united_kingdom.scenarios.js" defer></script>
+    <script src="scripts/scenarios/central_europe.scenarios.js" defer></script>
+    <script src="scripts/scenarios/scandinavia.scenarios.js" defer></script>
+    <script src="scripts/scenarios/finland.scenarios.js" defer></script>
+    <script src="scripts/scenarios/baltics.scenarios.js" defer></script>
+    <script src="scripts/scenarios/balkans.scenarios.js" defer></script>
+    <script src="scripts/scenarios/greece.scenarios.js" defer></script>
+    <script src="scripts/scenarios/mediterranean.scenarios.js" defer></script>
+</body>
+</html>
