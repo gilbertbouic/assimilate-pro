@@ -1,5 +1,5 @@
-/* West Newcomer Manual — offline shell for GitHub Pages / WebView */
-const CACHE = 'wnm-2026-v2';
+/* Assimilate Pro — offline shell for GitHub Pages / WebView */
+const CACHE = 'assimilate-pro-2026-v1';
 const ASSETS = [
   './',
   './index.html',

@@ -1,11 +1,18 @@
-# West Newcomer Manual
+# Assimilate Pro
 
-**Cultural Assimilation Guide — 2026 edition**
+**Cultural guide for newcomers to the West — 2026 edition**
 
-Practical survival guide for newcomers to Western Europe, the UK, the United States, and related regions. Updated for present-day realities: digital-first bureaucracy, housing pressure, work-rights checks, scam patterns, language/status pathways, and everyday cultural norms.
+Practical survival guide for newcomers to Western Europe, the UK, the United States, and related regions. Built for present-day realities: digital-first bureaucracy, housing pressure, work-rights checks, scam patterns, language/status pathways, and everyday cultural norms.
 
-🌐 **Website:** https://gilbertbouic.github.io/west-newcomer-manual/  
-📱 **Android APK:** see [Releases](https://github.com/gilbertbouic/west-newcomer-manual/releases)
+| | |
+|---|---|
+| **Website** | https://gilbertbouic.github.io/assimilate-pro/ |
+| **Repository** | https://github.com/gilbertbouic/assimilate-pro |
+| **Android APK** | [Releases](https://github.com/gilbertbouic/assimilate-pro/releases) |
+
+## Why this name
+
+**Assimilate Pro** is short, memorable, and action-oriented: learn the unwritten rules *and* the systems that gatekeep daily life—so you can settle with confidence, not guesswork.
 
 ## What’s inside
 
@@ -24,7 +31,10 @@ Rules change. Always verify status, work rights, and benefits on **official gove
 
 ## Website (GitHub Pages)
 
-Static site at repo root (`index.html`). Enable Pages: **Settings → Pages → Deploy from branch `main` / root**.
+Static site at the repository root (`index.html`).  
+**Pages:** branch `main` → folder `/` (root).
+
+Live: https://gilbertbouic.github.io/assimilate-pro/
 
 ## Android app
 
@@ -36,12 +46,8 @@ WebView shell packaging the same assets.
 ./gradlew assembleRelease
 ```
 
-APK output: `app/build/outputs/apk/release/app-release.apk`
-
-## Sync web → Android assets
-
 ```bash
-./scripts/sync-web-to-android.sh
+./scripts/sync-web-to-android.sh   # website → app assets
 ```
 
 ## License

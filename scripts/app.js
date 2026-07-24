@@ -1,5 +1,5 @@
 /**
- * West Newcomer Manual — app shell: region selection, today essentials, SW.
+ * Assimilate Pro — app shell: region selection, today essentials, SW.
  */
 (function () {
     'use strict';
