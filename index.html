@@ -24,12 +24,25 @@
     <link rel="icon" href="icons/icon-192x192.svg" type="image/svg+xml">
     <link rel="stylesheet" href="styles/styles.css">
     <link rel="stylesheet" href="styles/interactive-styles.css">
+
+    <style>
+      .brand-mark-img {
+        width: 40px;
+        height: 40px;
+        border-radius: 10px;
+        object-fit: contain;
+        background: #f4f4f2;
+        padding: 4px;
+        flex-shrink: 0;
+      }
+      .brand { display: inline-flex; align-items: center; gap: 0.65rem; text-decoration: none; }
+    </style>
 </head>
 <body>
     <header class="site-header">
         <div class="header-inner">
             <a class="brand" href="#top">
-                <div class="brand-mark">A</div>
+                <img class="brand-mark-img" src="assets/brand-mark-header.png" alt="Mkweli" width="40" height="40" />
                 <div class="brand-text">
                     <strong>Assimilate Pro</strong>
                     <span>Cultural guide for newcomers · 2026</span>

@@ -72,6 +72,17 @@ a { color: var(--primary-light); }
     font-size: 1.1rem;
 }
 
+.brand-mark-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    object-fit: contain;
+    background: #f4f4f2;
+    padding: 4px;
+    flex-shrink: 0;
+    display: block;
+}
+
 .brand-text strong { display: block; font-size: 1rem; line-height: 1.2; }
 .brand-text span { font-size: 0.75rem; opacity: 0.75; }
 
