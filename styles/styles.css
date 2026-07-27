@@ -417,3 +417,28 @@ main { padding-bottom: 3rem; }
     .nav-list { flex-direction: column; }
     .nav-list a { display: block; padding: 0.65rem 0; }
 }
+
+.mkweli-parent-bar {
+  border-top: 1px solid rgba(0,0,0,0.08);
+  padding: 1.25rem 1rem;
+  text-align: center;
+  background: #f4f4f2;
+}
+.mkweli-parent-bar a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  text-decoration: none;
+  color: #121212;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+.mkweli-parent-bar img { height: 24px; width: auto; }
+.logo-light { display: block; }
+.logo-dark { display: none; }
+@media (prefers-color-scheme: dark) {
+  .mkweli-parent-bar { background: #121212; }
+  .mkweli-parent-bar a { color: #f2f2f0; }
+  .logo-light { display: none; }
+  .logo-dark { display: block; }
+}
