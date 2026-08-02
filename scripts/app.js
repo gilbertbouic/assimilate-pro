@@ -64,7 +64,15 @@
 
         fetchCount(endpoint).then(render).catch(() => render(0));
 
-        document.querySelectorAll('[data-dl-link]').forEach((link) => {
+        const isApkHref = (h) => /\.apk($|[?#])/i.test(h || '');
+        // Count only real APK file downloads (not release pages / source links)
+        document.querySelectorAll('a[href]').forEach((link) => {
+            const href = link.getAttribute('href') || '';
+            if (!isApkHref(href)) {
+                link.removeAttribute('data-dl-link');
+                return;
+            }
+            link.setAttribute('data-dl-link', '');
             link.addEventListener('click', () => {
                 if (isLocked) return;
                 isLocked = true;
@@ -196,10 +204,10 @@
 
     function escapeHtml(str) {
         return String(str)
-            .replace(/&/g, '&amp;')
-            .replace(/</g, '&lt;')
-            .replace(/>/g, '&gt;')
-            .replace(/"/g, '&quot;');
+            .replace(/&/g, '&')
+            .replace(/</g, '<')
+            .replace(/>/g, '>')
+            .replace(/"/g, '"');
     }
 
     window.CAM_APP = {
