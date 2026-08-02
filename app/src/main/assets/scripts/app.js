@@ -23,12 +23,61 @@
         initializeRegionSelector();
         renderTodayEssentials();
         registerServiceWorker();
+        initDownloadCounter();
 
         const savedRegion = localStorage.getItem('selectedRegion');
         if (savedRegion && window.CAM_DATA && window.CAM_DATA.regions[savedRegion]) {
             selectRegion(savedRegion);
         }
     });
+
+    function initDownloadCounter() {
+        const counter = document.querySelector('[data-dl-counter]');
+        if (!counter) return;
+
+        const product = counter.getAttribute('data-dl-product') || 'assimilate';
+        const seed = Number(counter.getAttribute('data-dl-seed')) || 0;
+        const endpoint = `https://api.counterapi.dev/v1/mkweli-tech/apk-${product}`;
+        let isLocked = false;
+
+        const formatDownloads = (remoteCount) =>
+            `${(seed + Math.max(0, remoteCount)).toLocaleString('en-US')} downloads`;
+
+        const render = (remoteCount) => {
+            counter.textContent = formatDownloads(remoteCount);
+        };
+
+        const readCount = (payload) => {
+            if (payload && typeof payload.count === 'number') return payload.count;
+            if (payload && payload.data && typeof payload.data.count === 'number') return payload.data.count;
+            if (payload && typeof payload.value === 'number') return payload.value;
+            return null;
+        };
+
+        const fetchCount = async (url) => {
+            const response = await fetch(url, { cache: 'no-store' });
+            if (!response.ok) throw new Error(`Counter request failed: ${response.status}`);
+            const count = readCount(await response.json());
+            if (typeof count !== 'number' || Number.isNaN(count)) throw new Error('Invalid counter payload');
+            return count;
+        };
+
+        fetchCount(endpoint).then(render).catch(() => render(0));
+
+        document.querySelectorAll('[data-dl-link]').forEach((link) => {
+            link.addEventListener('click', () => {
+                if (isLocked) return;
+                isLocked = true;
+                setTimeout(() => {
+                    isLocked = false;
+                }, 2000);
+
+                fetchCount(`${endpoint}/up`).then(render).catch(() => {
+                    /* keep current value */
+                });
+            });
+        });
+    }
 
     function registerServiceWorker() {
         if (!('serviceWorker' in navigator)) return;
