@@ -65,6 +65,14 @@
         fetchCount(endpoint).then(render).catch(() => render(0));
 
         const isApkHref = (h) => /\.apk($|[?#])/i.test(h || '');
+        // Prefer a real APK file URL so the Download CTA is countable
+        const apkCta = document.getElementById('apk-link');
+        if (apkCta && !isApkHref(apkCta.getAttribute('href') || '')) {
+            apkCta.setAttribute(
+                'href',
+                'https://github.com/gilbertbouic/assimilate-pro/releases/latest/download/Assimilate-Pro-v2.1.2-release.apk'
+            );
+        }
         // Count only real APK file downloads (not release pages / source links)
         document.querySelectorAll('a[href]').forEach((link) => {
             const href = link.getAttribute('href') || '';
