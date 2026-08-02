@@ -395,6 +395,15 @@ main { padding-bottom: 3rem; }
 
 .download-band p { margin: 0.35rem 0 0; opacity: 0.9; }
 
+.dl-counter {
+    margin: 0.55rem 0 0;
+    width: 100%;
+    font-size: 0.72rem;
+    letter-spacing: 0.03em;
+    font-weight: 500;
+    color: rgba(255,255,255,0.7);
+}
+
 /* Footer */
 .site-footer {
     margin-top: 3rem;
