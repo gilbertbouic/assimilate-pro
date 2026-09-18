@@ -1,4 +1,4 @@
-# Privacy Policy — Assimilate Pro
+# Privacy Policy - Assimilate Pro
 
 **Last updated:** 2026-07-24
 

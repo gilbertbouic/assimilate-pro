@@ -1,5 +1,5 @@
 /**
- * United States scenarios — 2026 edition
+ * United States scenarios - 2026 edition
  */
 (function () {
     'use strict';
@@ -23,7 +23,7 @@
                     donts: [
                         'Don’t stay silent all week hoping someone mind-reads your blockers.',
                         'Don’t overshare visa stress in the first hour.',
-                        'Don’t refuse all small talk — brief friendliness builds allies.'
+                        'Don’t refuse all small talk - brief friendliness builds allies.'
                     ]
                 },
                 {

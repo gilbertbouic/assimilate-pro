@@ -1,5 +1,5 @@
 /**
- * Assimilate Pro — app shell: region selection, today essentials, SW.
+ * Assimilate Pro - app shell: region selection, today essentials, SW.
  */
 (function () {
     'use strict';
@@ -39,13 +39,22 @@
         const seed = Number(counter.getAttribute('data-dl-seed')) || 0;
         const endpoint = `https://api.counterapi.dev/v1/mkweli-tech/apk-${product}`;
         let isLocked = false;
+        let lastRemoteCount = 0;
 
-        const formatDownloads = (remoteCount) =>
-            `${(seed + Math.max(0, remoteCount)).toLocaleString('en-US')} downloads`;
+        const formatDownloads = (remoteCount) => {
+            lastRemoteCount = remoteCount;
+            const isFr = document.documentElement.lang === 'fr';
+            const n = (seed + Math.max(0, remoteCount)).toLocaleString(isFr ? 'fr-FR' : 'en-US');
+            return n + (isFr ? ' téléchargements' : ' downloads');
+        };
 
         const render = (remoteCount) => {
             counter.textContent = formatDownloads(remoteCount);
         };
+
+        document.addEventListener('mkweli-langchange', () => {
+            counter.textContent = formatDownloads(lastRemoteCount);
+        });
 
         const readCount = (payload) => {
             if (payload && typeof payload.count === 'number') return payload.count;

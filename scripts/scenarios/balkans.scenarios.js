@@ -19,7 +19,7 @@
                     donts: [
                         'Don’t mock traditions.',
                         'Don’t start sensitive historical arguments uninvited.',
-                        'Don’t refuse every gesture — it can read as cold.'
+                        'Don’t refuse every gesture - it can read as cold.'
                     ]
                 }
             ]

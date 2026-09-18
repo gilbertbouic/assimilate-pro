@@ -1,5 +1,5 @@
 /**
- * Baltics — Estonia, Latvia, Lithuania (2026 edition)
+ * Baltics - Estonia, Latvia, Lithuania (2026 edition)
  */
 (function () {
     'use strict';
@@ -19,7 +19,7 @@
                 },
                 correct: 'b',
                 explanation:
-                    'Estonia’s digital state is a model — but you still need correct IDs and registrations to access it.'
+                    'Estonia’s digital state is a model - but you still need correct IDs and registrations to access it.'
             },
             {
                 question: 'First meetings with locals may feel…',
@@ -76,7 +76,7 @@
                             'Digital services are a superpower after ID setup.',
                             'English is common in tech; Estonian helps integration.',
                             'Punctual, low-drama communication works well.',
-                            'Nature is close to cities — respect trails and private land.'
+                            'Nature is close to cities - respect trails and private land.'
                         ]
                     }
                 ]
@@ -91,7 +91,7 @@
                             'Riga is the hub; learn local admin steps for registration.',
                             'Reserved social style; reliability builds trust.',
                             'Learn waste rules and public transport tickets.',
-                            'Russian and Latvian language politics are sensitive — be respectful.'
+                            'Russian and Latvian language politics are sensitive - be respectful.'
                         ]
                     }
                 ]

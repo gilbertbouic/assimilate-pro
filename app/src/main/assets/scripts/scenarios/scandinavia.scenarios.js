@@ -35,7 +35,7 @@
                     title: 'Fika / coffee culture',
                     description: 'Coworkers invite you for coffee break.',
                     dos: [
-                        'Join when you can — it is social glue.',
+                        'Join when you can - it is social glue.',
                         'Keep conversation light; listen as much as you talk.',
                         'Respect work-life boundaries after hours.'
                     ],

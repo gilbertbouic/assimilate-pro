@@ -1,6 +1,6 @@
 # Assimilate Pro
 
-**Cultural guide for newcomers to the West — 2026 edition**
+**Cultural guide for newcomers to the West - 2026 edition**
 
 Practical survival guide for newcomers to Western Europe, the UK, the United States, and related regions. Built for present-day realities: digital-first bureaucracy, housing pressure, work-rights checks, scam patterns, language/status pathways, and everyday cultural norms.
 
@@ -12,18 +12,18 @@ Practical survival guide for newcomers to Western Europe, the UK, the United Sta
 
 ## Why this name
 
-**Assimilate Pro** is short, memorable, and action-oriented: learn the unwritten rules *and* the systems that gatekeep daily life—so you can settle with confidence, not guesswork.
+**Assimilate Pro** is short, memorable, and action-oriented: learn the unwritten rules *and* the systems that gatekeep daily life-so you can settle with confidence, not guesswork.
 
 ## What’s inside
 
 | Area | Focus |
 |------|--------|
-| **Today in the West** | Cross-cutting 2025–2026 essentials (portals, housing, scams, money, waiting on papers) |
+| **Today in the West** | Cross-cutting 2025-2026 essentials (portals, housing, scams, money, waiting on papers) |
 | **9 regions** | US, UK, Central Europe, Scandinavia, Finland, Baltics, Balkans, Greece, Mediterranean |
 | **Quizzes** | Scenario-style multiple choice with explanations |
 | **Scenarios** | Do / Don’t flip cards (work, housing, bureaucracy, health, social) |
 | **Roles** | Student, professional, remote, partner, entrepreneur, retiree, awaiting documentation |
-| **Privacy** | Local progress only — no signup |
+| **Privacy** | Local progress only - no signup |
 
 ## Not legal advice
 

@@ -1,5 +1,5 @@
 /**
- * Scandinavia — Sweden, Norway, Denmark (2026 edition)
+ * Scandinavia - Sweden, Norway, Denmark (2026 edition)
  */
 (function () {
     'use strict';
@@ -14,7 +14,7 @@
                 question: 'In Sweden/Norway/Denmark, silence in conversation often means…',
                 options: {
                     a: 'They dislike you',
-                    b: 'Comfortable pause — not necessarily awkwardness',
+                    b: 'Comfortable pause - not necessarily awkwardness',
                     c: 'You must fill every second with talk'
                 },
                 correct: 'b',
@@ -30,7 +30,7 @@
                 },
                 correct: 'b',
                 explanation:
-                    'Modesty norms discourage boasting. Competence still matters — just present it factually.'
+                    'Modesty norms discourage boasting. Competence still matters - just present it factually.'
             },
             {
                 question: 'BankID / MitID / similar e-IDs are important because…',
@@ -58,7 +58,7 @@
                 question: 'Recycling and bottle returns (pant)?',
                 options: {
                     a: 'Optional decoration',
-                    b: 'Strong norm — sort waste and return bottles/cans for deposit',
+                    b: 'Strong norm - sort waste and return bottles/cans for deposit',
                     c: 'Illegal for foreigners'
                 },
                 correct: 'b',
@@ -95,7 +95,7 @@
                     {
                         title: 'Essentials (now)',
                         items: [
-                            'Personnummer unlocks almost everything — housing and bank depend on it.',
+                            'Personnummer unlocks almost everything - housing and bank depend on it.',
                             'BankID is daily life for payments and government.',
                             'Lagom and equality shape social tone; avoid aggressive self-promotion.',
                             'Housing queues (bostadskö) in cities can be long; watch for rental scams.'
@@ -113,7 +113,7 @@
                             'High costs; outdoor life (friluftsliv) is mainstream.',
                             'D-number/national ID processes gate services.',
                             'Direct but polite communication; punctuality matters.',
-                            'Strong labor rules — know your contract and union options.'
+                            'Strong labor rules - know your contract and union options.'
                         ]
                     }
                 ]
@@ -126,7 +126,7 @@
                         title: 'Essentials (now)',
                         items: [
                             'CPR number and MitID are critical.',
-                            'Cycling infrastructure is real — learn lights and bike lane rules.',
+                            'Cycling infrastructure is real - learn lights and bike lane rules.',
                             'Informal tone (first names) with clear boundaries.',
                             'Trust-based society: freeriding on rules damages your reputation fast.'
                         ]

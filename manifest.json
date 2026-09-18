@@ -1,7 +1,7 @@
 {
   "name": "Assimilate Pro",
   "short_name": "Assimilate Pro",
-  "description": "Practical cultural and systems guide for newcomers to the West — 2026 edition.",
+  "description": "Practical cultural and systems guide for newcomers to the West - 2026 edition.",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",

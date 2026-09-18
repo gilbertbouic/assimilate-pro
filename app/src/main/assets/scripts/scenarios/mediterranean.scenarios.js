@@ -13,12 +13,12 @@
                     description: 'A family invites you for a late dinner.',
                     dos: [
                         'Arrive near the agreed time (slight flexibility varies by country/city).',
-                        'Bring a small gift (dessert, wine, flowers — check local norms).',
+                        'Bring a small gift (dessert, wine, flowers - check local norms).',
                         'Compliment the food; stay for conversation.'
                     ],
                     donts: [
                         'Don’t check your phone all evening.',
-                        'Don’t refuse everything without trying a polite taste (dietary needs excepted — explain kindly).',
+                        'Don’t refuse everything without trying a polite taste (dietary needs excepted - explain kindly).',
                         'Don’t bring up heated political fights at the first meal.'
                     ]
                 }
@@ -64,7 +64,7 @@
                     ],
                     donts: [
                         'Don’t trust hallway touts selling “instant appointments.”',
-                        'Don’t argue loudly with clerks — ask for written requirements.',
+                        'Don’t argue loudly with clerks - ask for written requirements.',
                         'Don’t leave without knowing the next deadline.'
                     ]
                 }

@@ -1,5 +1,5 @@
 /**
- * United States — cultural quizzes & guidance (2026 edition)
+ * United States - cultural quizzes & guidance (2026 edition)
  */
 (function () {
     'use strict';
@@ -16,7 +16,7 @@
                 options: {
                     a: 'Good morning, Mr./Ms. Lee. It is a pleasure to make your acquaintance.',
                     b: 'Hey Jordan, what\'s up?',
-                    c: 'Hi Jordan — great to meet you.'
+                    c: 'Hi Jordan - great to meet you.'
                 },
                 correct: 'c',
                 explanation:
@@ -37,8 +37,8 @@
             {
                 question: 'At a full-service US restaurant, what tipping practice is still expected in 2026?',
                 options: {
-                    a: 'No tip — wages already cover service.',
-                    b: 'About 15–20% for standard good service (more for excellent; adjust if a service fee is already added).',
+                    a: 'No tip - wages already cover service.',
+                    b: 'About 15-20% for standard good service (more for excellent; adjust if a service fee is already added).',
                     c: 'Only tip if the server asks.'
                 },
                 correct: 'b',
@@ -50,7 +50,7 @@
                     'You need a state ID or driver license after arriving. What is a realistic expectation?',
                 options: {
                     a: 'Any foreign ID is enough forever for banking and work.',
-                    b: 'Requirements vary by state; gather immigration documents, proof of address, and book ahead — waits can be long.',
+                    b: 'Requirements vary by state; gather immigration documents, proof of address, and book ahead - waits can be long.',
                     c: 'Only citizens can get any ID.'
                 },
                 correct: 'b',
@@ -73,13 +73,13 @@
                 question:
                     'A landlord asks for first month, deposit, and proof of income. Is that normal?',
                 options: {
-                    a: 'No — any document request is discrimination.',
+                    a: 'No - any document request is discrimination.',
                     b: 'Often yes in competitive markets; still verify the listing is real and never wire money to a stranger you have not vetted.',
                     c: 'Only pay in cryptocurrency for safety.'
                 },
                 correct: 'b',
                 explanation:
-                    'Screening is common. Scams are also common — visit the unit, confirm ownership/management, and use traceable legitimate payments.'
+                    'Screening is common. Scams are also common - visit the unit, confirm ownership/management, and use traceable legitimate payments.'
             },
             {
                 question:
@@ -94,7 +94,7 @@
                     'Proactive communication is respected. Surprises damage trust more than asking for help early.'
             },
             {
-                question: 'Emergency medical situation in the US — what number do you call?',
+                question: 'Emergency medical situation in the US - what number do you call?',
                 options: {
                     a: '112 only',
                     b: '911',
@@ -102,7 +102,7 @@
                 },
                 correct: 'b',
                 explanation:
-                    'Call 911 for police, fire, or medical emergencies. Insurance and costs matter after you are safe — do not delay life-threatening care.'
+                    'Call 911 for police, fire, or medical emergencies. Insurance and costs matter after you are safe - do not delay life-threatening care.'
             }
         ],
         countries: {
@@ -111,10 +111,10 @@
                 emoji: '🇺🇸',
                 sections: [
                     {
-                        title: 'Big ideas — life in the US (now)',
+                        title: 'Big ideas - life in the US (now)',
                         items: [
                             'Systems are fragmented: federal immigration rules + state/city services differ widely.',
-                            'Self-advocacy is expected — bring documents, ask questions, follow up in writing.',
+                            'Self-advocacy is expected - bring documents, ask questions, follow up in writing.',
                             'Credit history, SSN/ITIN, and local ID unlock housing, phones, and utilities.',
                             'Public debate on immigration can be loud; focus on legal status, community, and practical networks.'
                         ]
@@ -123,9 +123,9 @@
                         title: 'Papers & digital bureaucracy',
                         items: [
                             'Keep digital and paper copies of passport, visa/I-94, EAD, I-20/DS-2019, green card notices, etc.',
-                            'USCIS and many courts use online accounts — monitor them and your email spam folder.',
+                            'USCIS and many courts use online accounts - monitor them and your email spam folder.',
                             'Address changes often must be reported to multiple agencies on deadlines.',
-                            'Use licensed attorneys or DOJ-accredited representatives for complex cases — not random “notarios” promising guarantees.'
+                            'Use licensed attorneys or DOJ-accredited representatives for complex cases - not random “notarios” promising guarantees.'
                         ]
                     },
                     {
@@ -133,8 +133,8 @@
                         items: [
                             'I-9 employment verification is standard; only work if authorized for that employer/role.',
                             'At-will employment is common: professionalism and documentation still protect you.',
-                            'Healthcare is often employer-tied — understand open enrollment and COBRA-like gaps if you leave a job.',
-                            'Tips, overtime, and contractor vs employee status have legal definitions — learn yours.'
+                            'Healthcare is often employer-tied - understand open enrollment and COBRA-like gaps if you leave a job.',
+                            'Tips, overtime, and contractor vs employee status have legal definitions - learn yours.'
                         ]
                     },
                     {
@@ -150,8 +150,8 @@
                         title: 'Health & emergencies',
                         items: [
                             '911 for emergencies. For non-emergencies, urgent care or a primary doctor is usually better than the ER.',
-                            'Emergency rooms must stabilize emergency conditions regardless of insurance — bills can still follow.',
-                            'Community clinics and sliding-scale care exist for eligible people — ask local NGOs.',
+                            'Emergency rooms must stabilize emergency conditions regardless of insurance - bills can still follow.',
+                            'Community clinics and sliding-scale care exist for eligible people - ask local NGOs.',
                             'Mental health: many employers offer EAP counseling; crisis lines are available 24/7.'
                         ]
                     }

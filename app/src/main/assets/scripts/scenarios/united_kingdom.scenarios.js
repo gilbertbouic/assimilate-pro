@@ -1,5 +1,5 @@
 /**
- * United Kingdom scenarios — 2026 edition
+ * United Kingdom scenarios - 2026 edition
  */
 (function () {
     'use strict';
@@ -16,7 +16,7 @@
                     title: 'Kitchen small talk',
                     description: 'Colleagues chat about the weather and weekend plans.',
                     dos: [
-                        'Join lightly — weather and TV are safe.',
+                        'Join lightly - weather and TV are safe.',
                         'Queue for the kettle; clean your mug.',
                         'Accept understatement: “not bad” can mean “good.”'
                     ],
@@ -46,7 +46,7 @@
                     donts: [
                         'Don’t use unofficial “status PDF makers.”',
                         'Don’t pay large cash deposits without receipts and agreements.',
-                        'Don’t sign if you do not understand break clauses — get advice.'
+                        'Don’t sign if you do not understand break clauses - get advice.'
                     ]
                 }
             ]
@@ -68,8 +68,8 @@
                     ],
                     donts: [
                         'Don’t use A&E as a default GP replacement.',
-                        'Don’t share prescription antibiotics “from home” casually — ask a pharmacist/doctor.',
-                        'Don’t ignore mental health — ask GP about support routes.'
+                        'Don’t share prescription antibiotics “from home” casually - ask a pharmacist/doctor.',
+                        'Don’t ignore mental health - ask GP about support routes.'
                     ]
                 }
             ]

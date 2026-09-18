@@ -14,7 +14,7 @@
                 question: 'Daily rhythm in Greece often includes…',
                 options: {
                     a: 'Everything closing at 16:00 forever',
-                    b: 'Later evenings, strong café culture, and family meal time — especially outside tourist rush hours',
+                    b: 'Later evenings, strong café culture, and family meal time - especially outside tourist rush hours',
                     c: 'No social life on weekdays'
                 },
                 correct: 'b',
@@ -25,7 +25,7 @@
                 question: 'AFM, AMKA, and residence documents…',
                 options: {
                     a: 'Are optional decorations',
-                    b: 'Are foundational for tax, health, and legal work — organize appointments and papers early',
+                    b: 'Are foundational for tax, health, and legal work - organize appointments and papers early',
                     c: 'Only matter for yacht owners'
                 },
                 correct: 'b',
@@ -36,7 +36,7 @@
                 question: 'Communication style is often…',
                 options: {
                     a: 'Silent and minimal always',
-                    b: 'Expressive and warm — still respect personal boundaries and consent',
+                    b: 'Expressive and warm - still respect personal boundaries and consent',
                     c: 'Only written letters'
                 },
                 correct: 'b',
@@ -74,7 +74,7 @@
                         title: 'Essentials (now)',
                         items: [
                             'Family networks and neighborhood ties remain strong.',
-                            'Admin can mix digital systems with in-person offices — patience helps.',
+                            'Admin can mix digital systems with in-person offices - patience helps.',
                             'Tourism economies: seasonal work rules and contracts still matter legally.',
                             'Respect churches and local customs in smaller communities.'
                         ]

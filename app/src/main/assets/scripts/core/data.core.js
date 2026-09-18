@@ -1,5 +1,5 @@
 /**
- * Cultural Assimilation Manual — Core data registry
+ * Cultural Assimilation Manual - Core data registry
  * Regions, scenarios, and shared present-day guidance attach here.
  */
 (function () {

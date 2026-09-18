@@ -14,7 +14,7 @@
                 question: 'Personal space and quietness in Finland often mean…',
                 options: {
                     a: 'People are angry with you',
-                    b: 'Respect for privacy — small talk is optional, not mandatory',
+                    b: 'Respect for privacy - small talk is optional, not mandatory',
                     c: 'You should stand closer when speaking'
                 },
                 correct: 'b',
@@ -22,7 +22,7 @@
                     'Finns value privacy and calm. Reserved behavior is normal politeness, not hostility.'
             },
             {
-                question: 'Sauna culture — what is true?',
+                question: 'Sauna culture - what is true?',
                 options: {
                     a: 'Always mixed nude with coworkers on day one',
                     b: 'Common and social, but norms vary; follow host cues and consent; many public saunas have clear rules',
@@ -36,7 +36,7 @@
                 question: 'Digital public services in Finland?',
                 options: {
                     a: 'Rarely used',
-                    b: 'Very advanced — Suomi.fi, online banking IDs, and e-services are central after you get IDs',
+                    b: 'Very advanced - Suomi.fi, online banking IDs, and e-services are central after you get IDs',
                     c: 'Only paper forms exist'
                 },
                 correct: 'b',
@@ -47,7 +47,7 @@
                 question: 'Nature access (everyman’s rights / jokamiehenoikeudet) means…',
                 options: {
                     a: 'You may camp anywhere including private gardens',
-                    b: 'Responsible access to nature with limits — no damage, no disturbance, respect local rules',
+                    b: 'Responsible access to nature with limits - no damage, no disturbance, respect local rules',
                     c: 'Foreigners may not enter forests'
                 },
                 correct: 'b',
@@ -75,7 +75,7 @@
                         items: [
                             'Quiet competence is valued over loud networking.',
                             'Winter readiness (clothing, lighting, mental health) is practical survival.',
-                            'Strong trust in institutions — follow rules and deadlines.',
+                            'Strong trust in institutions - follow rules and deadlines.',
                             'Language: English works in cities; Finnish/Swedish help long-term work and belonging.'
                         ]
                     }

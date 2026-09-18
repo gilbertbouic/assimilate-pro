@@ -14,7 +14,7 @@
                 question: 'Hospitality in much of the Balkans often means…',
                 options: {
                     a: 'Guests are ignored',
-                    b: 'Guests are treated generously — bring a small gift and show appreciation',
+                    b: 'Guests are treated generously - bring a small gift and show appreciation',
                     c: 'You must refuse all food permanently'
                 },
                 correct: 'b',
@@ -25,7 +25,7 @@
                 question: 'Bureaucracy may require…',
                 options: {
                     a: 'Zero documents',
-                    b: 'Patience, complete paperwork, and sometimes in-person visits — keep copies of everything',
+                    b: 'Patience, complete paperwork, and sometimes in-person visits - keep copies of everything',
                     c: 'Only English forms'
                 },
                 correct: 'b',
@@ -36,7 +36,7 @@
                 question: 'Family and community ties…',
                 options: {
                     a: 'Are irrelevant',
-                    b: 'Often central — introductions and trust networks matter for housing and work',
+                    b: 'Often central - introductions and trust networks matter for housing and work',
                     c: 'Replace all laws'
                 },
                 correct: 'b',
@@ -74,7 +74,7 @@
                         title: 'Essentials (now)',
                         items: [
                             'Warm social culture + formal admin offices can coexist.',
-                            'EU members (e.g. Croatia, Slovenia, Romania, Bulgaria) differ from non-EU neighbors — know which system you are in.',
+                            'EU members (e.g. Croatia, Slovenia, Romania, Bulgaria) differ from non-EU neighbors - know which system you are in.',
                             'Cash may still be common in places, but cards and e-gov are expanding.',
                             'Learn local quiet hours, garbage rules, and building norms in cities.'
                         ]

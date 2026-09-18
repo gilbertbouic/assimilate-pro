@@ -3,9 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Assimilate Pro — practical cultural and systems guide for newcomers to Western Europe, the UK, the US, and related regions. Digital bureaucracy, housing, work rights, and safety — 2026 edition.">
+    <meta name="description" content="Assimilate Pro - practical cultural and systems guide for newcomers to Western Europe, the UK, the US, and related regions. Digital bureaucracy, housing, work rights, and safety - 2026 edition.">
     <meta name="theme-color" content="#1a56a8">
-    <title>Assimilate Pro — Cultural Guide for Newcomers to the West</title>
+    <title>Assimilate Pro - Cultural Guide for Newcomers to the West</title>
+    <link rel="canonical" href="https://assimilate-pro.mkweli.tech/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Assimilate Pro">
+    <meta property="og:title" content="Assimilate Pro - Cultural Guide for Newcomers to the West">
+    <meta property="og:description" content="Practical cultural and systems guide for newcomers: digital bureaucracy, housing, work rights, and safety. Offline-friendly Android app. A Mkweli product.">
+    <meta property="og:url" content="https://assimilate-pro.mkweli.tech/">
+    <meta property="og:image" content="https://assimilate-pro.mkweli.tech/assets/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Assimilate Pro - cultural guide for newcomers to the West">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Assimilate Pro - Cultural Guide for Newcomers">
+    <meta name="twitter:description" content="Digital bureaucracy, housing, work rights, and safety for newcomers. Free Android app.">
+    <meta name="twitter:image" content="https://assimilate-pro.mkweli.tech/assets/og-image.jpg">
     <link rel="manifest" href="manifest.json">
     <link rel="icon" href="icons/icon-192x192.svg" type="image/svg+xml">
     <link rel="stylesheet" href="styles/styles.css">
@@ -25,51 +39,61 @@
     </style>
 </head>
 <body>
+    <a class="skip-link" href="#top" data-i18n="skip">Skip to content</a>
     <header class="site-header">
         <div class="header-inner">
             <a class="brand" href="#top">
                 <img class="brand-mark-img" src="assets/brand-mark-header.png" alt="Mkweli" width="40" height="40" />
                 <div class="brand-text">
                     <strong>Assimilate Pro</strong>
-                    <span>Cultural guide for newcomers · 2026</span>
+                    <span data-i18n="brand_tag">Cultural guide for newcomers · 2026</span>
                 </div>
             </a>
-            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
-            <nav id="main-nav" aria-label="Main">
-                <ul class="nav-list">
-                    <li><a href="#today">Today</a></li>
-                    <li><a href="#region-select">Regions</a></li>
-                    <li><a href="#roles">Role</a></li>
-                    <li><a href="#employment">Work</a></li>
-                    <li><a href="#quizzes">Quizzes</a></li>
-                    <li><a href="#scenarios">Scenarios</a></li>
-                    <li><a href="#progress">Progress</a></li>
-                    <li><a href="#download">App</a></li>
-                </ul>
-            </nav>
+            <div class="header-right">
+                <nav id="main-nav" data-i18n-aria="nav_main" aria-label="Main">
+                    <ul class="nav-list">
+                        <li><a href="#today" data-i18n="nav_today">Today</a></li>
+                        <li><a href="#region-select" data-i18n="nav_regions">Regions</a></li>
+                        <li><a href="#roles" data-i18n="nav_role">Role</a></li>
+                        <li><a href="#employment" data-i18n="nav_work">Work</a></li>
+                        <li><a href="#quizzes" data-i18n="nav_quizzes">Quizzes</a></li>
+                        <li><a href="#scenarios" data-i18n="nav_scenarios">Scenarios</a></li>
+                        <li><a href="#progress" data-i18n="nav_progress">Progress</a></li>
+                        <li><a href="#download" data-i18n="nav_app">App</a></li>
+                    </ul>
+                </nav>
+                <div class="header-tools">
+                    <span class="lang-switch" role="group" data-i18n-aria="lang_group" aria-label="Language">
+                        <button type="button" data-lang="en" aria-pressed="true">EN</button>
+                        <button type="button" data-lang="fr" aria-pressed="false">FR</button>
+                    </span>
+                    <button class="menu-toggle" id="menu-toggle" data-i18n-aria="menu_toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+                </div>
+            </div>
         </div>
     </header>
 
     <div id="top" class="hero">
         <div class="hero-inner">
             <div>
-                <span class="hero-badge">Updated for 2025–2026 immigration realities</span>
-                <h1>Assimilate with clarity — not guesswork</h1>
-                <p class="hero-lead">
+                <span class="hero-badge" data-i18n="hero_badge">Updated for 2025-2026 immigration realities</span>
+                <h1 data-i18n="hero_h1">Assimilate with clarity - not guesswork</h1>
+                <p class="hero-lead" data-i18n="hero_lead">
                     A practical survival guide for newcomers to the West: digital government, tight housing markets,
-                    work rights, paperwork, health systems, and everyday cultural norms — offline-friendly and privacy-first.
+                    work rights, paperwork, health systems, and everyday cultural norms - offline-friendly and privacy-first.
                 </p>
                 <div class="hero-actions">
-                    <a class="btn btn-primary" href="#today">Start with today’s essentials</a>
-                    <a class="btn btn-secondary" href="#region-select">Choose your region</a>
-                    <a class="btn btn-secondary" href="#download">Get the Android app</a>
+                    <a class="btn btn-primary" href="#today" data-i18n="hero_cta_today">Start with today's essentials</a>
+                    <a class="btn btn-secondary" href="#region-select" data-i18n="hero_cta_region">Choose your region</a>
+                    <a class="btn btn-secondary" href="#download" data-i18n="hero_cta_app">Get the Android app</a>
                 </div>
+                <p class="hero-lang-note" data-i18n="guide_en_note" hidden></p>
             </div>
             <div class="hero-stats">
-                <div class="stat"><strong>9</strong><span>regions + shared essentials</span></div>
-                <div class="stat"><strong>0</strong><span>accounts required</span></div>
-                <div class="stat"><strong>100%</strong><span>progress stored on-device</span></div>
-                <div class="stat"><strong>2026</strong><span>edition focus: systems that matter now</span></div>
+                <div class="stat"><strong>9</strong><span data-i18n="stat_regions">regions + shared essentials</span></div>
+                <div class="stat"><strong>0</strong><span data-i18n="stat_accounts">accounts required</span></div>
+                <div class="stat"><strong>100%</strong><span data-i18n="stat_progress">progress stored on-device</span></div>
+                <div class="stat"><strong>2026</strong><span data-i18n="stat_edition">edition focus: systems that matter now</span></div>
             </div>
         </div>
     </div>
@@ -102,7 +126,7 @@
                     </div>
                 </div>
                 <p class="disclaimer">
-                    Educational guide only — not legal advice. Immigration and benefits rules change. Confirm critical steps on official government sites or with a licensed adviser / recognized NGO.
+                    Educational guide only - not legal advice. Immigration and benefits rules change. Confirm critical steps on official government sites or with a licensed adviser / recognized NGO.
                 </p>
             </div>
         </section>
@@ -157,7 +181,7 @@
         <section class="section" id="employment">
             <div class="card">
                 <h2>🛠️ Work & waiting time</h2>
-                <p>Legal status defines what work you may do. Within the law, mid‑2020s demand is often strong in care, logistics, trades, hospitality, and parts of tech — while credential recognition can lag.</p>
+                <p>Legal status defines what work you may do. Within the law, mid‑2020s demand is often strong in care, logistics, trades, hospitality, and parts of tech - while credential recognition can lag.</p>
                 <h3>Use waiting time well</h3>
                 <ul>
                     <li><strong>Language:</strong> free classes, library conversation groups, job-oriented vocabulary.</li>
@@ -172,7 +196,7 @@
         <section class="section" id="quizzes">
             <div class="card" id="quizzes-container">
                 <h2>📝 Interactive quizzes</h2>
-                <p class="muted">Answer to learn — explanations stay on screen. Progress saves in this browser/device.</p>
+                <p class="muted">Answer to learn - explanations stay on screen. Progress saves in this browser/device.</p>
             </div>
         </section>
 
@@ -207,12 +231,12 @@
         <section class="section" id="download">
             <div class="download-band">
                 <div>
-                    <h2 style="margin:0;color:#fff;">Assimilate Pro for Android</h2>
-                    <p>Same content offline in a signed release APK — ideal when data is expensive or portals are flaky.</p>
+                    <h2 style="margin:0;color:#fff;" data-i18n="dl_h2">Assimilate Pro for Android</h2>
+                    <p data-i18n="dl_p">Same content offline in a signed release APK - ideal when data is expensive or portals are flaky.</p>
                 </div>
                 <div class="hero-actions">
-                    <a class="btn btn-secondary" id="apk-link" data-dl-link href="https://github.com/gilbertbouic/assimilate-pro/releases/latest">Download latest APK</a>
-                    <a class="btn btn-secondary" href="https://github.com/gilbertbouic/assimilate-pro">View source</a>
+                    <a class="btn btn-secondary" id="apk-link" data-dl-link href="https://github.com/gilbertbouic/assimilate-pro/releases/latest" data-i18n="dl_apk">Download latest APK</a>
+                    <a class="btn btn-secondary" href="https://github.com/gilbertbouic/assimilate-pro" data-i18n="dl_source">View source</a>
                 </div>
                 <p class="dl-counter" data-dl-counter data-dl-product="assimilate" data-dl-seed="2438" aria-live="polite">2,438 downloads</p>
             </div>
@@ -220,10 +244,18 @@
     </main>
 
     <footer class="site-footer">
-        <p><a href="PRIVACY.md">Privacy</a> · Open source · Progress stored locally</p>
-        <p style="opacity:0.7;font-size:0.9rem;">Assimilate Pro · Cultural guide for newcomers to the West · 2026</p>
-    </footer>
+        <p data-i18n-html="footer_meta"><a href="PRIVACY.md">Privacy</a> · Open source · Progress stored locally</p>
+        <p style="opacity:0.7;font-size:0.9rem;" data-i18n="footer_tag">Assimilate Pro · Cultural guide for newcomers to the West · 2026</p>
+      <div class="mkweli-parent-bar">
+    <a href="https://mkweli.tech/" rel="noopener noreferrer">
+      <img src="assets/mkweli-logo.png" alt="Mkweli" class="mkweli-parent-logo logo-light" height="24" />
+      <img src="assets/mkweli-logo-on-dark.png" alt="Mkweli" class="mkweli-parent-logo logo-dark" height="24" />
+      <span data-i18n="mkweli_product">A Mkweli product</span>
+    </a>
+  </div>
+</footer>
 
+    <script src="scripts/i18n.js" defer></script>
     <script src="scripts/core/data.core.js" defer></script>
     <script src="scripts/core/today-essentials.js" defer></script>
     <script src="scripts/app.js" defer></script>
@@ -247,11 +279,5 @@
     <script src="scripts/scenarios/balkans.scenarios.js" defer></script>
     <script src="scripts/scenarios/greece.scenarios.js" defer></script>
     <script src="scripts/scenarios/mediterranean.scenarios.js" defer></script>
-<div class="mkweli-parent-bar" style="text-align:center;padding:1rem;font-size:0.85rem;">
-  <a href="https://mkweli.tech/" style="display:inline-flex;align-items:center;gap:0.5rem;text-decoration:none;color:inherit;">
-    <img src="assets/mkweli-logo.png" alt="Mkweli" height="22" />
-    <span>A Mkweli product</span>
-  </a>
-</div>
 </body>
 </html>

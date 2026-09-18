@@ -1,5 +1,5 @@
 /**
- * Present-day (2025–2026) essentials for newcomers to Western countries.
+ * Present-day (2025-2026) essentials for newcomers to Western countries.
  * Practical, non-political survival guidance shared across regions.
  */
 (function () {
@@ -7,10 +7,10 @@
 
     const essentials = {
         id: 'today_essentials_2026',
-        title: 'Today in the West — What Changed for Newcomers',
+        title: 'Today in the West - What Changed for Newcomers',
         updated: '2026-07',
         intro:
-            'Western countries still welcome workers, students, families, and people seeking safety — but systems are more digital, housing is tighter, paperwork is stricter, and scams targeting newcomers are common. This guide focuses on what helps you stay legal, housed, employed, and safe right now.',
+            'Western countries still welcome workers, students, families, and people seeking safety - but systems are more digital, housing is tighter, paperwork is stricter, and scams targeting newcomers are common. This guide focuses on what helps you stay legal, housed, employed, and safe right now.',
 
         pillars: [
             {
@@ -19,7 +19,7 @@
                 title: 'Digital-first government',
                 points: [
                     'Many appointments (immigration, city hall, health, tax) exist only online. Learn to book portals, upload PDFs, and check email daily.',
-                    'Official messages often arrive by letter AND online account. Missing a deadline can freeze benefits or status — set calendar reminders.',
+                    'Official messages often arrive by letter AND online account. Missing a deadline can freeze benefits or status - set calendar reminders.',
                     'Use official domains (.gov, .gov.uk, .gouv.fr, .bund.de, etc.). Bookmark them. Never log in from random ads.',
                     'Two-factor authentication (SMS or authenticator app) is normal for banks, tax, and residency portals. Protect your phone number.'
                 ]
@@ -40,7 +40,7 @@
                 icon: '🛠️',
                 title: 'Work, skills & the grey zone',
                 points: [
-                    'Care, construction, logistics, hospitality, and many tech roles need people — but only within your legal work rights. Check your permit before accepting hours.',
+                    'Care, construction, logistics, hospitality, and many tech roles need people - but only within your legal work rights. Check your permit before accepting hours.',
                     'Cash-in-hand offers that skip taxes can cost you future residency, benefits, and pensions. Prefer written contracts and payslips.',
                     'Credential recognition can take months. Meanwhile: language courses, local short certifications, volunteering, and entry roles build proof of local experience.',
                     'Platform/gig apps may require local bank accounts, tax numbers, and right-to-work checks. Read the fine print.'
@@ -52,7 +52,7 @@
                 title: 'Language & long-term status',
                 points: [
                     'Permanent residence and citizenship pathways increasingly expect language proof and civic knowledge tests. Start early, even if daily life seems manageable in English.',
-                    'Free or low-cost language classes, libraries, and conversation cafés exist in most cities — ask the municipality or migrant NGO.',
+                    'Free or low-cost language classes, libraries, and conversation cafés exist in most cities - ask the municipality or migrant NGO.',
                     'At work, clear, polite English (or the local language) beats perfect grammar. Asking “Can you confirm I understood correctly?” is professional, not weak.'
                 ]
             },
@@ -74,7 +74,7 @@
                 points: [
                     'Opening a bank account usually needs ID + proof of address (and sometimes residency status). Without a local account, rent and salary get hard.',
                     'Build a paper trail: lease, payslips, tax filings. Credit history starts at zero; late rent or unpaid fines hurt fast.',
-                    'Register with a primary doctor/GP when eligible. Use emergency rooms for emergencies only — many systems push “urgent care” or phone triage first.',
+                    'Register with a primary doctor/GP when eligible. Use emergency rooms for emergencies only - many systems push “urgent care” or phone triage first.',
                     'Mental load is real. Sleep, community, and legal clarity matter as much as hustle. Local NGOs and hotlines exist for crisis support.'
                 ]
             },
@@ -83,7 +83,7 @@
                 icon: '📋',
                 title: 'If you are still waiting on papers',
                 points: [
-                    'Know exactly what work, study, and travel your current status allows. Rules differ by country and case type — get advice from a licensed adviser or recognized NGO, not social media.',
+                    'Know exactly what work, study, and travel your current status allows. Rules differ by country and case type - get advice from a licensed adviser or recognized NGO, not social media.',
                     'Keep originals and scans of every form, appointment slip, and letter. Photograph envelopes with postmarks when useful.',
                     'Use waiting time for language, local knowledge, volunteering (where legal), and documenting skills. It is preparation, not wasted time.',
                     'Avoid “fix-track” fixers who promise guaranteed visas for cash. Report exploitation to authorities or migrant help lines when safe.'
@@ -101,7 +101,7 @@
                     question:
                         'A stranger messages you on WhatsApp offering a cheap apartment. They ask for a deposit via money transfer before you visit. What should you do?',
                     options: {
-                        a: 'Pay quickly — good flats disappear fast.',
+                        a: 'Pay quickly - good flats disappear fast.',
                         b: 'Refuse to pay before a verified viewing and written contract; report if it smells like a scam.',
                         c: 'Send half the deposit as a compromise.'
                     },
@@ -113,7 +113,7 @@
                     question:
                         'Your residency portal says you must upload documents by Friday. You only check the portal once a month. What is the risk?',
                     options: {
-                        a: 'Nothing — letters always come first.',
+                        a: 'Nothing - letters always come first.',
                         b: 'Missed deadlines can delay or freeze your case, benefits, or legal status.',
                         c: 'Portals are optional; only police letters matter.'
                     },
@@ -125,7 +125,7 @@
                     question:
                         'A café offers cash pay “off the books” with no contract. You need money. What is the safer long-term choice?',
                     options: {
-                        a: 'Take any cash work — everyone does it.',
+                        a: 'Take any cash work - everyone does it.',
                         b: 'Prefer legal work with a contract and payslips; illegal work can harm future residency and leave you unprotected.',
                         c: 'Only work cash jobs until you get citizenship.'
                     },
@@ -137,7 +137,7 @@
                     question:
                         'Someone claiming to be from immigration calls and demands gift cards to “fix a problem on your file.” What do you do?',
                     options: {
-                        a: 'Buy the cards — it is cheaper than a lawyer.',
+                        a: 'Buy the cards - it is cheaper than a lawyer.',
                         b: 'Hang up. Officials do not demand gift cards. Call back using a number from the official website.',
                         c: 'Give your passport number but not payment.'
                     },

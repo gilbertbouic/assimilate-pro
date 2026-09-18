@@ -1,5 +1,5 @@
 /**
- * United Kingdom — cultural quizzes & guidance (2026 edition)
+ * United Kingdom - cultural quizzes & guidance (2026 edition)
  */
 (function () {
     'use strict';
@@ -45,7 +45,7 @@
                     'Digital status checks are standard. Keep your UKVI account accessible and generate share codes when asked.'
             },
             {
-                question: 'NHS care — what should newcomers understand?',
+                question: 'NHS care - what should newcomers understand?',
                 options: {
                     a: 'Walk into any hospital for routine issues; it is always free for everyone the same way.',
                     b: 'Register with a GP when eligible; A&E is for emergencies; some services depend on immigration status and residence rules.',
@@ -53,7 +53,7 @@
                 },
                 correct: 'b',
                 explanation:
-                    'The NHS is structured around GP registration and triage. Eligibility and charges can depend on status — check official guidance.'
+                    'The NHS is structured around GP registration and triage. Eligibility and charges can depend on status - check official guidance.'
             },
             {
                 question: 'Someone insults your background in public. What is a wise first response?',
@@ -67,7 +67,7 @@
                     'Safety first. The UK has hate-crime reporting routes and community support; street retaliation can make things worse legally and personally.'
             },
             {
-                question: 'Council tax and utility setup — why do they matter quickly?',
+                question: 'Council tax and utility setup - why do they matter quickly?',
                 options: {
                     a: 'They are optional for the first two years.',
                     b: 'Unpaid council tax and bills create debt and enforcement; set up accounts when you move in.',
@@ -78,10 +78,10 @@
                     'Household bills and council tax are serious. Ask your landlord or council which band/account applies to you.'
             },
             {
-                question: 'Small talk at a bus stop or kitchen — what topics are usually safe?',
+                question: 'Small talk at a bus stop or kitchen - what topics are usually safe?',
                 options: {
                     a: 'Immediate questions about salary and visa details.',
-                    b: 'Weather, commute, TV, sports, weekend plans — light and optional.',
+                    b: 'Weather, commute, TV, sports, weekend plans - light and optional.',
                     c: 'Detailed political arguments with strangers.'
                 },
                 correct: 'b',
@@ -106,7 +106,7 @@
                 emoji: '🇬🇧',
                 sections: [
                     {
-                        title: 'Big ideas — life in the UK (now)',
+                        title: 'Big ideas - life in the UK (now)',
                         items: [
                             'Politeness, queuing, and understatement oil daily life.',
                             'Immigration status is checked digitally for work and often rent.',
@@ -127,7 +127,7 @@
                         title: 'Work & housing',
                         items: [
                             'Right to work checks are routine; do not work outside your conditions.',
-                            'Zero-hours and agency work exist — understand holiday pay and hours.',
+                            'Zero-hours and agency work exist - understand holiday pay and hours.',
                             'Right to rent checks apply in England; know what documents or share codes you need.',
                             'Deposits should go into protection schemes for many assured shorthold tenancies.'
                         ]
@@ -137,7 +137,7 @@
                         items: [
                             'Register with a GP; use 111 for non-emergency medical advice where available.',
                             '999/112 for emergencies.',
-                            'Dentists and some services may have long waits — ask about urgent slots.',
+                            'Dentists and some services may have long waits - ask about urgent slots.',
                             'Mental health: NHS routes and charities (e.g. crisis lines) exist; ask a GP for referral options.'
                         ]
                     }

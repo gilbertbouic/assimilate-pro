@@ -1,5 +1,5 @@
 /**
- * Central Europe scenarios — 2026 edition
+ * Central Europe scenarios - 2026 edition
  */
 (function () {
     'use strict';
@@ -23,7 +23,7 @@
                     donts: [
                         'Don’t improvise “fashionably late.”',
                         'Don’t interrupt constantly.',
-                        'Don’t ignore written follow-ups — email trails matter.'
+                        'Don’t ignore written follow-ups - email trails matter.'
                     ]
                 }
             ]

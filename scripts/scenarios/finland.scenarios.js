@@ -13,7 +13,7 @@
                     description: 'Coworkers are friendly but not chatty.',
                     dos: [
                         'Accept silence without taking offense.',
-                        'Be reliable — trust compounds slowly.',
+                        'Be reliable - trust compounds slowly.',
                         'Join optional activities (sports, hobby clubs) for deeper ties.'
                     ],
                     donts: [

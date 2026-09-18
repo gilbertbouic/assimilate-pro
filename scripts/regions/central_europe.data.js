@@ -1,5 +1,5 @@
 /**
- * Central Europe — Germany, Austria, Switzerland & neighbors (2026 edition)
+ * Central Europe - Germany, Austria, Switzerland & neighbors (2026 edition)
  */
 (function () {
     'use strict';
@@ -13,9 +13,9 @@
             {
                 question: 'Business meeting in Germany at 10:00. Best arrival time?',
                 options: {
-                    a: '10:15 — fashionably late',
+                    a: '10:15 - fashionably late',
                     b: 'Exactly 10:00 only if the tram is late',
-                    c: 'About 9:55 — a few minutes early'
+                    c: 'About 9:55 - a few minutes early'
                 },
                 correct: 'c',
                 explanation:
@@ -44,7 +44,7 @@
                     'Anmeldung unlocks tax ID, banking, and many services. Hausordnung and trash sorting avoid neighbor conflict and fines.'
             },
             {
-                question: 'Sunday in many German/Austrian residential areas — what is expected?',
+                question: 'Sunday in many German/Austrian residential areas - what is expected?',
                 options: {
                     a: 'Loud DIY and parties are normal',
                     b: 'Quiet day: avoid loud drilling, mowing, and hallway noise',
@@ -77,7 +77,7 @@
                     'Work rights are status-specific. Illegal employment can damage future permits and insurance coverage.'
             },
             {
-                question: 'Health insurance in Germany/Austria/Switzerland — general truth?',
+                question: 'Health insurance in Germany/Austria/Switzerland - general truth?',
                 options: {
                     a: 'Optional if you are young',
                     b: 'Usually mandatory; register and carry your card/app proof',
@@ -104,12 +104,12 @@
                 emoji: '🇩🇪',
                 sections: [
                     {
-                        title: 'Big ideas — Germany now',
+                        title: 'Big ideas - Germany now',
                         items: [
                             'Rules, appointments, and written decisions structure daily life.',
                             'Integration courses and language levels often matter for long-term stay.',
                             'Housing in large cities is scarce; Anmeldung requires a real address.',
-                            'Digital services expand, but letters (Bescheide) still carry legal force — open them.'
+                            'Digital services expand, but letters (Bescheide) still carry legal force - open them.'
                         ]
                     },
                     {
@@ -117,8 +117,8 @@
                         items: [
                             'Anmeldung, tax ID (Steuer-ID), health insurance, and residence title are foundational.',
                             'Keep every Bescheid; deadlines for Widerspruch (appeal) are short.',
-                            'Ausländerbehörde appointments are scarce — prepare complete PDF sets.',
-                            'Use Caritas, AWO, refugee councils, or licensed lawyers — not cash “fixers.”'
+                            'Ausländerbehörde appointments are scarce - prepare complete PDF sets.',
+                            'Use Caritas, AWO, refugee councils, or licensed lawyers - not cash “fixers.”'
                         ]
                     },
                     {
@@ -134,7 +134,7 @@
                         title: 'Work & health',
                         items: [
                             'Written contracts and payslips (Gehaltsabrechnung) matter for extensions.',
-                            'Be punctual; ask clarifying questions — precision is respected.',
+                            'Be punctual; ask clarifying questions - precision is respected.',
                             'Hausarzt for normal care; 112 for emergencies; 116 117 for medical on-call in many areas.',
                             'Physical punishment of children is illegal; schools expect attendance.'
                         ]
@@ -165,7 +165,7 @@
                         items: [
                             'High cost of living; health insurance is mandatory and private-based.',
                             'Punctuality and recycling are strict; neighbors notice noise.',
-                            'Permits (B/C etc.) define work and mobility — know your category.',
+                            'Permits (B/C etc.) define work and mobility - know your category.',
                             'Local commune (Gemeinde) offices handle much of daily admin.'
                         ]
                     }

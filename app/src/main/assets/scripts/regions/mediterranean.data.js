@@ -1,5 +1,5 @@
 /**
- * Mediterranean — Spain, France, Italy, Portugal & nearby (2026 edition)
+ * Mediterranean - Spain, France, Italy, Portugal & nearby (2026 edition)
  */
 (function () {
     'use strict';
@@ -14,7 +14,7 @@
                 question: 'In Spain, dinner in many urban areas is often…',
                 options: {
                     a: '17:00 sharp',
-                    b: 'Around 21:00–23:00',
+                    b: 'Around 21:00-23:00',
                     c: 'Replaced by breakfast only'
                 },
                 correct: 'b',
@@ -25,7 +25,7 @@
                 question: 'French laïcité primarily refers to…',
                 options: {
                     a: 'Wine regions',
-                    b: 'Secularism — religion is private; public institutions stay neutral',
+                    b: 'Secularism - religion is private; public institutions stay neutral',
                     c: 'A sports league'
                 },
                 correct: 'b',
@@ -47,7 +47,7 @@
                 question: 'Housing in popular Mediterranean cities in 2026?',
                 options: {
                     a: 'Always cheap and easy same-day',
-                    b: 'Often competitive with short-term rental pressure — start early, verify contracts, watch scams',
+                    b: 'Often competitive with short-term rental pressure - start early, verify contracts, watch scams',
                     c: 'No deposits ever'
                 },
                 correct: 'b',
@@ -80,7 +80,7 @@
                 question: 'Consent in dating and nightlife?',
                 options: {
                     a: 'Optional if you paid for dinner',
-                    b: 'Required always — unwanted contact can be a crime',
+                    b: 'Required always - unwanted contact can be a crime',
                     c: 'Only needed for marriage'
                 },
                 correct: 'b',
@@ -109,7 +109,7 @@
                             'NIE/TIE and empadronamiento (local registration) unlock services.',
                             'Regional differences (Catalonia, Basque Country, Andalusia…) affect language and admin.',
                             'Night life and family outings run late; siesta stereotypes are exaggerated in big cities.',
-                            'Rental deposits and agency fees — read contracts; use official complaint routes for fraud.'
+                            'Rental deposits and agency fees - read contracts; use official complaint routes for fraud.'
                         ]
                     }
                 ]
@@ -121,10 +121,10 @@
                     {
                         title: 'Essentials (now)',
                         items: [
-                            'Prefecture appointments and CAF/CPAM processes can be slow — document everything.',
+                            'Prefecture appointments and CAF/CPAM processes can be slow - document everything.',
                             'Formal written French helps with admin; tutoiement comes when invited.',
                             'Laïcité shapes schools and public institutions.',
-                            'Strikes and protests occur — plan travel; they are part of civic culture.'
+                            'Strikes and protests occur - plan travel; they are part of civic culture.'
                         ]
                     }
                 ]
@@ -139,7 +139,7 @@
                             'Permesso di soggiorno and codice fiscale are core IDs.',
                             'North/South and city/town cultures differ; learn local office hours.',
                             'Cash still appears, but POS cards are widespread legally.',
-                            'Family networks help — still insist on legal contracts for work and rent.'
+                            'Family networks help - still insist on legal contracts for work and rent.'
                         ]
                     }
                 ]
@@ -152,7 +152,7 @@
                         title: 'Essentials (now)',
                         items: [
                             'Housing pressure in Lisbon/Porto is intense after years of inflows.',
-                            'NIF and SEF/AIMA processes (or successors) — follow current official sites.',
+                            'NIF and SEF/AIMA processes (or successors) - follow current official sites.',
                             'Warm politeness; learn basic Portuguese for admin and belonging.',
                             'Watch golden-promise migration scams and fake rental listings.'
                         ]
