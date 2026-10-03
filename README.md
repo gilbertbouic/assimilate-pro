@@ -25,6 +25,15 @@ Practical survival guide for newcomers to Western Europe, the UK, the United Sta
 | **Roles** | Student, professional, remote, partner, entrepreneur, retiree, awaiting documentation |
 | **Privacy** | Local progress only - no signup |
 
+
+## Optimus field (2.2.0)
+
+The phone and site shell now uses the Integrity Village HUD from [honesty.mkweli.tech](https://honesty.mkweli.tech): void ground, cyan panels, Orbitron and Share Tech Mono, scanlines, and stage chips.
+
+Play is Gate → Brief → Drill → Scene → Ledger. A lawful drill bid scores 100. A wrong bid scores 30 and is rejected. Progress stays on the device. Illustrations are inline SVG field marks, not photos.
+
+Fonts are vendored for offline APK use. This remains an educational guide, not legal advice.
+
 ## Not legal advice
 
 Rules change. Always verify status, work rights, and benefits on **official government sites** or with a **licensed adviser / recognized NGO**.
