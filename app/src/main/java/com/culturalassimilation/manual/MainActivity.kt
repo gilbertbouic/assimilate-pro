@@ -43,7 +43,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupWebView() {
-        webView.setBackgroundColor(Color.parseColor("#08080c"))
+        webView.setBackgroundColor(Color.parseColor("#4A90E2"))
         webView.webViewClient = object : WebViewClient() {
             override fun shouldOverrideUrlLoading(
                 view: WebView?,
