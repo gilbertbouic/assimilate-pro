@@ -52,7 +52,7 @@
                 "donts": [
                     "Do not use a fake status PDF.",
                     "Do not pay a big cash deposit with no receipt.",
-                    "Do not sign words you do not understand. Ask a helper."
+                    "Read every line. Then sign."
                 ]
             }
         ]
@@ -71,12 +71,12 @@
         ],
         "steps": [
             {
-                "title": "You can walk and drink",
+                "title": "A small fever",
                 "description": "You have a fever.",
                 "dos": [
                     "Register with a GP.",
-                    "Call 111 if you are unsure.",
-                    "Call 999 if it gets dangerous."
+                    "Call your GP.",
+                    "Call 999 for an emergency."
                 ],
                 "donts": [
                     "Do not use the emergency room as a family doctor.",

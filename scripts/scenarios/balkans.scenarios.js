@@ -17,7 +17,7 @@
                 "title": "Coffee and sweets",
                 "description": "A neighbor asks you in for coffee.",
                 "dos": [
-                    "Go in if you can.",
+                    "Go in.",
                     "Say thank you.",
                     "Bring a small treat next time."
                 ],

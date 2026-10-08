@@ -18,7 +18,7 @@
                 "dos": [
                     "Let the quiet be.",
                     "Be on time.",
-                    "Join a club if you want friends."
+                    "Join a club."
                 ],
                 "donts": [
                     "Do not force small talk.",

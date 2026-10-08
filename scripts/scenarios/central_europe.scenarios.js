@@ -47,7 +47,7 @@
                 "dos": [
                     "Open it today.",
                     "Photo the whole letter.",
-                    "Ask a helper if a word is unclear."
+                    "Read it with a dictionary."
                 ],
                 "donts": [
                     "Do not leave it closed.",

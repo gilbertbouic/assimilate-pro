@@ -34,11 +34,11 @@
             "question": "Who helps you find a home and a job?",
             "options": {
                 "a": "Nobody.",
-                "b": "Family and neighbors help. You still follow the rules.",
+                "b": "Family and neighbors help you find a home and a job.",
                 "c": "Friends replace the law."
             },
             "correct": "b",
-            "explanation": "People help. The rules still stand."
+            "explanation": "People help you. Follow the house rules and the job paper."
         },
         {
             "question": "A new friend talks about old wars. What do you do?",
@@ -71,7 +71,7 @@
                     "items": [
                         "People are warm. Offices want papers.",
                         "Croatia, Slovenia, Romania, and Bulgaria are in the EU. Neighbors have other rules.",
-                        "Cash is still used. Cards are growing.",
+                        "People pay with cash and with cards.",
                         "Learn quiet hours and trash day."
                     ]
                 }

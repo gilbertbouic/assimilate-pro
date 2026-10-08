@@ -224,7 +224,7 @@
         state.drills[state.region].seen += 1;
         if (good) state.drills[state.region].correct += 1;
         document.getElementById("explain").innerHTML =
-          '<div class="explain"><strong>' + (good ? "100 · yes" : "30 · try again") + "</strong><p>" + q.explanation + "</p>" +
+          '<div class="explain"><strong>' + (good ? "100" : "30") + "</strong><p>" + q.explanation + "</p>" +
           '<button type="button" class="cta alt" id="next-q">' + (qIndex < list.length - 1 ? "Next" : "Open Do and Don't") + "</button></div>";
         document.getElementById("next-q").onclick = function () {
           locked = false;
@@ -275,7 +275,7 @@
       "<li>Quiz: " + drill.correct + " right / " + drill.seen + " tries</li>" +
       "<li>Story done: " + (state.scenes[state.region] ? "yes" : "not yet") + "</li></ul>";
     sidePanel.innerHTML =
-      "<p class=\"lede\">Pick another place when you are ready.</p>" +
+      "<p class=\"lede\">Pick another place.</p>" +
       '<button type="button" class="cta" id="again">Back to places</button>';
     document.getElementById("again").onclick = function () { stage = "gate"; render(); };
   }

@@ -24,7 +24,7 @@
             "question": "A first meeting feels quiet. What does that mean?",
             "options": {
                 "a": "They hate you.",
-                "b": "Trust grows when you are on time.",
+                "b": "Be on time. Trust grows.",
                 "c": "They are angry."
             },
             "correct": "b",
@@ -34,7 +34,7 @@
             "question": "Someone talks about history. What do you do?",
             "options": {
                 "a": "History never comes up.",
-                "b": "Listen. Do not lecture.",
+                "b": "Listen.",
                 "c": "Only tourists talk."
             },
             "correct": "b",
@@ -44,7 +44,7 @@
             "question": "Winter days are dark. What do you do?",
             "options": {
                 "a": "Ignore it.",
-                "b": "Use a bright lamp. See people. Ask a doctor about vitamin D.",
+                "b": "Use a bright lamp. See people.",
                 "c": "Shops close for six months."
             },
             "correct": "b",

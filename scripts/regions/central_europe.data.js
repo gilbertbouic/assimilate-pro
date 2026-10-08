@@ -28,7 +28,7 @@
                 "c": "Dear Anna Schmidt,"
             },
             "correct": "b",
-            "explanation": "Start formal. They will invite a first name later."
+            "explanation": "Use the formal name."
         },
         {
             "question": "You move into a home in Germany. What do you do first?",
@@ -54,16 +54,16 @@
             "question": "The office calendar is full. What do you do?",
             "options": {
                 "a": "Stop and hide.",
-                "b": "Check the real website again. Write down each try. Ask a helper.",
+                "b": "Check the real website again. Write down each try.",
                 "c": "Pay a stranger for a slot."
             },
             "correct": "b",
-            "explanation": "Use the real website. Ask a helper. Do not pay a stranger."
+            "explanation": "Use the real website. Write down each try."
         },
         {
-            "question": "A job pays cash and gives no paper. Your permit is limited. What do you do?",
+            "question": "A job pays cash and gives no paper. What do you do?",
             "options": {
-                "a": "Take it if the boss is kind.",
+                "a": "Take the cash.",
                 "b": "Ask for a job paper.",
                 "c": "Cash work proves you belong."
             },

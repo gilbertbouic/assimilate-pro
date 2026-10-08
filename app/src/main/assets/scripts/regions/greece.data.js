@@ -34,7 +34,7 @@
             "question": "How do people talk?",
             "options": {
                 "a": "They never speak.",
-                "b": "They are warm. Still ask before you touch.",
+                "b": "They are warm. Ask before you touch.",
                 "c": "Only by letter."
             },
             "correct": "b",
@@ -71,7 +71,7 @@
                     "items": [
                         "Family and neighbors help.",
                         "Some steps are on a website. Some are at the office.",
-                        "Seasonal jobs still need a job paper.",
+                        "A seasonal job needs a job paper.",
                         "Be quiet and kind in a church and a small town."
                     ]
                 }

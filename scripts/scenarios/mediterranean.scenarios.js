@@ -23,7 +23,7 @@
                 ],
                 "donts": [
                     "Do not stay on your phone.",
-                    "Do not refuse every dish. Say what you cannot eat.",
+                    "Eat the food they serve.",
                     "Do not start a political fight."
                 ]
             }

@@ -73,7 +73,7 @@
         {
             "question": "Someone says no to a touch. What do you do?",
             "options": {
-                "a": "Ignore it if you paid for dinner.",
+                "a": "Keep going. You paid for dinner.",
                 "b": "Stop.",
                 "c": "Wait until marriage."
             },

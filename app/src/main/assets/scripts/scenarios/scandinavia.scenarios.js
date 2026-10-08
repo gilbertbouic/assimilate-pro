@@ -19,7 +19,7 @@
                 "dos": [
                     "Follow the bank steps for the e-ID.",
                     "Save the recovery codes.",
-                    "Learn which visit still needs you in person."
+                    "Go to the visit on the list."
                 ],
                 "donts": [
                     "Do not approve a login for a stranger.",
@@ -44,7 +44,7 @@
                 "title": "Fika",
                 "description": "Coworkers invite you for coffee.",
                 "dos": [
-                    "Join when you can.",
+                    "Join the coffee.",
                     "Listen as much as you talk.",
                     "Respect time after work."
                 ],
