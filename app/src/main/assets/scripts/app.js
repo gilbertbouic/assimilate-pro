@@ -23,86 +23,12 @@
         initializeRegionSelector();
         renderTodayEssentials();
         registerServiceWorker();
-        initDownloadCounter();
 
         const savedRegion = localStorage.getItem('selectedRegion');
         if (savedRegion && window.CAM_DATA && window.CAM_DATA.regions[savedRegion]) {
             selectRegion(savedRegion);
         }
     });
-
-    function initDownloadCounter() {
-        const counter = document.querySelector('[data-dl-counter]');
-        if (!counter) return;
-
-        const product = counter.getAttribute('data-dl-product') || 'assimilate';
-        const seed = Number(counter.getAttribute('data-dl-seed')) || 0;
-        const endpoint = `https://api.counterapi.dev/v1/mkweli-tech/apk-${product}`;
-        let isLocked = false;
-        let lastRemoteCount = 0;
-
-        const formatDownloads = (remoteCount) => {
-            lastRemoteCount = remoteCount;
-            const isFr = document.documentElement.lang === 'fr';
-            const n = (seed + Math.max(0, remoteCount)).toLocaleString(isFr ? 'fr-FR' : 'en-US');
-            return n + (isFr ? ' téléchargements' : ' downloads');
-        };
-
-        const render = (remoteCount) => {
-            counter.textContent = formatDownloads(remoteCount);
-        };
-
-        document.addEventListener('mkweli-langchange', () => {
-            counter.textContent = formatDownloads(lastRemoteCount);
-        });
-
-        const readCount = (payload) => {
-            if (payload && typeof payload.count === 'number') return payload.count;
-            if (payload && payload.data && typeof payload.data.count === 'number') return payload.data.count;
-            if (payload && typeof payload.value === 'number') return payload.value;
-            return null;
-        };
-
-        const fetchCount = async (url) => {
-            const response = await fetch(url, { cache: 'no-store' });
-            if (!response.ok) throw new Error(`Counter request failed: ${response.status}`);
-            const count = readCount(await response.json());
-            if (typeof count !== 'number' || Number.isNaN(count)) throw new Error('Invalid counter payload');
-            return count;
-        };
-
-        fetchCount(endpoint).then(render).catch(() => render(0));
-
-        const isApkHref = (h) => /\.apk($|[?#])/i.test(h || '');
-        // Prefer a real APK file URL so the Download CTA is countable
-        const apkCta = document.getElementById('apk-link');
-        if (apkCta && !isApkHref(apkCta.getAttribute('href') || '')) {
-            apkCta.setAttribute(
-                'href',
-                'https://github.com/gilbertbouic/assimilate-pro/releases/latest/download/Assimilate-Pro-v2.1.2-release.apk'
-            );
-        }
-        // Count only real APK file downloads (not release pages / source links)
-        document.querySelectorAll('a[href]').forEach((link) => {
-            const href = link.getAttribute('href') || '';
-            if (!isApkHref(href)) {
-                link.removeAttribute('data-dl-link');
-                return;
-            }
-            link.setAttribute('data-dl-link', '');
-            link.addEventListener('click', () => {
-                if (isLocked) return;
-                isLocked = true;
-                setTimeout(() => {
-                    isLocked = false;
-                }, 2000);
-
-                fetchCount(`${endpoint}/up`).then(render).catch(() => {
-                    /* keep current value */
-                });
-            });
-        });
-    }
 
     function registerServiceWorker() {
         if (!('serviceWorker' in navigator)) return;
