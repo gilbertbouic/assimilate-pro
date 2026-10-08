@@ -1,118 +1,114 @@
 /**
- * Baltics - Estonia, Latvia, Lithuania (2026 edition)
+ * Baltics
  */
 (function () {
     'use strict';
 
     const balticsData = {
-        id: 'quiz_baltics',
-        title: 'Baltic States Cultural Quiz',
-        region: 'baltics',
-        category: 'general',
-        questions: [
-            {
-                question: 'Estonia is especially known for…',
-                options: {
-                    a: 'Avoiding all digital services',
-                    b: 'Highly digital public services (e-Residency, e-government) once you are set up',
-                    c: 'Banning online banking'
-                },
-                correct: 'b',
-                explanation:
-                    'Estonia’s digital state is a model - but you still need correct IDs and registrations to access it.'
+    "id": "quiz_baltics",
+    "title": "Baltics",
+    "region": "baltics",
+    "category": "general",
+    "questions": [
+        {
+            "question": "Estonia is known for what?",
+            "options": {
+                "a": "No websites.",
+                "b": "Government on the phone, after you have an ID.",
+                "c": "No online bank."
             },
-            {
-                question: 'First meetings with locals may feel…',
-                options: {
-                    a: 'Instantly intimate like old friends',
-                    b: 'Reserved at first, warmer with time and reliability',
-                    c: 'Hostile by default'
-                },
-                correct: 'b',
-                explanation:
-                    'Trust builds through consistency. Showing up on time and keeping promises matters.'
+            "correct": "b",
+            "explanation": "Get the ID first. Then the websites open."
+        },
+        {
+            "question": "A first meeting feels quiet. What does that mean?",
+            "options": {
+                "a": "They hate you.",
+                "b": "Trust grows when you are on time.",
+                "c": "They are angry."
             },
-            {
-                question: 'Historical sensitivity in the region means…',
-                options: {
-                    a: 'History never comes up',
-                    b: 'Be respectful; avoid simplistic lectures about the region’s past and present security context',
-                    c: 'Only tourists may discuss politics'
-                },
-                correct: 'b',
-                explanation:
-                    'The Baltics have deep historical and security sensitivities. Listen more than you lecture.'
+            "correct": "b",
+            "explanation": "Be on time. Keep your word."
+        },
+        {
+            "question": "Someone talks about history. What do you do?",
+            "options": {
+                "a": "History never comes up.",
+                "b": "Listen. Do not lecture.",
+                "c": "Only tourists talk."
             },
-            {
-                question: 'Winter and daylight…',
-                options: {
-                    a: 'Do not affect mood or planning',
-                    b: 'Plan for dark winters: lighting, vitamin D advice from doctors, indoor social habits',
-                    c: 'Shops close for six months'
-                },
-                correct: 'b',
-                explanation:
-                    'Seasonal darkness is real. Practical routines and social contact help.'
+            "correct": "b",
+            "explanation": "Listen more than you talk."
+        },
+        {
+            "question": "Winter days are dark. What do you do?",
+            "options": {
+                "a": "Ignore it.",
+                "b": "Use a bright lamp. See people. Ask a doctor about vitamin D.",
+                "c": "Shops close for six months."
             },
-            {
-                question: 'Emergency number?',
-                options: {
-                    a: '911',
-                    b: '112',
-                    c: '999'
-                },
-                correct: 'b',
-                explanation: '112 is the emergency number.'
-            }
-        ],
-        countries: {
-            estonia: {
-                name: 'Estonia',
-                emoji: '🇪🇪',
-                sections: [
-                    {
-                        title: 'Essentials',
-                        items: [
-                            'Digital services are a superpower after ID setup.',
-                            'English is common in tech; Estonian helps integration.',
-                            'Punctual, low-drama communication works well.',
-                            'Nature is close to cities - respect trails and private land.'
-                        ]
-                    }
-                ]
+            "correct": "b",
+            "explanation": "Light and friends help in the dark months."
+        },
+        {
+            "question": "What number do you call for help?",
+            "options": {
+                "a": "911",
+                "b": "112",
+                "c": "999"
             },
-            latvia: {
-                name: 'Latvia',
-                emoji: '🇱🇻',
-                sections: [
-                    {
-                        title: 'Essentials',
-                        items: [
-                            'Riga is the hub; learn local admin steps for registration.',
-                            'Reserved social style; reliability builds trust.',
-                            'Learn waste rules and public transport tickets.',
-                            'Russian and Latvian language politics are sensitive - be respectful.'
-                        ]
-                    }
-                ]
-            },
-            lithuania: {
-                name: 'Lithuania',
-                emoji: '🇱🇹',
-                sections: [
-                    {
-                        title: 'Essentials',
-                        items: [
-                            'Family and Catholic cultural heritage influence many communities.',
-                            'Growing tech and service sectors in cities.',
-                            'Formality with older people is appreciated.',
-                            'Follow residence registration and health insurance rules carefully.'
-                        ]
-                    }
-                ]
-            }
+            "correct": "b",
+            "explanation": "Call 112."
         }
-    };
+    ],
+    "countries": {
+        "estonia": {
+            "name": "Estonia",
+            "emoji": "🇪🇪",
+            "sections": [
+                {
+                    "title": "Good to know",
+                    "items": [
+                        "The ID opens the websites.",
+                        "English is common in tech jobs. Estonian helps you belong.",
+                        "Be on time. Speak plain.",
+                        "Stay on the path in nature."
+                    ]
+                }
+            ]
+        },
+        "latvia": {
+            "name": "Latvia",
+            "emoji": "🇱🇻",
+            "sections": [
+                {
+                    "title": "Good to know",
+                    "items": [
+                        "Riga is the big city. Register your address.",
+                        "Trust grows when you keep your word.",
+                        "Learn the bus ticket and trash rules.",
+                        "Speak kindly about language."
+                    ]
+                }
+            ]
+        },
+        "lithuania": {
+            "name": "Lithuania",
+            "emoji": "🇱🇹",
+            "sections": [
+                {
+                    "title": "Good to know",
+                    "items": [
+                        "Family is important.",
+                        "Cities have tech jobs and service jobs.",
+                        "Use a polite hello with older people.",
+                        "Register your address and get health cover."
+                    ]
+                }
+            ]
+        }
+    }
+};
 
     if (window.CAM_DATA && window.CAM_DATA.registerRegion) {
         window.CAM_DATA.registerRegion('baltics', balticsData);

@@ -1,178 +1,144 @@
 /**
- * Central Europe - Germany, Austria, Switzerland & neighbors (2026 edition)
+ * Central Europe
  */
 (function () {
     'use strict';
 
     const centralEuropeData = {
-        id: 'quiz_central_europe',
-        title: 'Central Europe Cultural Quiz',
-        region: 'central_europe',
-        category: 'general',
-        questions: [
-            {
-                question: 'Business meeting in Germany at 10:00. Best arrival time?',
-                options: {
-                    a: '10:15 - fashionably late',
-                    b: 'Exactly 10:00 only if the tram is late',
-                    c: 'About 9:55 - a few minutes early'
-                },
-                correct: 'c',
-                explanation:
-                    'Pünktlichkeit is a core professional value. Early is polite; late needs a message and a reason.'
+    "id": "quiz_central_europe",
+    "title": "Central Europe",
+    "region": "central_europe",
+    "category": "general",
+    "questions": [
+        {
+            "question": "A meeting is at 10:00. When do you arrive?",
+            "options": {
+                "a": "10:15.",
+                "b": "A few minutes early.",
+                "c": "Only if the tram is late."
             },
-            {
-                question: 'First email to Dr. Anna Schmidt in a German office. Safest opening?',
-                options: {
-                    a: 'Hey Anna,',
-                    b: 'Dear Anna Schmidt,',
-                    c: 'Sehr geehrte Frau Dr. Schmidt,'
-                },
-                correct: 'c',
-                explanation:
-                    'Start formal (Sie + titles). People may invite first names later; do not assume.'
+            "correct": "b",
+            "explanation": "Arrive a few minutes early."
+        },
+        {
+            "question": "You email Dr. Anna Schmidt in a German office. How do you start?",
+            "options": {
+                "a": "Hey Anna,",
+                "b": "Sehr geehrte Frau Dr. Schmidt,",
+                "c": "Dear Anna Schmidt,"
             },
-            {
-                question: 'You move into a German flat. What must you often do quickly?',
-                options: {
-                    a: 'Nothing until you find a job',
-                    b: 'Register your address (Anmeldung) and sort recycling/house rules',
-                    c: 'Only tell your friends'
-                },
-                correct: 'b',
-                explanation:
-                    'Anmeldung unlocks tax ID, banking, and many services. Hausordnung and trash sorting avoid neighbor conflict and fines.'
+            "correct": "b",
+            "explanation": "Start formal. They will invite a first name later."
+        },
+        {
+            "question": "You move into a home in Germany. What do you do first?",
+            "options": {
+                "a": "Wait for a job.",
+                "b": "Register your address and learn the trash rules.",
+                "c": "Tell only your friends."
             },
-            {
-                question: 'Sunday in many German/Austrian residential areas - what is expected?',
-                options: {
-                    a: 'Loud DIY and parties are normal',
-                    b: 'Quiet day: avoid loud drilling, mowing, and hallway noise',
-                    c: 'Only tourists must be quiet'
-                },
-                correct: 'b',
-                explanation:
-                    'Ruhezeiten (quiet hours), especially Sundays and nights, are socially and often legally enforced.'
+            "correct": "b",
+            "explanation": "Register your address. It opens the bank and the tax number."
+        },
+        {
+            "question": "It is Sunday. What do the neighbors expect?",
+            "options": {
+                "a": "Loud drills and parties.",
+                "b": "A quiet day.",
+                "c": "Only tourists stay quiet."
             },
-            {
-                question: 'Online appointment systems for Ausländerbehörde / city offices are full. Best approach?',
-                options: {
-                    a: 'Give up and overstay silently',
-                    b: 'Keep checking official portals, use waitlists/hotlines where offered, document attempts, seek NGO/legal advice early',
-                    c: 'Pay a stranger on Telegram for a “guaranteed” slot'
-                },
-                correct: 'b',
-                explanation:
-                    'Appointment scarcity is real. Document your efforts; avoid illegal brokers; get recognized help for deadlines.'
+            "correct": "b",
+            "explanation": "Keep Sunday quiet."
+        },
+        {
+            "question": "The office calendar is full. What do you do?",
+            "options": {
+                "a": "Stop and hide.",
+                "b": "Check the real website again. Write down each try. Ask a helper.",
+                "c": "Pay a stranger for a slot."
             },
-            {
-                question: 'Cash-in-hand job with no contract while on a restricted permit?',
-                options: {
-                    a: 'Fine if the boss is nice',
-                    b: 'Risky: can violate residence conditions and leave you unprotected',
-                    c: 'Required to prove integration'
-                },
-                correct: 'b',
-                explanation:
-                    'Work rights are status-specific. Illegal employment can damage future permits and insurance coverage.'
+            "correct": "b",
+            "explanation": "Use the real website. Ask a helper. Do not pay a stranger."
+        },
+        {
+            "question": "A job pays cash and gives no paper. Your permit is limited. What do you do?",
+            "options": {
+                "a": "Take it if the boss is kind.",
+                "b": "Ask for a job paper.",
+                "c": "Cash work proves you belong."
             },
-            {
-                question: 'Health insurance in Germany/Austria/Switzerland - general truth?',
-                options: {
-                    a: 'Optional if you are young',
-                    b: 'Usually mandatory; register and carry your card/app proof',
-                    c: 'Only for citizens'
-                },
-                correct: 'b',
-                explanation:
-                    'Mandatory health coverage is central. Uninsured gaps create debt and legal problems.'
+            "correct": "b",
+            "explanation": "A job paper matches your permit."
+        },
+        {
+            "question": "Health insurance in Germany, Austria, and Switzerland. What is true?",
+            "options": {
+                "a": "Young people skip it.",
+                "b": "You need health cover. Carry the card.",
+                "c": "Only citizens get it."
             },
-            {
-                question: 'Emergency number across the EU including this region?',
-                options: {
-                    a: '911',
-                    b: '112',
-                    c: '999 only'
-                },
-                correct: 'b',
-                explanation: '112 is the EU emergency number (police/fire/medical routing).'
-            }
-        ],
-        countries: {
-            germany: {
-                name: 'Germany',
-                emoji: '🇩🇪',
-                sections: [
-                    {
-                        title: 'Big ideas - Germany now',
-                        items: [
-                            'Rules, appointments, and written decisions structure daily life.',
-                            'Integration courses and language levels often matter for long-term stay.',
-                            'Housing in large cities is scarce; Anmeldung requires a real address.',
-                            'Digital services expand, but letters (Bescheide) still carry legal force - open them.'
-                        ]
-                    },
-                    {
-                        title: 'Papers & bureaucracy',
-                        items: [
-                            'Anmeldung, tax ID (Steuer-ID), health insurance, and residence title are foundational.',
-                            'Keep every Bescheid; deadlines for Widerspruch (appeal) are short.',
-                            'Ausländerbehörde appointments are scarce - prepare complete PDF sets.',
-                            'Use Caritas, AWO, refugee councils, or licensed lawyers - not cash “fixers.”'
-                        ]
-                    },
-                    {
-                        title: 'Neighbours & daily life',
-                        items: [
-                            'Quiet hours and recycling rules are not optional niceties.',
-                            'Greet in shared spaces; keep hallways clear.',
-                            'Separate waste correctly (Papier, Gelber Sack/Tonne, Restmüll, Glas).',
-                            'Bikes, laundry rooms, and basements have building-specific rules.'
-                        ]
-                    },
-                    {
-                        title: 'Work & health',
-                        items: [
-                            'Written contracts and payslips (Gehaltsabrechnung) matter for extensions.',
-                            'Be punctual; ask clarifying questions - precision is respected.',
-                            'Hausarzt for normal care; 112 for emergencies; 116 117 for medical on-call in many areas.',
-                            'Physical punishment of children is illegal; schools expect attendance.'
-                        ]
-                    }
-                ]
+            "correct": "b",
+            "explanation": "Get health cover. Carry the card."
+        },
+        {
+            "question": "What number do you call for help?",
+            "options": {
+                "a": "911",
+                "b": "112",
+                "c": "999 only"
             },
-            austria: {
-                name: 'Austria',
-                emoji: '🇦🇹',
-                sections: [
-                    {
-                        title: 'Essentials',
-                        items: [
-                            'Formality and titles remain more common than in Anglo cultures.',
-                            'Meldezettel (registration) after moving is critical.',
-                            'Public transport is excellent in cities; validate tickets correctly.',
-                            'Quiet hours and house rules resemble German norms.'
-                        ]
-                    }
-                ]
-            },
-            switzerland: {
-                name: 'Switzerland',
-                emoji: '🇨🇭',
-                sections: [
-                    {
-                        title: 'Essentials',
-                        items: [
-                            'High cost of living; health insurance is mandatory and private-based.',
-                            'Punctuality and recycling are strict; neighbors notice noise.',
-                            'Permits (B/C etc.) define work and mobility - know your category.',
-                            'Local commune (Gemeinde) offices handle much of daily admin.'
-                        ]
-                    }
-                ]
-            }
+            "correct": "b",
+            "explanation": "Call 112."
         }
-    };
+    ],
+    "countries": {
+        "germany": {
+            "name": "Germany",
+            "emoji": "🇩🇪",
+            "sections": [
+                {
+                    "title": "Good to know",
+                    "items": [
+                        "Appointments and letters run daily life.",
+                        "Language class helps a long stay.",
+                        "Homes in big cities are hard to find. You need a real address to register.",
+                        "Open every letter the same day."
+                    ]
+                }
+            ]
+        },
+        "austria": {
+            "name": "Austria",
+            "emoji": "🇦🇹",
+            "sections": [
+                {
+                    "title": "Good to know",
+                    "items": [
+                        "Use titles until they say your first name.",
+                        "Register your address after you move.",
+                        "Stamp the bus ticket.",
+                        "Keep the building quiet."
+                    ]
+                }
+            ]
+        },
+        "switzerland": {
+            "name": "Switzerland",
+            "emoji": "🇨🇭",
+            "sections": [
+                {
+                    "title": "Good to know",
+                    "items": [
+                        "Life costs a lot. Get health insurance.",
+                        "Be on time. Sort the trash.",
+                        "Read your permit type.",
+                        "The town office does the papers."
+                    ]
+                }
+            ]
+        }
+    }
+};
 
     if (window.CAM_DATA && window.CAM_DATA.registerRegion) {
         window.CAM_DATA.registerRegion('central_europe', centralEuropeData);

@@ -21,8 +21,8 @@ android {
         applicationId = "com.culturalassimilation.manual"
         minSdk = 24
         targetSdk = 34
-        versionCode = 6
-        versionName = "2.1.2"
+        versionCode = 8
+        versionName = "2.3.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
@@ -50,8 +50,8 @@ android {
             isDebuggable = true
         }
         release {
-            isMinifyEnabled = true
-            isShrinkResources = true
+            isMinifyEnabled = false
+            isShrinkResources = false
             isDebuggable = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),

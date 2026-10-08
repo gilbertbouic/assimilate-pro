@@ -1,88 +1,84 @@
 /**
- * Finland (2026 edition)
+ * Finland
  */
 (function () {
     'use strict';
 
     const finlandData = {
-        id: 'quiz_finland',
-        title: 'Finland Cultural Quiz',
-        region: 'finland',
-        category: 'general',
-        questions: [
-            {
-                question: 'Personal space and quietness in Finland often mean…',
-                options: {
-                    a: 'People are angry with you',
-                    b: 'Respect for privacy - small talk is optional, not mandatory',
-                    c: 'You should stand closer when speaking'
-                },
-                correct: 'b',
-                explanation:
-                    'Finns value privacy and calm. Reserved behavior is normal politeness, not hostility.'
+    "id": "quiz_finland",
+    "title": "Finland",
+    "region": "finland",
+    "category": "general",
+    "questions": [
+        {
+            "question": "People are quiet. What does that mean?",
+            "options": {
+                "a": "They are angry.",
+                "b": "Quiet is polite. Small talk is a choice.",
+                "c": "Stand closer."
             },
-            {
-                question: 'Sauna culture - what is true?',
-                options: {
-                    a: 'Always mixed nude with coworkers on day one',
-                    b: 'Common and social, but norms vary; follow host cues and consent; many public saunas have clear rules',
-                    c: 'Only for athletes'
-                },
-                correct: 'b',
-                explanation:
-                    'Sauna is cultural, not a test. Hygiene, consent, and posted rules matter; you can decline politely.'
+            "correct": "b",
+            "explanation": "Quiet is normal. It is not anger."
+        },
+        {
+            "question": "You are invited to sauna. What do you do?",
+            "options": {
+                "a": "You must go nude with coworkers on day one.",
+                "b": "Follow the host and the posted rules. You can say no.",
+                "c": "Sauna is only for athletes."
             },
-            {
-                question: 'Digital public services in Finland?',
-                options: {
-                    a: 'Rarely used',
-                    b: 'Very advanced - Suomi.fi, online banking IDs, and e-services are central after you get IDs',
-                    c: 'Only paper forms exist'
-                },
-                correct: 'b',
-                explanation:
-                    'Once you have the right identifiers, most life admin is online. Learn the official portals.'
+            "correct": "b",
+            "explanation": "Follow the rules. A polite no is fine."
+        },
+        {
+            "question": "How do public services work?",
+            "options": {
+                "a": "Only on paper.",
+                "b": "On the phone, after you have an ID.",
+                "c": "There is no website."
             },
-            {
-                question: 'Nature access (everyman’s rights / jokamiehenoikeudet) means…',
-                options: {
-                    a: 'You may camp anywhere including private gardens',
-                    b: 'Responsible access to nature with limits - no damage, no disturbance, respect local rules',
-                    c: 'Foreigners may not enter forests'
-                },
-                correct: 'b',
-                explanation:
-                    'Freedom to roam comes with duties: leave no trace, respect homes, and check local restrictions.'
+            "correct": "b",
+            "explanation": "Get the ID. Then use the real website."
+        },
+        {
+            "question": "You walk in the forest. What is the rule?",
+            "options": {
+                "a": "Camp in any garden.",
+                "b": "Walk kindly. Leave no trash. Stay off home yards.",
+                "c": "Forests are closed."
             },
-            {
-                question: 'Emergency number in Finland?',
-                options: {
-                    a: '911',
-                    b: '112',
-                    c: '999'
-                },
-                correct: 'b',
-                explanation: '112 is the emergency number.'
-            }
-        ],
-        countries: {
-            finland: {
-                name: 'Finland',
-                emoji: '🇫🇮',
-                sections: [
-                    {
-                        title: 'Essentials (now)',
-                        items: [
-                            'Quiet competence is valued over loud networking.',
-                            'Winter readiness (clothing, lighting, mental health) is practical survival.',
-                            'Strong trust in institutions - follow rules and deadlines.',
-                            'Language: English works in cities; Finnish/Swedish help long-term work and belonging.'
-                        ]
-                    }
-                ]
-            }
+            "correct": "b",
+            "explanation": "Enjoy the forest. Leave it clean."
+        },
+        {
+            "question": "What number do you call for help?",
+            "options": {
+                "a": "911",
+                "b": "112",
+                "c": "999"
+            },
+            "correct": "b",
+            "explanation": "Call 112."
         }
-    };
+    ],
+    "countries": {
+        "finland": {
+            "name": "Finland",
+            "emoji": "🇫🇮",
+            "sections": [
+                {
+                    "title": "Good to know",
+                    "items": [
+                        "Calm and on time is respected.",
+                        "Dress warm. Use a bright lamp in winter.",
+                        "Follow the deadline.",
+                        "English works in cities. Finnish helps you belong."
+                    ]
+                }
+            ]
+        }
+    }
+};
 
     if (window.CAM_DATA && window.CAM_DATA.registerRegion) {
         window.CAM_DATA.registerRegion('finland', finlandData);
