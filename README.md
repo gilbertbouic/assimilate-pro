@@ -18,9 +18,7 @@ A picture guide for a new home in the West.
 
 Your score stays on the phone.
 
-SHA-256 for Assimilate-Pro-2.3.1.apk
-
-`1b0ea6afb1fed64549387edcb9e545771298512620d017fce78ccefba094e212`
+Each release lists a SHA-256 for the APK. Compare it with the file you downloaded.
 
 ## Pictures
 
