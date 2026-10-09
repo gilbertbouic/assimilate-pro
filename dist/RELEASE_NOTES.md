@@ -1,15 +1,12 @@
-## West Newcomer Manual v2.0.0 (2026 edition)
+# Assimilate Pro 2.3.2 (draft - not released yet)
 
-Present-day update for immigration and settlement realities in the West:
+A new, calmer look: your route, stop by stop.
 
-- **Today in the West** essentials: digital bureaucracy, housing pressure, work rights, scams, banking/health, waiting on papers
-- Expanded **9-region** quizzes and country notes (US, UK, Central Europe, Scandinavia, Finland, Baltics, Balkans, Greece, Mediterranean)
-- New **scenarios** for housing, portals, workplace, and health pathways
-- Professional **signed release APK** + GitHub Pages website (same content)
+- Five stops on a coloured line: papers, a home, work, health, scams.
+- Finished stops get a tick. One Continue button takes you to the next stop.
+- Bigger text, strong contrast, big buttons, and an A+ button for even bigger text.
+- Short, simple guide text.
+- The quiz and the stories follow the country you choose.
+- Works with no internet. The font is inside the app.
 
-**Not legal advice.** Verify status and rights on official government sources.
-
-### Install APK
-```bash
-adb install -r West-Newcomer-Manual-v2.0.0-release.apk
-```
+versionCode 10 · versionName 2.3.2
