@@ -1,13 +1,16 @@
 /* Assimilate Pro - offline shell for GitHub Pages / WebView */
-const CACHE = 'assimilate-pro-2026-v1';
+const CACHE = 'assimilate-pro-2.3.2-route-map';
 const ASSETS = [
   './',
   './index.html',
   './styles/styles.css',
   './styles/interactive-styles.css',
+  './fonts/lexend-variable.woff2',
+  './scripts/i18n.js',
   './scripts/core/data.core.js',
   './scripts/core/today-essentials.js',
   './scripts/app.js',
+  './scripts/route.js',
   './scripts/navigation.js',
   './scripts/interactive.js',
   './manifest.json',

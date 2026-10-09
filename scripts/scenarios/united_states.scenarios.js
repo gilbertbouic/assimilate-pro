@@ -1,95 +1,108 @@
-/**
- * United States scenarios - 2026 edition
- */
 (function () {
     'use strict';
-
     const unitedStatesScenarios = {
-        workplace: {
-            id: 'scenario_us_workplace',
-            title: 'First Week in a US Workplace',
-            region: 'united_states',
-            category: 'workplace',
-            roles: ['professional', 'remote', 'entrepreneur', 'student'],
-            steps: [
-                {
-                    title: 'Day-one introductions',
-                    description: 'Your manager greets you and walks you past the team.',
-                    dos: [
-                        'Use first names unless told otherwise.',
-                        'Offer a clear handshake or follow the other person’s lead on contact.',
-                        'Write down names and roles after meetings.'
-                    ],
-                    donts: [
-                        'Don’t stay silent all week hoping someone mind-reads your blockers.',
-                        'Don’t overshare visa stress in the first hour.',
-                        'Don’t refuse all small talk - brief friendliness builds allies.'
-                    ]
-                },
-                {
-                    title: 'Flagging a delay',
-                    description: 'A task will miss the Friday deadline.',
-                    dos: [
-                        'Message early with status, risk, and options.',
-                        'Ask which priority to drop if everything is “urgent.”',
-                        'Document agreements in the thread or ticket.'
-                    ],
-                    donts: [
-                        'Don’t disappear until Friday night.',
-                        'Don’t blame teammates publicly without facts.',
-                        'Don’t promise miracles you cannot deliver.'
-                    ]
-                }
-            ]
-        },
-        housing: {
-            id: 'scenario_us_housing',
-            title: 'Renting in a Competitive US City',
-            region: 'united_states',
-            category: 'housing',
-            roles: ['professional', 'student', 'spouse', 'undocumented', 'remote'],
-            steps: [
-                {
-                    title: 'Online listing',
-                    description: 'A great apartment is “below market” and the owner is “abroad.”',
-                    dos: [
-                        'Verify the address on maps and public records when possible.',
-                        'Visit in person or via a trusted local contact.',
-                        'Use traceable payments only after a real lease.'
-                    ],
-                    donts: [
-                        'Don’t wire a deposit to hold a unit you have never verified.',
-                        'Don’t send passport photos to random accounts.',
-                        'Don’t ignore missing licenses on “agents.”'
-                    ]
-                }
-            ]
-        },
-        bureaucracy: {
-            id: 'scenario_us_bureaucracy',
-            title: 'Keeping Your Status Healthy',
-            region: 'united_states',
-            category: 'bureaucracy',
-            roles: ['professional', 'student', 'spouse', 'undocumented', 'remote', 'entrepreneur'],
-            steps: [
-                {
-                    title: 'Portal + mail',
-                    description: 'USCIS or your school portal shows a request for evidence.',
-                    dos: [
-                        'Download every notice the day you see it.',
-                        'Track deadlines on a calendar with reminders.',
-                        'Use qualified legal help for complex replies.'
-                    ],
-                    donts: [
-                        'Don’t ignore “spam-looking” government email without checking the portal.',
-                        'Don’t pay gift-card scammers who claim to be officers.',
-                        'Don’t work outside your authorization to “fix money stress.”'
-                    ]
-                }
-            ]
-        }
-    };
-
+    "workplace": {
+        "id": "scenario_us_workplace",
+        "title": "First week",
+        "region": "united_states",
+        "category": "workplace",
+        "roles": [
+            "professional",
+            "remote",
+            "entrepreneur",
+            "student"
+        ],
+        "steps": [
+            {
+                "title": "Day one",
+                "description": "Your manager walks you past the team.",
+                "dos": [
+                    "Use first names.",
+                    "Follow their lead on a handshake.",
+                    "Write names down after."
+                ],
+                "donts": [
+                    "Do not stay silent all week.",
+                    "Do not dump visa stress in minute one.",
+                    "Do not skip every hello."
+                ]
+            },
+            {
+                "title": "You will be late",
+                "description": "The Friday task will miss the day.",
+                "dos": [
+                    "Write early. Name the new day.",
+                    "Ask what to drop.",
+                    "Keep the note in the thread."
+                ],
+                "donts": [
+                    "Do not vanish until Friday night.",
+                    "Do not blame people with no facts.",
+                    "Do not promise what you cannot do."
+                ]
+            }
+        ]
+    },
+    "housing": {
+        "id": "scenario_us_housing",
+        "title": "A cheap listing",
+        "region": "united_states",
+        "category": "housing",
+        "roles": [
+            "professional",
+            "student",
+            "spouse",
+            "undocumented",
+            "remote"
+        ],
+        "steps": [
+            {
+                "title": "The owner is abroad",
+                "description": "The price is \"below market.\"",
+                "dos": [
+                    "Check the address on a map.",
+                    "See the home.",
+                    "See the home. Sign the lease. Then pay."
+                ],
+                "donts": [
+                    "Do not wire money for a home you have not seen.",
+                    "Do not send your passport to a random account.",
+                    "Do not ignore a missing agent license."
+                ]
+            }
+        ]
+    },
+    "bureaucracy": {
+        "id": "scenario_us_bureaucracy",
+        "title": "A notice in the portal",
+        "region": "united_states",
+        "category": "bureaucracy",
+        "roles": [
+            "professional",
+            "student",
+            "spouse",
+            "undocumented",
+            "remote",
+            "entrepreneur"
+        ],
+        "steps": [
+            {
+                "title": "They ask for more papers",
+                "description": "The portal shows a request.",
+                "dos": [
+                    "Download it the same day.",
+                    "Put the date on a calendar.",
+                    "Ask a qualified helper for a hard reply."
+                ],
+                "donts": [
+                    "Do not ignore a government email. Check the portal.",
+                    "Do not pay gift cards.",
+                    "Do not work outside your papers."
+                ]
+            }
+        ]
+    }
+};
     if (window.CAM_SCENARIOS && window.CAM_SCENARIOS.registerRegion) {
         window.CAM_SCENARIOS.registerRegion('united_states', unitedStatesScenarios);
     }

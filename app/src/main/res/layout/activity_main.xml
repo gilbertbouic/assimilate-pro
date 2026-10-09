@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/brand_primary"
+    android:background="@color/charcoal"
     tools:context=".MainActivity">
 
     <WebView
@@ -25,7 +25,7 @@
         android:indeterminate="false"
         android:max="100"
         android:progress="0"
-        android:progressTint="@color/white"
+        android:progressTint="@color/route_blue"
         android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

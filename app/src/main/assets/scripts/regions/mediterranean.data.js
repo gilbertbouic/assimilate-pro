@@ -1,166 +1,159 @@
 /**
- * Mediterranean - Spain, France, Italy, Portugal & nearby (2026 edition)
+ * Mediterranean
  */
 (function () {
     'use strict';
 
     const mediterraneanData = {
-        id: 'quiz_mediterranean',
-        title: 'Mediterranean Cultural Quiz',
-        region: 'mediterranean',
-        category: 'general',
-        questions: [
-            {
-                question: 'In Spain, dinner in many urban areas is often…',
-                options: {
-                    a: '17:00 sharp',
-                    b: 'Around 21:00-23:00',
-                    c: 'Replaced by breakfast only'
-                },
-                correct: 'b',
-                explanation:
-                    'Spain’s daily rhythm runs later. Social meals are central to belonging.'
+    "id": "quiz_mediterranean",
+    "title": "Mediterranean",
+    "region": "mediterranean",
+    "category": "general",
+    "questions": [
+        {
+            "question": "In Spain, when is dinner?",
+            "options": {
+                "a": "17:00.",
+                "b": "About 21:00 to 23:00.",
+                "c": "There is no dinner."
             },
-            {
-                question: 'French laïcité primarily refers to…',
-                options: {
-                    a: 'Wine regions',
-                    b: 'Secularism - religion is private; public institutions stay neutral',
-                    c: 'A sports league'
-                },
-                correct: 'b',
-                explanation:
-                    'Secular public space is a core French principle. Personal belief remains free within the law.'
+            "correct": "b",
+            "explanation": "Dinner is late."
+        },
+        {
+            "question": "What is French laïcité?",
+            "options": {
+                "a": "A wine map.",
+                "b": "Religion stays personal. Public schools stay neutral.",
+                "c": "A sports league."
             },
-            {
-                question: 'Italian social life often prioritizes…',
-                options: {
-                    a: 'Eating alone at your desk forever',
-                    b: 'Family and shared meals as social glue',
-                    c: 'Avoiding all conversation'
-                },
-                correct: 'b',
-                explanation:
-                    'Food and family time structure relationships. Accepting invitations builds trust.'
+            "correct": "b",
+            "explanation": "Belief is personal. The public school stays neutral."
+        },
+        {
+            "question": "What matters in Italian social life?",
+            "options": {
+                "a": "Eat alone at your desk.",
+                "b": "Family and a shared meal.",
+                "c": "No talking."
             },
-            {
-                question: 'Housing in popular Mediterranean cities in 2026?',
-                options: {
-                    a: 'Always cheap and easy same-day',
-                    b: 'Often competitive with short-term rental pressure - start early, verify contracts, watch scams',
-                    c: 'No deposits ever'
-                },
-                correct: 'b',
-                explanation:
-                    'Tourism and remote workers tightened housing. Use legal contracts and local tenant advice.'
+            "correct": "b",
+            "explanation": "Say yes to a meal. Stay and talk."
+        },
+        {
+            "question": "Homes in big cities are hard to find. What do you do?",
+            "options": {
+                "a": "Get one the same day for cheap.",
+                "b": "Start early. Read the paper. See the home.",
+                "c": "Never pay a deposit."
             },
-            {
-                question: 'Tipping in Italy/France restaurants?',
-                options: {
-                    a: 'Mandatory 25% always',
-                    b: 'Service often included; small rounding or a few euros for good service is common',
-                    c: 'Tipping is illegal'
-                },
-                correct: 'b',
-                explanation:
-                    'Unlike the US, service is frequently included. Local rounding customs still show appreciation.'
+            "correct": "b",
+            "explanation": "See the home. Read the paper. Then pay."
+        },
+        {
+            "question": "How do you tip in Italy or France?",
+            "options": {
+                "a": "Always 25%.",
+                "b": "Service is in the bill. A small extra is a thank you.",
+                "c": "Tipping is banned."
             },
-            {
-                question: 'Physical punishment of children across these countries?',
-                options: {
-                    a: 'Encouraged',
-                    b: 'Socially rejected and can trigger legal/social-service consequences',
-                    c: 'Only banned for teenagers'
-                },
-                correct: 'b',
-                explanation:
-                    'Child protection standards are strict. Violence against children is illegal.'
+            "correct": "b",
+            "explanation": "The bill includes service. A small extra says thank you."
+        },
+        {
+            "question": "A child is hit. What is true?",
+            "options": {
+                "a": "It is fine.",
+                "b": "It is not allowed.",
+                "c": "It is fine for small children."
             },
-            {
-                question: 'Consent in dating and nightlife?',
-                options: {
-                    a: 'Optional if you paid for dinner',
-                    b: 'Required always - unwanted contact can be a crime',
-                    c: 'Only needed for marriage'
-                },
-                correct: 'b',
-                explanation:
-                    'Consent and personal boundaries are legal and social requirements everywhere you should live.'
+            "correct": "b",
+            "explanation": "Do not hit a child."
+        },
+        {
+            "question": "Someone says no to a touch. What do you do?",
+            "options": {
+                "a": "Keep going. You paid for dinner.",
+                "b": "Stop.",
+                "c": "Wait until marriage."
             },
-            {
-                question: 'Emergency number in EU Mediterranean countries?',
-                options: {
-                    a: '911',
-                    b: '112',
-                    c: '000'
-                },
-                correct: 'b',
-                explanation: '112 is the EU emergency number.'
-            }
-        ],
-        countries: {
-            spain: {
-                name: 'Spain',
-                emoji: '🇪🇸',
-                sections: [
-                    {
-                        title: 'Essentials (now)',
-                        items: [
-                            'NIE/TIE and empadronamiento (local registration) unlock services.',
-                            'Regional differences (Catalonia, Basque Country, Andalusia…) affect language and admin.',
-                            'Night life and family outings run late; siesta stereotypes are exaggerated in big cities.',
-                            'Rental deposits and agency fees - read contracts; use official complaint routes for fraud.'
-                        ]
-                    }
-                ]
+            "correct": "b",
+            "explanation": "Stop when they say no."
+        },
+        {
+            "question": "What number do you call for help?",
+            "options": {
+                "a": "911",
+                "b": "112",
+                "c": "000"
             },
-            france: {
-                name: 'France',
-                emoji: '🇫🇷',
-                sections: [
-                    {
-                        title: 'Essentials (now)',
-                        items: [
-                            'Prefecture appointments and CAF/CPAM processes can be slow - document everything.',
-                            'Formal written French helps with admin; tutoiement comes when invited.',
-                            'Laïcité shapes schools and public institutions.',
-                            'Strikes and protests occur - plan travel; they are part of civic culture.'
-                        ]
-                    }
-                ]
-            },
-            italy: {
-                name: 'Italy',
-                emoji: '🇮🇹',
-                sections: [
-                    {
-                        title: 'Essentials (now)',
-                        items: [
-                            'Permesso di soggiorno and codice fiscale are core IDs.',
-                            'North/South and city/town cultures differ; learn local office hours.',
-                            'Cash still appears, but POS cards are widespread legally.',
-                            'Family networks help - still insist on legal contracts for work and rent.'
-                        ]
-                    }
-                ]
-            },
-            portugal: {
-                name: 'Portugal',
-                emoji: '🇵🇹',
-                sections: [
-                    {
-                        title: 'Essentials (now)',
-                        items: [
-                            'Housing pressure in Lisbon/Porto is intense after years of inflows.',
-                            'NIF and SEF/AIMA processes (or successors) - follow current official sites.',
-                            'Warm politeness; learn basic Portuguese for admin and belonging.',
-                            'Watch golden-promise migration scams and fake rental listings.'
-                        ]
-                    }
-                ]
-            }
+            "correct": "b",
+            "explanation": "Call 112."
         }
-    };
+    ],
+    "countries": {
+        "spain": {
+            "name": "Spain",
+            "emoji": "🇪🇸",
+            "sections": [
+                {
+                    "title": "Good to know",
+                    "items": [
+                        "Get your NIE and register at the town hall.",
+                        "Each region has its own office and language.",
+                        "Nights run late.",
+                        "Read the rent paper before you pay."
+                    ]
+                }
+            ]
+        },
+        "france": {
+            "name": "France",
+            "emoji": "🇫🇷",
+            "sections": [
+                {
+                    "title": "Good to know",
+                    "items": [
+                        "The prefecture is slow. Keep every paper.",
+                        "Start letters in formal French.",
+                        "Public schools stay neutral about religion.",
+                        "Strikes happen. Plan your trip."
+                    ]
+                }
+            ]
+        },
+        "italy": {
+            "name": "Italy",
+            "emoji": "🇮🇹",
+            "sections": [
+                {
+                    "title": "Good to know",
+                    "items": [
+                        "Get the stay permit and the tax code.",
+                        "Office hours change by town.",
+                        "Cards work in most shops.",
+                        "Ask for a rent paper and a job paper."
+                    ]
+                }
+            ]
+        },
+        "portugal": {
+            "name": "Portugal",
+            "emoji": "🇵🇹",
+            "sections": [
+                {
+                    "title": "Good to know",
+                    "items": [
+                        "Lisbon and Porto homes are hard to find.",
+                        "Get your NIF. Use the real immigration site.",
+                        "Learn a little Portuguese.",
+                        "See the home before you pay."
+                    ]
+                }
+            ]
+        }
+    }
+};
 
     if (window.CAM_DATA && window.CAM_DATA.registerRegion) {
         window.CAM_DATA.registerRegion('mediterranean', mediterraneanData);

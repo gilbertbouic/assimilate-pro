@@ -21,8 +21,8 @@ android {
         applicationId = "com.culturalassimilation.manual"
         minSdk = 24
         targetSdk = 34
-        versionCode = 6
-        versionName = "2.1.2"
+        versionCode = 10
+        versionName = "2.3.2"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 

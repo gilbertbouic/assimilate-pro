@@ -17,15 +17,26 @@
             menuToggle.setAttribute('aria-expanded', isActive);
         });
 
+        // Close the menu with the Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && mainNav.classList.contains('active')) {
+                mainNav.classList.remove('active');
+                menuToggle.setAttribute('aria-expanded', 'false');
+                menuToggle.focus();
+            }
+        });
+
         // Handle navigation link clicks with smooth scrolling
         navLinks.forEach(link => {
             link.addEventListener('click', (e) => {
                 e.preventDefault();
-                const targetId = e.target.getAttribute('href');
+                const targetId = link.getAttribute('href');
                 const targetSection = document.querySelector(targetId);
 
                 if (targetSection) {
                     targetSection.scrollIntoView({ behavior: 'smooth' });
+                    targetSection.setAttribute('tabindex', '-1');
+                    targetSection.focus({ preventScroll: true });
                     mainNav.classList.remove('active'); // Close menu on link click
                     menuToggle.setAttribute('aria-expanded', 'false');
                 }
