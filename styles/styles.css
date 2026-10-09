@@ -494,6 +494,16 @@ p { margin: 0 0 0.9em; }
 .download-band h2 { color: var(--white); }
 .download-band :focus-visible { outline-color: #FFFFFF; }
 .dl-hint { font-size: 0.95rem; margin: 6px 0 0; }
+.dl-warning {
+    margin-top: 16px;
+    background: #FFF4E5;
+    color: var(--charcoal);
+    border-left: 8px solid var(--orange);
+    border-radius: 8px;
+    padding: 14px 16px;
+}
+.dl-warning p { margin: 0; }
+.dl-warning-title { font-weight: 700; font-size: 1.05rem; margin-bottom: 4px !important; }
 
 /* ---------- Footer ---------- */
 .site-footer {

@@ -1,4 +1,11 @@
-# Assimilate Pro 2.3.2 (draft - not released yet)
+# Assimilate Pro 2.3.2
+
+> **Important: remove the old app first.**
+> This version is signed with a new key, so your phone cannot update the old app.
+> 1. Uninstall the old Assimilate Pro from your phone.
+> 2. Then download and install `Assimilate-Pro-2.3.2.apk` below.
+>
+> Your saved progress on the phone (finished stops, quiz scores) will start again from zero.
 
 A new, calmer look: your route, stop by stop.
 
