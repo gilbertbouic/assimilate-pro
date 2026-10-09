@@ -1,12 +1,12 @@
 {
   "name": "Assimilate Pro",
   "short_name": "Assimilate Pro",
-  "description": "Practical cultural and systems guide for newcomers to the West - 2026 edition.",
+  "description": "A step-by-step guide for newcomers to the West: papers, a home, work, health, and scams.",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
-  "background_color": "#0f172a",
-  "theme_color": "#1a56a8",
+  "background_color": "#FFFFFF",
+  "theme_color": "#1F2328",
   "lang": "en",
   "icons": [
     {

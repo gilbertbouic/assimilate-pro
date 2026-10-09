@@ -1,32 +1,34 @@
-# Privacy Policy - Assimilate Pro
+# Privacy - Assimilate Pro
 
-**Last updated:** 2026-07-24
+**Last updated:** 2026-10-09
 
-## Summary
+## In short
 
-Assimilate Pro is **privacy-first**.
+- You do not make an account.
+- Your answers, stops, and scores stay on your device.
+- Clearing the site data or the app data removes them.
 
-- **No accounts.** You do not create a login.
-- **No analytics SDKs** are bundled in the core guide.
-- **Progress stays on your device** (browser `localStorage` or Android WebView storage).
-- **No requirement to send personal data** to the project authors to use the guide.
+## What is kept on your device
 
-## What is stored locally
+- The country you chose
+- Who you are (only if you pick it)
+- Your finished stops, quiz scores, and stories you have read
+- Your language and text-size choice
 
-- Selected region preference
-- Selected role (optional)
-- Quiz scores and scenario progress
+This is kept in your browser or in the app. It is not sent to us.
 
-Clearing site data / app storage removes this information.
+## The website
 
-## Network
+The website is hosted on GitHub Pages. It does not use analytics or trackers. The "Download latest APK" button opens the release page on GitHub.
 
-The website may load from GitHub Pages (`gilbertbouic.github.io/assimilate-pro`). The Android app packages content offline in assets. Optional network access may be used only if you open external links or if the system WebView performs safe-browsing checks.
+## The Android app
+
+The app keeps all pages inside the app and works with no internet. Android may check web addresses for safety (Safe Browsing).
 
 ## Not legal advice
 
-Content is educational. It is not immigration, employment, or medical advice.
+This guide is for learning. It is not legal, work, or medical advice.
 
 ## Contact
 
-Open an issue on https://github.com/gilbertbouic/assimilate-pro for privacy questions.
+Open an issue on https://github.com/gilbertbouic/assimilate-pro

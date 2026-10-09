@@ -3,264 +3,193 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Assimilate Pro - practical cultural and systems guide for newcomers to Western Europe, the UK, the US, and related regions. Digital bureaucracy, housing, work rights, and safety - 2026 edition.">
-    <meta name="theme-color" content="#1a56a8">
-    <title>Assimilate Pro - Cultural Guide for Newcomers to the West</title>
+    <meta name="color-scheme" content="light">
+    <meta name="description" content="Assimilate Pro - a step-by-step guide for newcomers to the West: papers, a home, work, health, and scams. Short lines. Works offline.">
+    <meta name="theme-color" content="#1F2328">
+    <title>Assimilate Pro - Settling in, stop by stop</title>
     <link rel="canonical" href="https://assimilate-pro.mkweli.tech/">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Assimilate Pro">
-    <meta property="og:title" content="Assimilate Pro - Cultural Guide for Newcomers to the West">
-    <meta property="og:description" content="Practical cultural and systems guide for newcomers: digital bureaucracy, housing, work rights, and safety. Offline-friendly Android app. A Mkweli product.">
+    <meta property="og:title" content="Assimilate Pro - Settling in, stop by stop">
+    <meta property="og:description" content="A step-by-step guide for newcomers: papers, a home, work, health, and scams. Short lines. Free Android app. A Mkweli product.">
     <meta property="og:url" content="https://assimilate-pro.mkweli.tech/">
     <meta property="og:image" content="https://assimilate-pro.mkweli.tech/assets/og-image.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
-    <meta property="og:image:alt" content="Assimilate Pro - cultural guide for newcomers to the West">
+    <meta property="og:image:alt" content="Assimilate Pro - a guide for newcomers to the West">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Assimilate Pro - Cultural Guide for Newcomers">
-    <meta name="twitter:description" content="Digital bureaucracy, housing, work rights, and safety for newcomers. Free Android app.">
+    <meta name="twitter:title" content="Assimilate Pro - Settling in, stop by stop">
+    <meta name="twitter:description" content="Papers, a home, work, health, and scams. Short lines. Free Android app.">
     <meta name="twitter:image" content="https://assimilate-pro.mkweli.tech/assets/og-image.jpg">
     <link rel="manifest" href="manifest.json">
     <link rel="icon" href="icons/icon-192x192.svg" type="image/svg+xml">
+    <link rel="preload" href="fonts/lexend-variable.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="styles/styles.css">
     <link rel="stylesheet" href="styles/interactive-styles.css">
-
-    <style>
-      .brand-mark-img {
-        width: 40px;
-        height: 40px;
-        border-radius: 10px;
-        object-fit: contain;
-        background: #f4f4f2;
-        padding: 4px;
-        flex-shrink: 0;
-      }
-      .brand { display: inline-flex; align-items: center; gap: 0.65rem; text-decoration: none; }
-    </style>
 </head>
 <body>
-    <a class="skip-link" href="#top" data-i18n="skip">Skip to content</a>
-    <header class="site-header">
-        <div class="header-inner">
-            <a class="brand" href="#top">
-                <img class="brand-mark-img" src="assets/brand-mark-header.png" alt="Mkweli" width="40" height="40" />
-                <div class="brand-text">
-                    <strong>Assimilate Pro</strong>
-                    <span data-i18n="brand_tag">Cultural guide for newcomers · 2026</span>
-                </div>
+    <a class="skip-link" href="#main" data-i18n="skip">Skip to content</a>
+
+    <header class="topbar">
+        <div class="topbar-inner">
+            <a class="brand" href="#route">
+                <span class="brand-dot" aria-hidden="true"></span>
+                <span>Assimilate Pro</span>
             </a>
-            <div class="header-right">
-                <nav id="main-nav" data-i18n-aria="nav_main" aria-label="Main">
-                    <ul class="nav-list">
-                        <li><a href="#today" data-i18n="nav_today">Today</a></li>
-                        <li><a href="#region-select" data-i18n="nav_regions">Regions</a></li>
-                        <li><a href="#roles" data-i18n="nav_role">Role</a></li>
-                        <li><a href="#employment" data-i18n="nav_work">Work</a></li>
-                        <li><a href="#quizzes" data-i18n="nav_quizzes">Quizzes</a></li>
-                        <li><a href="#scenarios" data-i18n="nav_scenarios">Scenarios</a></li>
-                        <li><a href="#progress" data-i18n="nav_progress">Progress</a></li>
-                        <li><a href="#download" data-i18n="nav_app">App</a></li>
-                    </ul>
-                </nav>
-                <div class="header-tools">
-                    <span class="lang-switch" role="group" data-i18n-aria="lang_group" aria-label="Language">
-                        <button type="button" data-lang="en" aria-pressed="true">EN</button>
-                        <button type="button" data-lang="fr" aria-pressed="false">FR</button>
-                    </span>
-                    <button class="menu-toggle" id="menu-toggle" data-i18n-aria="menu_toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
-                </div>
+            <nav id="main-nav" data-i18n-aria="nav_main" aria-label="Main">
+                <ul class="nav-list">
+                    <li><a href="#route" data-i18n="nav_route">Route</a></li>
+                    <li><a href="#region-select" data-i18n="nav_country">Country</a></li>
+                    <li><a href="#quizzes" data-i18n="nav_quiz">Quiz</a></li>
+                    <li><a href="#scenarios" data-i18n="nav_scenarios">What to do</a></li>
+                    <li><a href="#progress" data-i18n="nav_progress">Progress</a></li>
+                    <li class="web-only"><a href="#download" data-i18n="nav_app">App</a></li>
+                </ul>
+            </nav>
+            <div class="topbar-tools">
+                <button type="button" class="tool-btn" id="text-size" aria-pressed="false" data-i18n-aria="text_size">
+                    <span aria-hidden="true">A+</span>
+                </button>
+                <span class="lang-switch" role="group" data-i18n-aria="lang_group" aria-label="Language">
+                    <button type="button" data-lang="en" aria-pressed="true">EN</button>
+                    <button type="button" data-lang="fr" aria-pressed="false">FR</button>
+                </span>
+                <button class="tool-btn menu-toggle" id="menu-toggle" type="button" data-i18n-aria="menu_toggle" aria-label="Menu" aria-controls="main-nav" aria-expanded="false">
+                    <span aria-hidden="true">☰</span>
+                </button>
             </div>
         </div>
     </header>
 
-    <div id="top" class="hero">
-        <div class="hero-inner">
-            <div>
-                <span class="hero-badge" data-i18n="hero_badge">Updated for 2025-2026 immigration realities</span>
-                <h1 data-i18n="hero_h1">Assimilate with clarity - not guesswork</h1>
-                <p class="hero-lead" data-i18n="hero_lead">
-                    A practical survival guide for newcomers to the West: digital government, tight housing markets,
-                    work rights, paperwork, health systems, and everyday cultural norms - offline-friendly and privacy-first.
-                </p>
-                <div class="hero-actions">
-                    <a class="btn btn-primary" href="#today" data-i18n="hero_cta_today">Start with today's essentials</a>
-                    <a class="btn btn-secondary" href="#region-select" data-i18n="hero_cta_region">Choose your region</a>
-                    <a class="btn btn-secondary" href="#download" data-i18n="hero_cta_app">Get the Android app</a>
-                </div>
-                <p class="hero-lang-note" data-i18n="guide_en_note" hidden></p>
-            </div>
-            <div class="hero-stats">
-                <div class="stat"><strong>9</strong><span data-i18n="stat_regions">regions + shared essentials</span></div>
-                <div class="stat"><strong>0</strong><span data-i18n="stat_accounts">accounts required</span></div>
-                <div class="stat"><strong>100%</strong><span data-i18n="stat_progress">progress stored on-device</span></div>
-                <div class="stat"><strong>2026</strong><span data-i18n="stat_edition">edition focus: systems that matter now</span></div>
-            </div>
-        </div>
-    </div>
+    <main id="main" tabindex="-1">
+        <section id="route" class="route-section" aria-labelledby="route-title">
+            <div class="route-layout">
+                <div class="route-col">
+                    <div class="sign">
+                        <p class="kicker" data-i18n="route_kicker">Your route</p>
+                        <h1 id="route-title" data-i18n="route_h1">Settling in, stop by stop</h1>
+                        <p class="lead" data-i18n="route_lead">Pick your country. Then go stop by stop. Each stop has a few short lines.</p>
+                        <a class="where" href="#region-select" id="where-btn">
+                            <span class="where-flag" id="where-flag" aria-hidden="true">🌍</span>
+                            <span class="where-name" id="where-name" data-i18n="where_none">Choose your country</span>
+                            <span class="where-change" data-i18n="where_change">Change</span>
+                        </a>
+                    </div>
 
-    <main>
-        <section class="section" id="about">
-            <div class="card">
-                <h2>Why this manual exists</h2>
-                <p>
-                    Moving West is not only about customs and small talk. In the mid‑2020s, newcomers also face
-                    <strong>appointment portals</strong>, <strong>housing competition</strong>,
-                    <strong>stricter documentation checks</strong>, <strong>scams aimed at migrants</strong>,
-                    and workplaces that expect self-advocacy. This guide combines cultural fluency with systems literacy.
-                </p>
-                <div class="grid-3" style="margin-top:1.25rem;">
-                    <div class="feature">
-                        <div class="icon">🧭</div>
-                        <h3>Culture that travels</h3>
-                        <p class="muted">Greetings, time, neighbors, dating norms, and workplace tone by region.</p>
-                    </div>
-                    <div class="feature">
-                        <div class="icon">🖥️</div>
-                        <h3>Systems that gatekeep</h3>
-                        <p class="muted">Registration, e‑IDs, right-to-work/rent checks, GP/NHS-style care paths.</p>
-                    </div>
-                    <div class="feature">
-                        <div class="icon">🛡️</div>
-                        <h3>Safety & scams</h3>
-                        <p class="muted">Fake landlords, phishing “immigration officers,” and cash-work traps.</p>
-                    </div>
+                    <ol class="route" id="route-list" data-i18n-aria="route_list" aria-label="Your stops"></ol>
+
+                    <p class="route-count" id="route-count" aria-live="polite"></p>
+                    <a class="btn btn-go" id="continue-btn" href="#stop-view">Continue</a>
                 </div>
-                <p class="disclaimer">
-                    Educational guide only - not legal advice. Immigration and benefits rules change. Confirm critical steps on official government sites or with a licensed adviser / recognized NGO.
-                </p>
+
+                <section class="stop-view" id="stop-view" tabindex="-1" aria-live="polite" aria-labelledby="stop-title"></section>
             </div>
         </section>
 
-        <section class="section" id="today">
+        <section class="section" id="region-select" aria-labelledby="region-title">
             <div class="card">
-                <h2>📅 Today in the West</h2>
-                <p id="today-intro" class="muted">Loading present-day essentials…</p>
-                <div id="today-pillars" class="pillars"></div>
-            </div>
-        </section>
-
-        <section class="section" id="region-select">
-            <div class="card">
-                <h2>🌍 Select your region</h2>
-                <p>Localized quizzes, country notes, and scenarios load after you pick a region.</p>
-                <div id="region-selector">
-                    <button class="region-btn" data-region="united_states">🇺🇸 United States</button>
-                    <button class="region-btn" data-region="united_kingdom">🇬🇧 United Kingdom</button>
-                    <button class="region-btn" data-region="central_europe">🇩🇪🇦🇹🇨🇭 Central Europe</button>
-                    <button class="region-btn" data-region="scandinavia">🇸🇪🇳🇴🇩🇰 Scandinavia</button>
-                    <button class="region-btn" data-region="finland">🇫🇮 Finland</button>
-                    <button class="region-btn" data-region="baltics">🇪🇪🇱🇻🇱🇹 Baltics</button>
-                    <button class="region-btn" data-region="balkans">🇷🇸🇭🇷🇧🇦 Balkans</button>
-                    <button class="region-btn" data-region="greece">🇬🇷 Greece</button>
-                    <button class="region-btn" data-region="mediterranean">🇮🇹🇫🇷🇪🇸🇵🇹 Mediterranean</button>
+                <p class="kicker" data-i18n="country_kicker">Your country</p>
+                <h2 id="region-title" data-i18n="country_h2">Where do you live now?</h2>
+                <p class="muted" data-i18n="country_lead">Pick one. The quiz and the stories below will match it.</p>
+                <div id="region-selector" class="region-grid">
+                    <button type="button" class="region-btn" data-region="united_states"><span aria-hidden="true">🇺🇸</span> <span data-i18n="r_united_states">United States</span></button>
+                    <button type="button" class="region-btn" data-region="united_kingdom"><span aria-hidden="true">🇬🇧</span> <span data-i18n="r_united_kingdom">United Kingdom</span></button>
+                    <button type="button" class="region-btn" data-region="central_europe"><span aria-hidden="true">🇩🇪</span> <span data-i18n="r_central_europe">Germany, Austria, Switzerland</span></button>
+                    <button type="button" class="region-btn" data-region="scandinavia"><span aria-hidden="true">🇸🇪</span> <span data-i18n="r_scandinavia">Sweden, Norway, Denmark</span></button>
+                    <button type="button" class="region-btn" data-region="finland"><span aria-hidden="true">🇫🇮</span> <span data-i18n="r_finland">Finland</span></button>
+                    <button type="button" class="region-btn" data-region="baltics"><span aria-hidden="true">🇪🇪</span> <span data-i18n="r_baltics">Estonia, Latvia, Lithuania</span></button>
+                    <button type="button" class="region-btn" data-region="balkans"><span aria-hidden="true">🇭🇷</span> <span data-i18n="r_balkans">The Balkans</span></button>
+                    <button type="button" class="region-btn" data-region="greece"><span aria-hidden="true">🇬🇷</span> <span data-i18n="r_greece">Greece</span></button>
+                    <button type="button" class="region-btn" data-region="mediterranean"><span aria-hidden="true">🇮🇹</span> <span data-i18n="r_mediterranean">Italy, France, Spain, Portugal</span></button>
                 </div>
-                <div id="current-region-display" style="display:none;">
-                    <strong>Currently viewing:</strong> <span id="current-region-name"></span>
-                    <button id="change-region" type="button">Change region</button>
+                <div id="current-region-display" hidden>
+                    <p class="current-region"><span data-i18n="country_current">You chose:</span> <strong id="current-region-name"></strong></p>
+                    <button id="change-region" type="button" class="btn btn-outline" data-i18n="country_change">Pick another country</button>
                 </div>
+                <p class="lang-note" data-i18n="guide_en_note" hidden></p>
                 <div id="region-guide"></div>
             </div>
         </section>
 
-        <section class="section" id="roles">
+        <section class="section" id="roles" aria-labelledby="roles-title">
             <div class="card">
-                <h2>👤 Your situation</h2>
-                <p class="muted">Scenarios can filter to roles like students, professionals, or people still awaiting documentation.</p>
-                <div id="role-selection">
-                    <label><input type="radio" name="role" value="student"> 🎓 International student</label>
-                    <label><input type="radio" name="role" value="remote"> 💻 Remote worker</label>
-                    <label><input type="radio" name="role" value="spouse"> 👨‍👩‍👧 Partner / family arrival</label>
-                    <label><input type="radio" name="role" value="professional"> 💼 Working professional</label>
-                    <label><input type="radio" name="role" value="entrepreneur"> 🚀 Entrepreneur</label>
-                    <label><input type="radio" name="role" value="retiree"> 🌅 Retiree</label>
-                    <label><input type="radio" name="role" value="undocumented"> 📋 Awaiting documentation</label>
+                <p class="kicker" data-i18n="roles_kicker">About you</p>
+                <h2 id="roles-title" data-i18n="roles_h2">Who are you?</h2>
+                <p class="muted" data-i18n="roles_lead">This is optional. It picks the stories that fit you.</p>
+                <div id="role-selection" class="role-grid">
+                    <label><input type="radio" name="role" value="student"> <span data-i18n="role_student">Student</span></label>
+                    <label><input type="radio" name="role" value="remote"> <span data-i18n="role_remote">Remote worker</span></label>
+                    <label><input type="radio" name="role" value="spouse"> <span data-i18n="role_spouse">Partner or family</span></label>
+                    <label><input type="radio" name="role" value="professional"> <span data-i18n="role_professional">Worker</span></label>
+                    <label><input type="radio" name="role" value="entrepreneur"> <span data-i18n="role_entrepreneur">Business owner</span></label>
+                    <label><input type="radio" name="role" value="retiree"> <span data-i18n="role_retiree">Retired</span></label>
+                    <label><input type="radio" name="role" value="undocumented"> <span data-i18n="role_undocumented">Waiting for papers</span></label>
                 </div>
             </div>
         </section>
 
-        <section class="section" id="employment">
+        <section class="section" id="quizzes" aria-labelledby="quiz-title">
             <div class="card">
-                <h2>🛠️ Work & waiting time</h2>
-                <p>Legal status defines what work you may do. Within the law, mid‑2020s demand is often strong in care, logistics, trades, hospitality, and parts of tech - while credential recognition can lag.</p>
-                <h3>Use waiting time well</h3>
-                <ul>
-                    <li><strong>Language:</strong> free classes, library conversation groups, job-oriented vocabulary.</li>
-                    <li><strong>Proof of local activity:</strong> volunteering where legal, short courses, portfolio pieces.</li>
-                    <li><strong>Paper trail:</strong> scans of every letter, appointment, and payslip.</li>
-                    <li><strong>Scam resistance:</strong> no fees for “guaranteed jobs” or “guaranteed visas.”</li>
-                    <li><strong>Mental load:</strong> stable sleep and community reduce costly mistakes.</li>
-                </ul>
+                <p class="kicker" data-i18n="quiz_kicker">Check yourself</p>
+                <h2 id="quiz-title" data-i18n="quiz_h2">Quiz</h2>
+                <p class="muted" data-i18n="quiz_lead">Pick an answer. The reason shows right away. Your score stays on this device.</p>
+                <div id="quiz-list"></div>
             </div>
         </section>
 
-        <section class="section" id="quizzes">
-            <div class="card" id="quizzes-container">
-                <h2>📝 Interactive quizzes</h2>
-                <p class="muted">Answer to learn - explanations stay on screen. Progress saves in this browser/device.</p>
-            </div>
-        </section>
-
-        <section class="section" id="scenarios">
-            <div class="card" id="scenarios-container">
-                <h2>🎯 Scenario-based learning</h2>
-                <p class="muted">Flip cards for Do’s and Don’ts. Select a role above to personalize.</p>
-            </div>
-        </section>
-
-        <section class="section" id="progress">
+        <section class="section" id="scenarios" aria-labelledby="scenarios-title">
             <div class="card">
-                <h2>📊 My progress</h2>
+                <p class="kicker" data-i18n="sc_kicker">Real life</p>
+                <h2 id="scenarios-title" data-i18n="sc_h2">What would you do?</h2>
+                <p class="muted" data-i18n="sc_lead">Short stories with what to do and what not to do.</p>
+                <div id="scenario-list"></div>
+            </div>
+        </section>
+
+        <section class="section" id="progress" aria-labelledby="progress-title">
+            <div class="card">
+                <p class="kicker" data-i18n="pr_kicker">Your progress</p>
+                <h2 id="progress-title" data-i18n="pr_h2">How far you have come</h2>
                 <div id="progress-container"></div>
-                <p style="margin-top:1rem;">
-                    <button class="btn btn-outline" id="reset-progress" type="button">Reset progress</button>
-                </p>
+                <div class="button-row">
+                    <button class="btn btn-outline" id="generate-snapshot" type="button" data-i18n="pr_snapshot">Make a progress picture</button>
+                    <button class="btn btn-outline btn-danger" id="reset-progress" type="button" data-i18n="pr_reset">Start over</button>
+                </div>
+                <div id="snapshot-message" class="status-msg" role="status" aria-live="polite" hidden></div>
+                <canvas id="snapshot-canvas" width="800" height="400" hidden></canvas>
+                <p><button class="btn btn-outline" id="download-snapshot" type="button" hidden data-i18n="pr_download">Save the picture</button></p>
             </div>
         </section>
 
-        <section class="section" id="snapshot">
-            <div class="card">
-                <h2>📸 Cultural snapshot</h2>
-                <p class="muted">Generate a simple progress image you can save.</p>
-                <button class="btn btn-primary" id="generate-snapshot" type="button">Generate snapshot</button>
-                <div id="snapshot-message" role="status" aria-live="polite" style="display:none;margin:10px 0;color:#059669;font-weight:700;"></div>
-                <canvas id="snapshot-canvas" width="800" height="400" style="display:none;max-width:100%;margin-top:1rem;border-radius:12px;"></canvas>
-                <p><button class="btn btn-dark" id="download-snapshot" type="button" style="display:none;margin-top:0.75rem;">Download snapshot</button></p>
-            </div>
-        </section>
-
-        <section class="section" id="download">
+        <section class="section web-only" id="download" aria-labelledby="dl-title">
             <div class="download-band">
                 <div>
-                    <h2 style="margin:0;color:#fff;" data-i18n="dl_h2">Assimilate Pro for Android</h2>
-                    <p data-i18n="dl_p">Same content offline in a signed release APK - ideal when data is expensive or portals are flaky.</p>
+                    <h2 id="dl-title" data-i18n="dl_h2">Assimilate Pro on your phone</h2>
+                    <p data-i18n="dl_p">The same guide inside an Android app. It works with no internet.</p>
                 </div>
-                <div class="hero-actions">
-                    <a class="btn btn-secondary" id="apk-link" data-dl-link href="https://github.com/gilbertbouic/assimilate-pro/releases/latest" data-i18n="dl_apk">Download latest APK</a>
-                    <a class="btn btn-secondary" href="https://github.com/gilbertbouic/assimilate-pro" data-i18n="dl_source">View source</a>
+                <div class="button-row">
+                    <a class="btn btn-light" id="apk-link" href="https://github.com/gilbertbouic/assimilate-pro/releases/latest" rel="noopener" data-i18n="dl_apk">Download latest APK</a>
+                    <a class="btn btn-ghost" href="https://github.com/gilbertbouic/assimilate-pro" rel="noopener" data-i18n="dl_source">See the code</a>
                 </div>
-                <p class="dl-counter" data-dl-counter data-dl-product="assimilate" data-dl-seed="2438" aria-live="polite">2,438 downloads</p>
+                <p class="dl-hint" data-i18n="dl_hint">On the download page, tap the file that ends in .apk.</p>
             </div>
         </section>
     </main>
 
     <footer class="site-footer">
-        <p data-i18n-html="footer_meta"><a href="PRIVACY.md">Privacy</a> · Open source · Progress stored locally</p>
-        <p style="opacity:0.7;font-size:0.9rem;" data-i18n="footer_tag">Assimilate Pro · Cultural guide for newcomers to the West · 2026</p>
-      <div class="mkweli-parent-bar">
-    <a href="https://mkweli.tech/" rel="noopener noreferrer">
-      <img src="assets/mkweli-logo.png" alt="Mkweli" class="mkweli-parent-logo logo-light" height="24" />
-      <img src="assets/mkweli-logo-on-dark.png" alt="Mkweli" class="mkweli-parent-logo logo-dark" height="24" />
-      <span data-i18n="mkweli_product">A Mkweli product</span>
-    </a>
-  </div>
-</footer>
+        <p class="disclaimer" data-i18n="footer_disclaimer">This guide is not legal advice. Rules change. Check important steps on the official government website or with a trusted helper.</p>
+        <p data-i18n-html="footer_meta"><a href="PRIVACY.md">Privacy</a> · Your progress stays on this device</p>
+        <div class="mkweli-parent-bar">
+            <a href="https://mkweli.tech/" rel="noopener noreferrer">
+                <img src="assets/mkweli-logo-on-dark.png" alt="Mkweli" class="mkweli-parent-logo" height="24">
+                <span data-i18n="mkweli_product">A Mkweli product</span>
+            </a>
+        </div>
+    </footer>
 
     <script src="scripts/i18n.js" defer></script>
     <script src="scripts/core/data.core.js" defer></script>
     <script src="scripts/core/today-essentials.js" defer></script>
-    <script src="scripts/app.js" defer></script>
-    <script src="scripts/navigation.js" defer></script>
-    <script src="scripts/interactive.js" defer></script>
     <script src="scripts/regions/united_states.data.js" defer></script>
     <script src="scripts/regions/united_kingdom.data.js" defer></script>
     <script src="scripts/regions/central_europe.data.js" defer></script>
@@ -279,5 +208,9 @@
     <script src="scripts/scenarios/balkans.scenarios.js" defer></script>
     <script src="scripts/scenarios/greece.scenarios.js" defer></script>
     <script src="scripts/scenarios/mediterranean.scenarios.js" defer></script>
+    <script src="scripts/app.js" defer></script>
+    <script src="scripts/route.js" defer></script>
+    <script src="scripts/navigation.js" defer></script>
+    <script src="scripts/interactive.js" defer></script>
 </body>
 </html>

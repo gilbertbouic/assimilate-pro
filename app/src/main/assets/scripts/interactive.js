@@ -1,943 +1,568 @@
 /**
- * Cultural Assimilation Manual - Interactive Module
- * Handles all interactive features: quizzes, scenarios, progress tracking, and snapshot generation.
- * Refactored to use modular architecture with clear separation of concerns.
+ * Assimilate Pro - interactive parts: quizzes, real-life stories, progress, progress picture.
+ * Quizzes and stories follow the chosen country. Progress stays in localStorage on this device.
  */
-(function() {
+(function () {
     'use strict';
 
-       // PROGRESS STORE MODULE
-    // Responsible for loading, saving, and resetting user progress in localStorage
-   
-    /**
-     * ProgressStore - Manages user progress persistence in localStorage
-     * @namespace
-     */
+    const t = (key, vars) => (window.CAM_I18N ? window.CAM_I18N.t(key, vars) : key);
+    const currentRegion = () => {
+        if (window.CAM_APP && window.CAM_APP.getCurrentRegion()) return window.CAM_APP.getCurrentRegion();
+        try {
+            return localStorage.getItem('selectedRegion');
+        } catch (_) {
+            return null;
+        }
+    };
+
+    // ------------------------------------------------------------------
+    // Progress store
+    // ------------------------------------------------------------------
     const ProgressStore = {
         STORAGE_KEY: 'progress',
         ROLE_KEY: 'userRole',
 
-        /**
-         * Load progress from localStorage
-         * @returns {Object} Progress object with quizzes and scenarios
-         */
-        load: function() {
+        load() {
             try {
-                const stored = localStorage.getItem(this.STORAGE_KEY);
-                return stored ? JSON.parse(stored) : { quizzes: {}, scenarios: [] };
-            } catch (e) {
-                console.error('Error loading progress:', e);
-                return { quizzes: {}, scenarios: [] };
-            }
+                const stored = JSON.parse(localStorage.getItem(this.STORAGE_KEY) || 'null');
+                if (stored && typeof stored === 'object') {
+                    return {
+                        quizzes: stored.quizzes && typeof stored.quizzes === 'object' ? stored.quizzes : {},
+                        scenarios: Array.isArray(stored.scenarios) ? stored.scenarios : [],
+                        read: Array.isArray(stored.read) ? stored.read : []
+                    };
+                }
+            } catch (_) {}
+            return { quizzes: {}, scenarios: [], read: [] };
         },
 
-        /**
-         * Save progress to localStorage
-         * @param {Object} progress - Progress object to save
-         */
-        save: function(progress) {
+        save(progress) {
             try {
                 localStorage.setItem(this.STORAGE_KEY, JSON.stringify(progress));
-            } catch (e) {
-                console.error('Error saving progress:', e);
-            }
+            } catch (_) {}
         },
 
-        /**
-         * Reset all progress data
-         */
-        reset: function() {
+        reset() {
             try {
                 localStorage.removeItem(this.STORAGE_KEY);
                 localStorage.removeItem(this.ROLE_KEY);
-            } catch (e) {
-                console.error('Error resetting progress:', e);
+            } catch (_) {}
+        },
+
+        getUserRole() {
+            try {
+                return localStorage.getItem(this.ROLE_KEY);
+            } catch (_) {
+                return null;
             }
         },
 
-        /**
-         * Get saved user role
-         * @returns {string|null} User role or null
-         */
-        getUserRole: function() {
-            return localStorage.getItem(this.ROLE_KEY);
-        },
-
-        /**
-         * Save user role
-         * @param {string} role - User role to save
-         */
-        setUserRole: function(role) {
-            localStorage.setItem(this.ROLE_KEY, role);
+        setUserRole(role) {
+            try {
+                localStorage.setItem(this.ROLE_KEY, role);
+            } catch (_) {}
         }
     };
 
-    // ============================================================================
-    // DATA LOADER MODULE
-    // Abstracts data access to prepare for future JSON-based content loading
-    // ============================================================================
-    
-    /**
-     * DataLoader - Provides unified interface for accessing quiz and scenario data
-     * Currently loads from global JS variables, but can be extended to fetch from JSON
-     * @namespace
-     */
+    // ------------------------------------------------------------------
+    // Data access
+    // ------------------------------------------------------------------
     const DataLoader = {
-        /**
-         * Get all quizzes from the data source
-         * @returns {Object} Object containing all quiz data keyed by region
-         */
-        getAllQuizzes: function() {
-            // Use CAM_DATA namespace, fallback to global for backward compatibility
-            const culturalData = window.CAM_DATA ? window.CAM_DATA.culturalData : window.culturalData;
-            return culturalData && culturalData.quizzes ? culturalData.quizzes : {};
+        getAllQuizzes() {
+            const data = window.CAM_DATA ? window.CAM_DATA.culturalData : window.culturalData;
+            return data && data.quizzes ? data.quizzes : {};
         },
-
-        /**
-         * Get a specific quiz by region code
-         * @param {string} regionCode - Region code (e.g., "uk", "us", "ce")
-         * @returns {Object|null} Quiz object or null if not found
-         */
-        getQuizByRegion: function(regionCode) {
-            const quizzes = this.getAllQuizzes();
-            return quizzes[regionCode] || null;
-        },
-
-        /**
-         * Get all scenarios from the data source
-         * @returns {Object} Object containing all scenario data keyed by region
-         */
-        getAllScenarios: function() {
-            // Use CAM_SCENARIOS namespace, fallback to global for backward compatibility
+        getAllScenarios() {
             const scenarios = window.CAM_SCENARIOS ? window.CAM_SCENARIOS.scenarios : window.scenarios;
             return scenarios || {};
         },
-
-        /**
-         * Get scenarios for a specific region
-         * @param {string} regionCode - Region code (e.g., "uk", "us", "ce")
-         * @returns {Object} Object containing scenarios for the region keyed by category
-         */
-        getScenariosByRegion: function(regionCode) {
-            const scenarios = this.getAllScenarios();
-            return scenarios[regionCode] || {};
+        // Shared quiz first, then the chosen country.
+        getVisibleQuizzes() {
+            const all = this.getAllQuizzes();
+            const list = [];
+            if (all.today) list.push(all.today);
+            const region = currentRegion();
+            if (region && all[region]) list.push(all[region]);
+            return list;
         },
-
-        /**
-         * Get a specific scenario by region and category
-         * @param {string} regionCode - Region code (e.g., "uk", "us", "ce")
-         * @param {string} category - Category (e.g., "workplace", "social")
-         * @returns {Object|null} Scenario object or null if not found
-         */
-        getScenario: function(regionCode, category) {
-            const regionScenarios = this.getScenariosByRegion(regionCode);
-            return regionScenarios[category] || null;
+        getVisibleScenarios() {
+            const region = currentRegion();
+            if (!region) return null;
+            const set = this.getAllScenarios()[region] || {};
+            return Object.keys(set).map((k) => ({ key: `${region}:${k}`, scenario: set[k] }));
+        },
+        scenarioCount() {
+            const all = this.getAllScenarios();
+            return Object.keys(all).reduce((n, r) => n + Object.keys(all[r]).length, 0);
         }
     };
 
-    // ============================================================================
-    // QUIZ RENDERER MODULE
-    // Responsible for rendering quizzes, handling answer selection, and updating quiz progress
-    
-    /**
-     * QuizRenderer - Handles quiz display and interaction
-     * @namespace
-     */
+    function el(tag, cls, text) {
+        const node = document.createElement(tag);
+        if (cls) node.className = cls;
+        if (text != null) node.textContent = text;
+        return node;
+    }
+
+    // ------------------------------------------------------------------
+    // Quizzes
+    // ------------------------------------------------------------------
     const QuizRenderer = {
-        /**
-         * Initialize quiz renderer with required data and callbacks
-         * @param {Object} options - Configuration options
-         * @param {HTMLElement} options.container - Container element for quizzes
-         * @param {Object} options.progress - Progress object
-         * @param {Function} options.onProgressUpdate - Callback when progress updates
-         */
-        init: function(options) {
+        init(options) {
             this.container = options.container;
             this.progress = options.progress;
             this.onProgressUpdate = options.onProgressUpdate;
         },
 
-        /**
-         * Render all quizzes from cultural data
-         */
-        renderAll: function() {
+        renderAll() {
             if (!this.container) return;
-            
-            this.container.innerHTML = '<h2>📝 Interactive Quizzes</h2>';
-            
-            // Use DataLoader to get quiz data
-            const quizzes = DataLoader.getAllQuizzes();
-            
-            for (const key in quizzes) {
-                this.displayQuiz(quizzes[key]);
+            this.container.innerHTML = '';
+            DataLoader.getVisibleQuizzes().forEach((quiz) => this.displayQuiz(quiz));
+            if (!currentRegion()) {
+                this.container.appendChild(el('p', 'hint-box', t('quiz_pick_country')));
             }
         },
 
-        /**
-         * Display a single quiz
-         * @param {Object} quiz - Quiz object with title and questions
-         */
-        displayQuiz: function(quiz) {
-            if (!quiz || !quiz.questions || !quiz.questions.length) {
-                return;
-            }
-
-            const quizTitle = document.createElement('h3');
-            quizTitle.innerText = quiz.title;
-            this.container.appendChild(quizTitle);
-
-            // Initialize progress for this quiz if not exists
-            if (!this.progress.quizzes[quiz.title]) {
-                this.progress.quizzes[quiz.title] = { score: 0, total: quiz.questions.length };
-            }
+        displayQuiz(quiz) {
+            if (!quiz || !quiz.questions || !quiz.questions.length) return;
+            const block = el('div', 'quiz-block');
+            block.appendChild(el('h3', 'quiz-title', quiz.title));
 
             quiz.questions.forEach((question, index) => {
-                const questionElement = this.createQuestionElement(question, index, quiz);
-                this.container.appendChild(questionElement);
+                block.appendChild(this.createQuestionElement(question, index, quiz));
             });
+            this.container.appendChild(block);
         },
 
-        /**
-         * Create a question element with options and feedback
-         * @param {Object} question - Question object
-         * @param {number} index - Question index
-         * @param {Object} quiz - Parent quiz object
-         * @returns {HTMLElement} Question element
-         */
-        createQuestionElement: function(question, index, quiz) {
-            // Use fieldset for better accessibility
-            const questionElement = document.createElement('fieldset');
-            questionElement.classList.add('quiz-question');
-            
-            // Use legend for the question text
-            const legend = document.createElement('legend');
-            legend.innerText = `${index + 1}. ${question.question}`;
-            questionElement.appendChild(legend);
+        createQuestionElement(question, index, quiz) {
+            const fieldset = el('fieldset', 'quiz-question');
+            const legend = el('legend', null, `${index + 1}. ${question.question}`);
+            legend.id = `q-${quiz.id}-${index}`;
+            fieldset.appendChild(legend);
 
-            const optionsContainer = document.createElement('div');
-            optionsContainer.classList.add('quiz-options');
-            optionsContainer.setAttribute('role', 'radiogroup');
-            optionsContainer.setAttribute('aria-labelledby', `question-${quiz.id}-${index}-legend`);
-            legend.id = `question-${quiz.id}-${index}-legend`;
-
-            const questionName = `question-${index}-${quiz.id}`;
-
-            // Create option inputs with explicit labels
-            let optionIndex = 0;
-            for (const key in question.options) {
-                const optionId = `${questionName}-option-${key}`;
-                
-                const optionInput = document.createElement('input');
-                optionInput.type = 'radio';
-                optionInput.name = questionName;
-                optionInput.value = key;
-                optionInput.id = optionId;
-                optionInput.classList.add('quiz-radio-input');
-                
-                const optionLabel = document.createElement('label');
-                optionLabel.setAttribute('for', optionId);
-                optionLabel.classList.add('quiz-option-label');
-                optionLabel.innerText = question.options[key];
-                
-                const optionWrapper = document.createElement('div');
-                optionWrapper.classList.add('quiz-option');
-                optionWrapper.appendChild(optionInput);
-                optionWrapper.appendChild(optionLabel);
-                
-                optionsContainer.appendChild(optionWrapper);
-                optionIndex++;
-            }
-
-            questionElement.appendChild(optionsContainer);
-
-            // Feedback element with ARIA live region
-            const feedbackElement = document.createElement('div');
-            feedbackElement.classList.add('quiz-feedback');
-            feedbackElement.setAttribute('role', 'status');
-            feedbackElement.setAttribute('aria-live', 'polite');
-            feedbackElement.setAttribute('aria-atomic', 'true');
-            questionElement.appendChild(feedbackElement);
-
-            // Answer change handler
-            const self = this;
-            optionsContainer.addEventListener('change', (event) => {
-                self.handleAnswerSelection(event, question, quiz, feedbackElement);
+            const options = el('div', 'quiz-options');
+            const name = `q-${quiz.id}-${index}-answer`;
+            Object.keys(question.options).forEach((key) => {
+                const id = `${name}-${key}`;
+                const input = el('input', 'quiz-radio-input');
+                input.type = 'radio';
+                input.name = name;
+                input.value = key;
+                input.id = id;
+                const label = el('label', 'quiz-option-label');
+                label.setAttribute('for', id);
+                label.appendChild(el('span', 'opt-letter', key.toUpperCase()));
+                label.appendChild(el('span', 'opt-text', question.options[key]));
+                const wrap = el('div', 'quiz-option');
+                wrap.appendChild(input);
+                wrap.appendChild(label);
+                options.appendChild(wrap);
             });
+            fieldset.appendChild(options);
 
-            return questionElement;
+            const feedback = el('div', 'quiz-feedback');
+            feedback.setAttribute('role', 'status');
+            feedback.setAttribute('aria-live', 'polite');
+            fieldset.appendChild(feedback);
+
+            options.addEventListener('change', (event) => this.handleAnswer(event, question, quiz, feedback, index));
+            return fieldset;
         },
 
-        /**
-         * Handle answer selection and update feedback
-         * @param {Event} event - Change event
-         * @param {Object} question - Question object
-         * @param {Object} quiz - Quiz object
-         * @param {HTMLElement} feedbackElement - Feedback display element
-         */
-        handleAnswerSelection: function(event, question, quiz, feedbackElement) {
-            const selectedOption = event.target.value;
-            const previouslyCorrect = event.target.dataset.answeredCorrectly === 'true';
-
-            // Remove previous feedback classes
-            feedbackElement.classList.remove('correct', 'incorrect');
-
-            if (selectedOption === question.correct) {
-                // Add text-based cue and class for styling
-                feedbackElement.innerHTML = '<strong>✓ Correct!</strong> ' + question.explanation;
-                feedbackElement.classList.add('correct');
-                
-                if (!this.progress.quizzes[quiz.title]) {
-                    this.progress.quizzes[quiz.title] = { score: 0, total: 0 };
-                }
-                
-                if (!previouslyCorrect) {
-                    this.progress.quizzes[quiz.title].score++;
-                    event.target.dataset.answeredCorrectly = 'true';
-                }
+        handleAnswer(event, question, quiz, feedback, index) {
+            const chosen = event.target.value;
+            const record = this.progress.quizzes[quiz.title] || (this.progress.quizzes[quiz.title] = { score: 0, total: quiz.questions.length });
+            if (!record.right || typeof record.right !== 'object') record.right = {};
+            record.total = quiz.questions.length;
+            feedback.classList.remove('correct', 'incorrect');
+            feedback.innerHTML = '';
+            const strong = el('strong');
+            const why = el('span', null, ' ' + question.explanation);
+            const good = chosen === question.correct;
+            record.right[index] = good;
+            record.score = Object.keys(record.right).filter((k) => record.right[k]).length;
+            if (good) {
+                strong.textContent = t('quiz_right');
+                feedback.classList.add('correct');
             } else {
-                // Add text-based cue and class for styling
-                feedbackElement.innerHTML = `<strong>✗ Incorrect.</strong> The correct answer is ${question.correct.toUpperCase()}. ${question.explanation}`;
-                feedbackElement.classList.add('incorrect');
-                
-                if (previouslyCorrect) {
-                    this.progress.quizzes[quiz.title].score--;
-                    event.target.dataset.answeredCorrectly = 'false';
-                }
+                strong.textContent = t('quiz_wrong', { letter: question.correct.toUpperCase() });
+                feedback.classList.add('incorrect');
             }
-            
+            feedback.appendChild(strong);
+            feedback.appendChild(why);
             ProgressStore.save(this.progress);
-            if (this.onProgressUpdate) {
-                this.onProgressUpdate();
-            }
+            if (this.onProgressUpdate) this.onProgressUpdate();
         }
     };
 
-    // SCENARIO RENDERER MODULE
-    // Responsible for rendering scenarios with flip cards and updating scenario completion
-    
-  /**
-     * ScenarioRenderer - Handles scenario display and interaction
-     * @namespace
-     */
+    // ------------------------------------------------------------------
+    // Real-life stories (scenarios)
+    // ------------------------------------------------------------------
     const ScenarioRenderer = {
-        /**
-         * Initialize scenario renderer
-         * @param {Object} options - Configuration options
-         * @param {HTMLElement} options.container - Container element for scenarios
-         * @param {Object} options.progress - Progress object
-         * @param {Function} options.onProgressUpdate - Callback when progress updates
-         */
-        init: function(options) {
+        init(options) {
             this.container = options.container;
             this.progress = options.progress;
             this.onProgressUpdate = options.onProgressUpdate;
         },
 
-        /**
-         * Render all scenarios based on user role
-         */
-        renderAll: function() {
+        renderAll() {
             if (!this.container) return;
-            
-            this.container.innerHTML = '<h2>🎯 Scenario-Based Learning</h2>';
-            const userRole = ProgressStore.getUserRole();
-
-            // Use DataLoader to get scenario data
-            const scenarios = DataLoader.getAllScenarios();
-
-            if (scenarios) {
-                for (const countryCode in scenarios) {
-                    const countryScenarios = scenarios[countryCode];
-                    for (const scenarioKey in countryScenarios) {
-                        const scenario = countryScenarios[scenarioKey];
-                        // Filter by role if set
-                        if (userRole && scenario.roles && !scenario.roles.includes(userRole)) {
-                            continue;
-                        }
-                        this.displayScenario(scenario);
-                    }
-                }
+            this.container.innerHTML = '';
+            const items = DataLoader.getVisibleScenarios();
+            if (!items) {
+                this.container.appendChild(el('p', 'hint-box', t('sc_pick_country')));
+                return;
             }
+            const role = ProgressStore.getUserRole();
+            const shown = items.filter(({ scenario }) => !(role && scenario.roles && !scenario.roles.includes(role)));
+            if (!shown.length) {
+                this.container.appendChild(el('p', 'hint-box', t('sc_none')));
+                return;
+            }
+            shown.forEach(({ key, scenario }) => this.displayScenario(key, scenario));
         },
 
-        /**
-         * Display a single scenario
-         * @param {Object} scenario - Scenario object with title and steps
-         */
-        displayScenario: function(scenario) {
-            // Track scenario completion
-            if (!this.progress.scenarios.includes(scenario.title)) {
-                this.progress.scenarios.push(scenario.title);
+        displayScenario(key, scenario) {
+            const card = el('article', 'scenario');
+            card.appendChild(el('h3', 'scenario-title', scenario.title));
+            (scenario.steps || []).forEach((step) => card.appendChild(this.createStep(step)));
+
+            const read = this.progress.scenarios.includes(scenario.title);
+            const btn = el('button', 'btn btn-outline btn-read' + (read ? ' is-read' : ''), read ? t('sc_read_done') : t('sc_read'));
+            btn.type = 'button';
+            btn.setAttribute('aria-pressed', String(read));
+            btn.addEventListener('click', () => {
+                const idx = this.progress.scenarios.indexOf(scenario.title);
+                if (idx === -1) this.progress.scenarios.push(scenario.title);
+                else this.progress.scenarios.splice(idx, 1);
+                const now = idx === -1;
+                btn.textContent = now ? t('sc_read_done') : t('sc_read');
+                btn.setAttribute('aria-pressed', String(now));
+                btn.classList.toggle('is-read', now);
                 ProgressStore.save(this.progress);
-                if (this.onProgressUpdate) {
-                    this.onProgressUpdate();
-                }
-            }
-
-            const scenarioTitle = document.createElement('h3');
-            scenarioTitle.innerText = scenario.title;
-            this.container.appendChild(scenarioTitle);
-
-            scenario.steps.forEach(step => {
-                const stepElement = this.createStepElement(step);
-                this.container.appendChild(stepElement);
+                if (this.onProgressUpdate) this.onProgressUpdate();
             });
+            card.appendChild(btn);
+            this.container.appendChild(card);
         },
 
-        /**
-         * Create a step element with flip cards
-         * @param {Object} step - Step object with title, description, dos, and donts
-         * @returns {HTMLElement} Step element
-         */
-        createStepElement: function(step) {
-            const stepElement = document.createElement('div');
-            stepElement.classList.add('scenario-step');
-
-            const stepTitle = document.createElement('h4');
-            stepTitle.innerText = step.title;
-            stepElement.appendChild(stepTitle);
-
-            const stepDescription = document.createElement('p');
-            stepDescription.innerText = step.description;
-            stepElement.appendChild(stepDescription);
-
-            const cardsContainer = document.createElement('div');
-            cardsContainer.classList.add('scenario-cards');
-
-            const dosCard = this.createFlipCard('Do\'s', step.dos);
-            const dontsCard = this.createFlipCard('Don\'ts', step.donts);
-
-            cardsContainer.appendChild(dosCard);
-            cardsContainer.appendChild(dontsCard);
-            stepElement.appendChild(cardsContainer);
-
-            return stepElement;
+        createStep(step) {
+            const wrap = el('div', 'scenario-step');
+            wrap.appendChild(el('h4', null, step.title));
+            if (step.description) wrap.appendChild(el('p', null, step.description));
+            const cols = el('div', 'do-dont');
+            cols.appendChild(this.list('do', t('sc_do'), step.dos || []));
+            cols.appendChild(this.list('dont', t('sc_dont'), step.donts || []));
+            wrap.appendChild(cols);
+            return wrap;
         },
 
-        /**
-         * Create a flip card element
-         * @param {string} title - Card title
-         * @param {Array<string>} items - List of items to display
-         * @returns {HTMLElement} Flip card element
-         */
-        createFlipCard: function(title, items) {
-            const card = document.createElement('div');
-            card.classList.add('flip-card');
-            card.setAttribute('role', 'button');
-            card.setAttribute('tabindex', '0');
-            card.setAttribute('aria-label', `Flip card: ${title}. Press Enter or Space to flip.`);
-
-            const cardInner = document.createElement('div');
-            cardInner.classList.add('flip-card-inner');
-
-            const cardFront = document.createElement('div');
-            cardFront.classList.add('flip-card-front');
-            const frontTitle = document.createElement('h5');
-            frontTitle.innerText = title;
-            cardFront.appendChild(frontTitle);
-
-            const cardBack = document.createElement('div');
-            cardBack.classList.add('flip-card-back');
-            cardBack.setAttribute('aria-hidden', 'true');
-            const backList = document.createElement('ul');
-            items.forEach(item => {
-                const listItem = document.createElement('li');
-                listItem.innerText = item;
-                backList.appendChild(listItem);
-            });
-            cardBack.appendChild(backList);
-
-            cardInner.appendChild(cardFront);
-            cardInner.appendChild(cardBack);
-            card.appendChild(cardInner);
-
-            // Add click and keyboard support for flipping
-            const toggleFlip = () => {
-                const isFlipped = card.classList.toggle('flipped');
-                cardBack.setAttribute('aria-hidden', !isFlipped);
-                card.setAttribute('aria-expanded', isFlipped);
-            };
-
-            card.addEventListener('click', toggleFlip);
-            card.addEventListener('keydown', (event) => {
-                if (event.key === 'Enter' || event.key === ' ') {
-                    event.preventDefault();
-                    toggleFlip();
-                }
-            });
-
-            return card;
+        list(kind, title, items) {
+            const box = el('div', `dd dd-${kind}`);
+            const h = el('h5');
+            const mark = el('span', 'dd-mark', kind === 'do' ? '✓' : '✗');
+            mark.setAttribute('aria-hidden', 'true');
+            h.appendChild(mark);
+            h.appendChild(document.createTextNode(' ' + title));
+            box.appendChild(h);
+            const ul = el('ul');
+            items.forEach((item) => ul.appendChild(el('li', null, item)));
+            box.appendChild(ul);
+            return box;
         }
     };
 
-    // ============================================================================
-    // SNAPSHOT GENERATOR MODULE
-    // Responsible for rendering progress snapshot to canvas
-    // ============================================================================
-
-    /**
-     * SnapshotGenerator - Generates visual progress snapshots
-     * @namespace
-     */
-    const SnapshotGenerator = {
-        /**
-         * Initialize snapshot generator
-         * @param {Object} options - Configuration options
-         * @param {HTMLCanvasElement} options.canvas - Canvas element
-         * @param {Object} options.progress - Progress object
-         * @param {Function} options.calculateProgress - Function to calculate overall progress
-         */
-        init: function(options) {
-            this.canvas = options.canvas;
+    // ------------------------------------------------------------------
+    // Progress
+    // ------------------------------------------------------------------
+    const ProgressRenderer = {
+        init(options) {
+            this.container = options.container;
             this.progress = options.progress;
+        },
+
+        knownQuizTitles() {
+            const all = DataLoader.getAllQuizzes();
+            return Object.keys(all).map((k) => all[k].title);
+        },
+
+        calculateOverallProgress() {
+            let score = 0;
+            let possible = 0;
+            const all = DataLoader.getAllQuizzes();
+            Object.keys(all).forEach((k) => {
+                const record = this.progress.quizzes[all[k].title];
+                if (record) {
+                    score += record.score;
+                    possible += all[k].questions.length;
+                }
+            });
+            const routeTotal = window.CAM_ROUTE ? window.CAM_ROUTE.stops.length : 0;
+            const routeDone = window.CAM_ROUTE ? window.CAM_ROUTE.getDone().length : 0;
+            score += routeDone;
+            possible += routeTotal;
+            const knownScenarios = this.progress.scenarios.length;
+            score += knownScenarios;
+            possible += DataLoader.scenarioCount();
+            return possible > 0 ? Math.min(100, (score / possible) * 100) : 0;
+        },
+
+        bar(label, percent) {
+            const row = el('div', 'progress-row');
+            const top = el('div', 'progress-label');
+            top.appendChild(el('span', null, label));
+            top.appendChild(el('strong', null, `${Math.round(percent)}%`));
+            row.appendChild(top);
+            const track = el('div', 'progress-bar-container');
+            track.setAttribute('role', 'progressbar');
+            track.setAttribute('aria-label', label);
+            track.setAttribute('aria-valuemin', '0');
+            track.setAttribute('aria-valuemax', '100');
+            track.setAttribute('aria-valuenow', String(Math.round(percent)));
+            const fill = el('div', 'progress-bar');
+            fill.style.width = `${percent}%`;
+            track.appendChild(fill);
+            row.appendChild(track);
+            return row;
+        },
+
+        render() {
+            if (!this.container) return;
+            this.container.innerHTML = '';
+            const overall = this.calculateOverallProgress();
+            this.container.appendChild(this.bar(t('pr_overall'), overall));
+
+            if (window.CAM_ROUTE) {
+                const total = window.CAM_ROUTE.stops.length;
+                const doneCount = window.CAM_ROUTE.getDone().length;
+                this.container.appendChild(this.bar(`${t('pr_stops')} (${doneCount}/${total})`, (doneCount / total) * 100));
+            }
+
+            const quizBox = el('div', 'progress-group');
+            quizBox.appendChild(el('h3', null, t('pr_quizzes')));
+            const known = this.knownQuizTitles();
+            const attempted = known.filter((title) => this.progress.quizzes[title] && this.progress.quizzes[title].total);
+            if (attempted.length) {
+                attempted.forEach((title) => {
+                    const q = this.progress.quizzes[title];
+                    quizBox.appendChild(this.bar(`${title} (${q.score}/${q.total})`, (q.score / q.total) * 100));
+                });
+            } else {
+                quizBox.appendChild(el('p', 'muted', t('pr_no_quiz')));
+            }
+            this.container.appendChild(quizBox);
+
+            const scBox = el('div', 'progress-group');
+            scBox.appendChild(el('h3', null, t('pr_scenarios')));
+            if (this.progress.scenarios.length) {
+                const ul = el('ul');
+                this.progress.scenarios.forEach((s) => ul.appendChild(el('li', null, s)));
+                scBox.appendChild(ul);
+            } else {
+                scBox.appendChild(el('p', 'muted', t('pr_no_sc')));
+            }
+            this.container.appendChild(scBox);
+
+            const badgeBox = el('div', 'progress-group');
+            badgeBox.appendChild(el('h3', null, t('pr_badges')));
+            const badges = this.badges();
+            if (badges.length) {
+                const row = el('div', 'badges');
+                badges.forEach((b) => row.appendChild(el('span', 'badge', b)));
+                badgeBox.appendChild(row);
+            } else {
+                badgeBox.appendChild(el('p', 'muted', t('pr_no_badges')));
+            }
+            this.container.appendChild(badgeBox);
+        },
+
+        badges() {
+            const list = [];
+            if (window.CAM_ROUTE && window.CAM_ROUTE.getDone().length === window.CAM_ROUTE.stops.length) {
+                list.push('🚉 Route complete');
+            }
+            const all = DataLoader.getAllQuizzes();
+            const keys = Object.keys(all);
+            if (keys.length && keys.every((k) => {
+                const r = this.progress.quizzes[all[k].title];
+                return r && r.score >= all[k].questions.length;
+            })) {
+                list.push('🏆 Quiz master');
+            }
+            if (this.progress.scenarios.length >= DataLoader.scenarioCount() && DataLoader.scenarioCount() > 0) {
+                list.push('🥇 Story expert');
+            }
+            return list;
+        }
+    };
+
+    // ------------------------------------------------------------------
+    // Progress picture
+    // ------------------------------------------------------------------
+    const SnapshotGenerator = {
+        init(options) {
+            this.canvas = options.canvas;
             this.calculateProgress = options.calculateProgress;
         },
 
-        /**
-         * Generate and render snapshot to canvas
-         */
-        generate: function() {
+        async generate() {
             if (!this.canvas) return;
-            
+            try {
+                if (document.fonts && document.fonts.load) {
+                    await document.fonts.load('600 40px Lexend');
+                }
+            } catch (_) {}
             const ctx = this.canvas.getContext('2d');
-            
-            // Background gradient
-            const gradient = ctx.createLinearGradient(0, 0, 800, 400);
-            gradient.addColorStop(0, '#4A90E2');
-            gradient.addColorStop(1, '#50E3C2');
-            ctx.fillStyle = gradient;
-            ctx.fillRect(0, 0, 800, 400);
-            
-            // Title
-            ctx.fillStyle = 'white';
-            ctx.font = 'bold 40px Poppins';
-            ctx.textAlign = 'center';
-            ctx.fillText('My Cultural Snapshot', 400, 60);
+            const W = 800;
+            const H = 400;
+            ctx.fillStyle = '#FFFFFF';
+            ctx.fillRect(0, 0, W, H);
+            ctx.fillStyle = '#1F2328';
+            ctx.fillRect(0, 0, W, 72);
 
-            // Overall progress
-            const overallProgress = this.calculateProgress();
-            ctx.font = '60px Poppins';
-            ctx.fillText(`${Math.round(overallProgress)}%`, 400, 150);
-            ctx.font = '20px Poppins';
-            ctx.fillText('Overall Progress', 400, 180);
+            ctx.fillStyle = '#FFFFFF';
+            ctx.font = '600 28px Lexend, sans-serif';
+            ctx.textAlign = 'left';
+            ctx.fillText('Assimilate Pro', 32, 46);
 
-            // Cultural title based on progress
-            const culturalTitle = this.getCulturalTitle(overallProgress);
-            ctx.font = 'bold 30px Poppins';
-            ctx.fillText(culturalTitle, 400, 250);
+            const overall = Math.round(this.calculateProgress());
+            ctx.fillStyle = '#1F2328';
+            ctx.font = '600 72px Lexend, sans-serif';
+            ctx.fillText(`${overall}%`, 32, 180);
+            ctx.font = '400 24px Lexend, sans-serif';
+            ctx.fillText(t('pr_overall'), 32, 216);
 
-            // Badges
-            let badgeText = '';
-            if (this.progress.badges && this.progress.badges.length > 0) {
-                badgeText = this.progress.badges.join(' ');
+            const colors = ['#0057B8', '#00875A', '#6A4C93', '#E07A00', '#D62828'];
+            const done = window.CAM_ROUTE ? window.CAM_ROUTE.getDone() : [];
+            const stops = window.CAM_ROUTE ? window.CAM_ROUTE.stops : [];
+            const y = 300;
+            ctx.lineWidth = 12;
+            for (let i = 0; i < colors.length - 1; i++) {
+                ctx.strokeStyle = colors[i];
+                ctx.beginPath();
+                ctx.moveTo(80 + i * 160, y);
+                ctx.lineTo(80 + (i + 1) * 160, y);
+                ctx.stroke();
             }
-            ctx.font = '20px Poppins';
-            ctx.fillText(badgeText, 400, 300);
-
-            // Footer
-            ctx.font = '16px Poppins';
-            ctx.fillText('Generated by the Cultural Assimilation Manual', 400, 370);
-        },
-
-        /**
-         * Get cultural title based on progress percentage
-         * @param {number} progress - Progress percentage (0-100)
-         * @returns {string} Cultural title
-         */
-        getCulturalTitle: function(progress) {
-            if (progress > 90) return 'Cultural Guru';
-            if (progress > 70) return 'Cultural Expert';
-            if (progress > 50) return 'Cultural Adept';
-            if (progress > 20) return 'Cultural Explorer';
-            return 'Cultural Novice';
+            colors.forEach((c, i) => {
+                const x = 80 + i * 160;
+                const finished = stops[i] && done.includes(stops[i].id);
+                ctx.beginPath();
+                ctx.arc(x, y, 30, 0, Math.PI * 2);
+                ctx.fillStyle = finished ? c : '#FFFFFF';
+                ctx.fill();
+                ctx.lineWidth = 8;
+                ctx.strokeStyle = c;
+                ctx.stroke();
+                ctx.fillStyle = finished ? (c === '#E07A00' ? '#1F2328' : '#FFFFFF') : '#1F2328';
+                ctx.font = '600 26px Lexend, sans-serif';
+                ctx.textAlign = 'center';
+                ctx.fillText(finished ? '✓' : String(i + 1), x, y + 9);
+            });
+            ctx.textAlign = 'left';
+            ctx.fillStyle = '#56606B';
+            ctx.font = '400 18px Lexend, sans-serif';
+            ctx.fillText('assimilate-pro.mkweli.tech', 32, 380);
         }
     };
 
-    // ============================================================================
-    // PROGRESS RENDERER
-    // Responsible for rendering progress bars and badges
-    // ============================================================================
-
-    /**
-     * ProgressRenderer - Handles progress display
-     * @namespace
-     */
-    const ProgressRenderer = {
-        /**
-         * Initialize progress renderer
-         * @param {Object} options - Configuration options
-         * @param {HTMLElement} options.container - Container element
-         * @param {Object} options.progress - Progress object
-         */
-        init: function(options) {
-            this.container = options.container;
-            this.progress = options.progress;
-        },
-
-        /**
-         * Render all progress information
-         */
-        render: function() {
-            if (!this.container) return;
-            
-            this.container.innerHTML = '';
-
-            const overallProgress = this.calculateOverallProgress();
-            this.renderOverallProgress(overallProgress);
-            this.renderQuizProgress();
-            this.renderScenarioProgress();
-            this.renderBadges();
-        },
-
-        /**
-         * Calculate overall progress percentage
-         * @returns {number} Progress percentage (0-100)
-         */
-        calculateOverallProgress: function() {
-            let totalScore = 0;
-            let totalPossible = 0;
-
-            // Use DataLoader to get quiz data
-            const quizzes = DataLoader.getAllQuizzes();
-            
-            for (const key in quizzes) {
-                const quizTitle = quizzes[key].title;
-                if (this.progress.quizzes[quizTitle]) {
-                    totalScore += this.progress.quizzes[quizTitle].score;
-                    totalPossible += this.progress.quizzes[quizTitle].total;
-                }
-            }
-
-            // Use DataLoader to get scenario data
-            const scenarios = DataLoader.getAllScenarios();
-            
-            if (scenarios) {
-                let scenarioCount = 0;
-                for (const countryCode in scenarios) {
-                    scenarioCount += Object.keys(scenarios[countryCode]).length;
-                }
-                totalScore += this.progress.scenarios.length;
-                totalPossible += scenarioCount;
-            }
-
-            return totalPossible > 0 ? (totalScore / totalPossible) * 100 : 0;
-        },
-
-        /**
-         * Render overall progress bar
-         * @param {number} progress - Progress percentage
-         */
-        renderOverallProgress: function(progress) {
-            const container = document.createElement('div');
-            container.classList.add('progress-bar-container');
-            const bar = document.createElement('div');
-            bar.classList.add('progress-bar');
-            bar.style.width = `${progress}%`;
-            bar.innerText = `${Math.round(progress)}%`;
-            container.appendChild(bar);
-            this.container.appendChild(container);
-        },
-
-        /**
-         * Render quiz progress section
-         */
-        renderQuizProgress: function() {
-            const quizProgress = document.createElement('div');
-            quizProgress.innerHTML = '<h4>Quiz Scores</h4>';
-            
-            if (Object.keys(this.progress.quizzes).length > 0) {
-                for (const quizTitle in this.progress.quizzes) {
-                    const quiz = this.progress.quizzes[quizTitle];
-                    const percentage = (quiz.score / quiz.total) * 100;
-                    const progressBarContainer = document.createElement('div');
-                    progressBarContainer.classList.add('progress-bar-container');
-                    const progressBar = document.createElement('div');
-                    progressBar.classList.add('progress-bar');
-                    progressBar.style.width = `${percentage}%`;
-                    progressBar.innerText = `${Math.round(percentage)}%`;
-                    quizProgress.appendChild(document.createTextNode(quizTitle));
-                    progressBarContainer.appendChild(progressBar);
-                    quizProgress.appendChild(progressBarContainer);
-                }
-            } else {
-                quizProgress.innerHTML += '<p>No quizzes attempted yet.</p>';
-            }
-
-            this.container.appendChild(quizProgress);
-        },
-
-        /**
-         * Render completed scenarios section
-         */
-        renderScenarioProgress: function() {
-            const scenarioProgress = document.createElement('div');
-            scenarioProgress.innerHTML = '<h4>Completed Scenarios</h4>';
-            
-            if (this.progress.scenarios.length > 0) {
-                const list = document.createElement('ul');
-                this.progress.scenarios.forEach(scenarioTitle => {
-                    const listItem = document.createElement('li');
-                    listItem.innerText = scenarioTitle;
-                    list.appendChild(listItem);
-                });
-                scenarioProgress.appendChild(list);
-            } else {
-                scenarioProgress.innerHTML += '<p>No scenarios completed yet.</p>';
-            }
-
-            this.container.appendChild(scenarioProgress);
-        },
-
-        /**
-         * Render badges section
-         */
-        renderBadges: function() {
-            const badgesContainer = document.createElement('div');
-            badgesContainer.innerHTML = '<h4>Badges</h4>';
-
-            let allQuizzesCompleted = true;
-            // Use DataLoader to get quiz data
-            const quizzes = DataLoader.getAllQuizzes();
-            
-            for (const key in quizzes) {
-                const quizTitle = quizzes[key].title;
-                if (!this.progress.quizzes[quizTitle] || 
-                    this.progress.quizzes[quizTitle].score < this.progress.quizzes[quizTitle].total) {
-                    allQuizzesCompleted = false;
-                    break;
-                }
-            }
-
-            let allScenariosCompleted = true;
-            // Use DataLoader to get scenario data
-            const scenarios = DataLoader.getAllScenarios();
-            
-            if (scenarios) {
-                let scenarioCount = 0;
-                for (const countryCode in scenarios) {
-                    scenarioCount += Object.keys(scenarios[countryCode]).length;
-                }
-                if (this.progress.scenarios.length < scenarioCount) {
-                    allScenariosCompleted = false;
-                }
-            }
-
-            if (allQuizzesCompleted) {
-                const quizBadge = document.createElement('span');
-                quizBadge.innerText = '🏆 Quiz Master';
-                badgesContainer.appendChild(quizBadge);
-            }
-
-            if (allScenariosCompleted) {
-                const scenarioBadge = document.createElement('span');
-                scenarioBadge.innerText = '🥇 Scenario Expert';
-                badgesContainer.appendChild(scenarioBadge);
-            }
-
-            if (!allQuizzesCompleted && !allScenariosCompleted) {
-                badgesContainer.innerHTML += '<p>No badges earned yet.</p>';
-            }
-
-            this.container.appendChild(badgesContainer);
-        }
-    };
-
-    // ============================================================================
-    // MAIN INITIALIZATION
-    // Ties everything together when DOM is ready
-    // Implements lazy rendering for improved performance
-    // ============================================================================
-
+    // ------------------------------------------------------------------
+    // Start
+    // ------------------------------------------------------------------
     document.addEventListener('DOMContentLoaded', () => {
-        // Get DOM elements
-        const quizContainer = document.querySelector('#quizzes');
-        const scenariosContainer = document.querySelector('#scenarios');
-        const roleSelectionContainer = document.querySelector('#role-selection');
-        const progressContainer = document.querySelector('#progress-container');
-        const resetButton = document.querySelector('#reset-progress');
-        const generateSnapshotButton = document.querySelector('#generate-snapshot');
-        const snapshotCanvas = document.querySelector('#snapshot-canvas');
-        const snapshotMessage = document.querySelector('#snapshot-message');
-        const downloadSnapshotButton = document.querySelector('#download-snapshot');
+        const quizContainer = document.getElementById('quiz-list');
+        const scenarioContainer = document.getElementById('scenario-list');
+        const roleSelection = document.getElementById('role-selection');
+        const progressContainer = document.getElementById('progress-container');
+        const resetButton = document.getElementById('reset-progress');
+        const snapshotButton = document.getElementById('generate-snapshot');
+        const snapshotCanvas = document.getElementById('snapshot-canvas');
+        const snapshotMessage = document.getElementById('snapshot-message');
+        const downloadButton = document.getElementById('download-snapshot');
 
-        // Load initial progress
         let progress = ProgressStore.load();
+        const refresh = () => ProgressRenderer.render();
 
-        // Track whether sections have been initialized
-        let quizzesInitialized = false;
-        let scenariosInitialized = false;
-
-        // Initialize all modules
-        QuizRenderer.init({
-            container: quizContainer,
-            progress: progress,
-            onProgressUpdate: () => ProgressRenderer.render()
-        });
-
-        ScenarioRenderer.init({
-            container: scenariosContainer,
-            progress: progress,
-            onProgressUpdate: () => ProgressRenderer.render()
-        });
-
-        ProgressRenderer.init({
-            container: progressContainer,
-            progress: progress
-        });
-
+        QuizRenderer.init({ container: quizContainer, progress, onProgressUpdate: refresh });
+        ScenarioRenderer.init({ container: scenarioContainer, progress, onProgressUpdate: refresh });
+        ProgressRenderer.init({ container: progressContainer, progress });
         SnapshotGenerator.init({
             canvas: snapshotCanvas,
-            progress: progress,
             calculateProgress: () => ProgressRenderer.calculateOverallProgress()
         });
 
-        // Lazy rendering: Initialize quizzes on first interaction
-        const initializeQuizzes = () => {
-            if (!quizzesInitialized && quizContainer) {
-                QuizRenderer.renderAll();
-                quizzesInitialized = true;
-            }
+        const renderLists = () => {
+            QuizRenderer.renderAll();
+            ScenarioRenderer.renderAll();
+            ProgressRenderer.render();
         };
 
-        // Lazy rendering: Initialize scenarios on first interaction
-        const initializeScenarios = () => {
-            if (!scenariosInitialized && scenariosContainer) {
-                ScenarioRenderer.renderAll();
-                scenariosInitialized = true;
-            }
-        };
+        window.addEventListener('regionSelected', renderLists);
+        window.addEventListener('routeProgress', refresh);
+        document.addEventListener('mkweli-langchange', renderLists);
 
-        // Set up intersection observer for lazy loading sections
-        if ('IntersectionObserver' in window) {
-            const sectionObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        if (entry.target.id === 'quizzes') {
-                            initializeQuizzes();
-                            sectionObserver.unobserve(entry.target);
-                        } else if (entry.target.id === 'scenarios') {
-                            initializeScenarios();
-                            sectionObserver.unobserve(entry.target);
-                        }
-                    }
-                });
-            }, { rootMargin: '50px' });
-
-            if (quizContainer) sectionObserver.observe(quizContainer);
-            if (scenariosContainer) sectionObserver.observe(scenariosContainer);
-        } else {
-            // Fallback for browsers without IntersectionObserver
-            initializeQuizzes();
-            initializeScenarios();
-        }
-
-        // Event handlers
-        if (roleSelectionContainer) {
-            roleSelectionContainer.addEventListener('change', (event) => {
-                const selectedRole = event.target.value;
-                ProgressStore.setUserRole(selectedRole);
-                initializeScenarios(); // Ensure scenarios are loaded before re-rendering
+        if (roleSelection) {
+            roleSelection.addEventListener('change', (event) => {
+                ProgressStore.setUserRole(event.target.value);
                 ScenarioRenderer.renderAll();
             });
+            const savedRole = ProgressStore.getUserRole();
+            if (savedRole) {
+                const radio = roleSelection.querySelector(`input[name="role"][value="${CSS.escape(savedRole)}"]`);
+                if (radio) radio.checked = true;
+            }
         }
 
         if (resetButton) {
             resetButton.addEventListener('click', () => {
+                if (!window.confirm(t('pr_reset_confirm'))) return;
                 ProgressStore.reset();
-                progress = { quizzes: {}, scenarios: [] };
-                
-                // Update all modules with fresh progress
+                progress = { quizzes: {}, scenarios: [], read: [] };
                 QuizRenderer.progress = progress;
                 ScenarioRenderer.progress = progress;
                 ProgressRenderer.progress = progress;
-                SnapshotGenerator.progress = progress;
-                
-                // Clear role selection
-                const checkedRadio = document.querySelector('input[name="role"]:checked');
-                if (checkedRadio) {
-                    checkedRadio.checked = false;
-                }
-                
-                // Re-render everything
-                initializeQuizzes();
-                initializeScenarios();
-                ProgressRenderer.render();
-                
-                // Hide snapshot and message
-                if (snapshotCanvas) snapshotCanvas.style.display = 'none';
-                if (snapshotMessage) snapshotMessage.style.display = 'none';
-                if (downloadSnapshotButton) downloadSnapshotButton.style.display = 'none';
+                const checked = document.querySelector('input[name="role"]:checked');
+                if (checked) checked.checked = false;
+                if (window.CAM_ROUTE) window.CAM_ROUTE.reset();
+                renderLists();
+                if (snapshotCanvas) snapshotCanvas.hidden = true;
+                if (snapshotMessage) snapshotMessage.hidden = true;
+                if (downloadButton) downloadButton.hidden = true;
             });
         }
 
-        if (generateSnapshotButton) {
-            generateSnapshotButton.addEventListener('click', () => {
-                SnapshotGenerator.generate();
-                
-                // Show canvas and success message
-                if (snapshotCanvas) {
-                    snapshotCanvas.style.display = 'block';
-                }
-                
+        if (snapshotButton) {
+            snapshotButton.addEventListener('click', async () => {
+                await SnapshotGenerator.generate();
+                if (snapshotCanvas) snapshotCanvas.hidden = false;
                 if (snapshotMessage) {
-                    snapshotMessage.textContent = '✓ Snapshot generated! Right-click or long-press the image to save, or use the Download button below.';
-                    snapshotMessage.style.display = 'block';
+                    snapshotMessage.className = 'status-msg ok';
+                    snapshotMessage.textContent = t('pr_snap_ready');
+                    snapshotMessage.hidden = false;
                 }
-                
-                if (downloadSnapshotButton) {
-                    downloadSnapshotButton.style.display = 'inline-block';
-                }
+                if (downloadButton) downloadButton.hidden = false;
             });
         }
 
-        if (downloadSnapshotButton && snapshotCanvas) {
-            downloadSnapshotButton.addEventListener('click', () => {
+        if (downloadButton && snapshotCanvas) {
+            downloadButton.addEventListener('click', () => {
                 try {
-                    // Convert canvas to data URL
-                    const dataURL = snapshotCanvas.toDataURL('image/png');
-                    
-                    // Create a temporary link element
                     const link = document.createElement('a');
-                    link.download = `cultural-snapshot-${Date.now()}.png`;
-                    link.href = dataURL;
-                    
-                    // Trigger download
+                    link.download = `assimilate-pro-progress-${Date.now()}.png`;
+                    link.href = snapshotCanvas.toDataURL('image/png');
                     document.body.appendChild(link);
                     link.click();
                     document.body.removeChild(link);
-                    
-                    // Update message
+                    if (snapshotMessage) snapshotMessage.textContent = t('pr_snap_saved');
+                } catch (_) {
                     if (snapshotMessage) {
-                        snapshotMessage.textContent = '✓ Snapshot downloaded successfully!';
-                    }
-                } catch (error) {
-                    console.error('Error downloading snapshot:', error);
-                    if (snapshotMessage) {
-                        snapshotMessage.textContent = '✗ Error downloading snapshot. Please try right-clicking to save.';
-                        snapshotMessage.style.color = '#e74c3c';
+                        snapshotMessage.className = 'status-msg bad';
+                        snapshotMessage.textContent = t('pr_snap_error');
                     }
                 }
             });
         }
 
-        /**
-         * Load and restore saved user role
-         */
-        function loadUserRole() {
-        const savedRole = ProgressStore.getUserRole();
-        if (savedRole) {
-        const radioToCheck = document.querySelector(`input[name='role'][value='${savedRole}']`);
-                if (radioToCheck) {
-                    radioToCheck.checked = true;
-                }
-            }
-        }
-
-        // Initial setup
-        loadUserRole();
-        ProgressRenderer.render();
-        
-        // Don't render quizzes and scenarios immediately - wait for lazy loading
-        // This improves initial page load performance
+        renderLists();
     });
 })();
