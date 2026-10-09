@@ -1,36 +1,53 @@
 # Assimilate Pro
 
-A picture guide for a new home in the West.
+**Cultural guide for newcomers to the West - 2026 edition**
+
+Practical survival guide for newcomers to Western Europe, the UK, the United States, and related regions. Built for present-day realities: digital-first bureaucracy, housing pressure, work-rights checks, scam patterns, language/status pathways, and everyday cultural norms.
 
 | | |
 |---|---|
-| **Site** | https://gilbertbouic.github.io/assimilate-pro/ |
-| **Code** | https://github.com/gilbertbouic/assimilate-pro |
-| **Phone app** | [Releases](https://github.com/gilbertbouic/assimilate-pro/releases) |
+| **Website** | https://gilbertbouic.github.io/assimilate-pro/ |
+| **Repository** | https://github.com/gilbertbouic/assimilate-pro |
+| **Android APK** | [Releases](https://github.com/gilbertbouic/assimilate-pro/releases) |
 
-## How to use it
+## Why this name
 
-1. Pick who you are.
-2. Pick the place.
-3. Read the picture and the short lines.
-4. Answer the quiz. The right answer is 100. The wrong answer is 30.
-5. Mark Do and Don't.
+**Assimilate Pro** is short, memorable, and action-oriented: learn the unwritten rules *and* the systems that gatekeep daily life-so you can settle with confidence, not guesswork.
 
-Your score stays on the phone.
+## What’s inside
 
-Each release lists a SHA-256 for the APK. Compare it with the file you downloaded.
+| Area | Focus |
+|------|--------|
+| **Today in the West** | Cross-cutting 2025-2026 essentials (portals, housing, scams, money, waiting on papers) |
+| **9 regions** | US, UK, Central Europe, Scandinavia, Finland, Baltics, Balkans, Greece, Mediterranean |
+| **Quizzes** | Scenario-style multiple choice with explanations |
+| **Scenarios** | Do / Don’t flip cards (work, housing, bureaucracy, health, social) |
+| **Roles** | Student, professional, remote, partner, entrepreneur, retiree, awaiting documentation |
+| **Privacy** | Local progress only - no signup |
 
-## Pictures
+## Not legal advice
 
-The pictures live in `assets/figures/`. The same file is used on a computer and on a phone.
+Rules change. Always verify status, work rights, and benefits on **official government sites** or with a **licensed adviser / recognized NGO**.
+
+## Website (GitHub Pages)
+
+Static site at the repository root (`index.html`).  
+**Pages:** branch `main` → folder `/` (root).
+
+Live: https://gilbertbouic.github.io/assimilate-pro/
 
 ## Android app
 
-The phone app is the same pages, saved inside the app so it works offline.
+WebView shell packaging the same assets.
 
 ```bash
-./scripts/sync-web-to-android.sh
+# local.properties → sdk.dir=...
+# keystore.properties for signed release
 ./gradlew assembleRelease
+```
+
+```bash
+./scripts/sync-web-to-android.sh   # website → app assets
 ```
 
 ## License

@@ -1,35 +1,30 @@
 (function () {
     'use strict';
     const data = {
-    "social": {
-        "id": "scenario_balkans_social",
-        "title": "Coffee at the neighbor",
-        "region": "balkans",
-        "category": "social",
-        "roles": [
-            "professional",
-            "student",
-            "spouse",
-            "retiree"
-        ],
-        "steps": [
-            {
-                "title": "Coffee and sweets",
-                "description": "A neighbor asks you in for coffee.",
-                "dos": [
-                    "Go in if you can.",
-                    "Say thank you.",
-                    "Bring a small treat next time."
-                ],
-                "donts": [
-                    "Do not mock the home.",
-                    "Do not start a fight about history.",
-                    "Do not refuse every kindness."
-                ]
-            }
-        ]
-    }
-};
+        social: {
+            id: 'scenario_balkans_social',
+            title: 'Hospitality & Respect',
+            region: 'balkans',
+            category: 'social',
+            roles: ['professional', 'student', 'spouse', 'retiree'],
+            steps: [
+                {
+                    title: 'Invited for coffee',
+                    description: 'A neighbor insists you come in for coffee and sweets.',
+                    dos: [
+                        'Accept if you can; bring a small treat next time.',
+                        'Show interest in family without prying.',
+                        'Thank the host warmly.'
+                    ],
+                    donts: [
+                        'Don’t mock traditions.',
+                        'Don’t start sensitive historical arguments uninvited.',
+                        'Don’t refuse every gesture - it can read as cold.'
+                    ]
+                }
+            ]
+        }
+    };
     if (window.CAM_SCENARIOS && window.CAM_SCENARIOS.registerRegion) {
         window.CAM_SCENARIOS.registerRegion('balkans', data);
     }
