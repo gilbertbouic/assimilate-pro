@@ -31,14 +31,14 @@
                 "title": "You will be late",
                 "description": "The Friday task will miss the day.",
                 "dos": [
-                    "Write early. Name the new day.",
+                    "Write early. Say the risk and a plan.",
                     "Ask what to drop.",
                     "Keep the note in the thread."
                 ],
                 "donts": [
                     "Do not vanish until Friday night.",
                     "Do not blame people with no facts.",
-                    "Name the day you will finish."
+                    "Do not promise what you cannot do."
                 ]
             }
         ]
@@ -62,7 +62,7 @@
                 "dos": [
                     "Check the address on a map.",
                     "See the home.",
-                    "See the home. Sign the lease. Then pay."
+                    "Pay only after a real lease."
                 ],
                 "donts": [
                     "Do not wire money for a home you have not seen.",
@@ -92,10 +92,10 @@
                 "dos": [
                     "Download it the same day.",
                     "Put the date on a calendar.",
-                    "Send the reply the same week."
+                    "Ask a qualified helper for a hard reply."
                 ],
                 "donts": [
-                    "Open the email. Open the website.",
+                    "Do not ignore a government email. Check the portal.",
                     "Do not pay gift cards.",
                     "Do not work outside your papers."
                 ]

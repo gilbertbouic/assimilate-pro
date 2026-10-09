@@ -34,7 +34,7 @@
             "question": "You eat at a sit-down restaurant. What tip is normal?",
             "options": {
                 "a": "No tip.",
-                "b": "Leave 15 to 20 percent.",
+                "b": "15 to 20 percent, unless the bill already adds it.",
                 "c": "Tip only if they ask."
             },
             "correct": "b",
@@ -64,11 +64,11 @@
             "question": "A landlord wants the first month, a deposit, and proof of income. What is that?",
             "options": {
                 "a": "Always unfair.",
-                "b": "See the home. Then pay.",
+                "b": "Normal. Still see the home before you pay.",
                 "c": "Pay in crypto."
             },
             "correct": "b",
-            "explanation": "See the home. Pay from your bank."
+            "explanation": "See the home. Then pay in a way you can trace."
         },
         {
             "question": "You will miss a deadline. What do you do?",

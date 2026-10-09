@@ -14,7 +14,7 @@
             "question": "People are quiet. What does that mean?",
             "options": {
                 "a": "They are angry.",
-                "b": "Quiet is polite.",
+                "b": "Quiet is polite. Small talk is a choice.",
                 "c": "Stand closer."
             },
             "correct": "b",
@@ -24,11 +24,11 @@
             "question": "You are invited to sauna. What do you do?",
             "options": {
                 "a": "You must go nude with coworkers on day one.",
-                "b": "Follow the posted sauna rules.",
+                "b": "Follow the host and the posted rules. You can say no.",
                 "c": "Sauna is only for athletes."
             },
             "correct": "b",
-            "explanation": "Follow the posted sauna rules."
+            "explanation": "Follow the rules. A polite no is fine."
         },
         {
             "question": "How do public services work?",

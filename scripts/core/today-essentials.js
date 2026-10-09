@@ -72,7 +72,7 @@
                 "The bank wants your ID and your home address.",
                 "Keep rent papers and pay slips. Pay bills on time.",
                 "See a family doctor first. Go to the hospital for a big emergency.",
-                "Sleep. See your friends."
+                "Sleep and friends help. Ask a helper when you feel lost."
             ]
         },
         {
@@ -83,7 +83,7 @@
                 "Learn what your paper lets you do.",
                 "Keep every letter. Take a photo of each one.",
                 "Use the wait to learn the language.",
-                "Pay the office. Keep the receipt."
+                "Do not pay a person who says they can buy you a visa."
             ]
         }
     ],
@@ -134,7 +134,7 @@
                 "explanation": "The government does not ask for gift cards."
             },
             {
-                "question": "People at work speak English with you. Do you learn the local language?",
+                "question": "People at work speak English with you. Do you still learn the local language?",
                 "options": {
                     "a": "No. It is only a hobby.",
                     "b": "Yes. Start classes now.",
@@ -144,14 +144,14 @@
                 "explanation": "The local language helps at the doctor, at home, and for a long stay."
             },
             {
-                "question": "You feel sick. You walk. Where do you go?",
+                "question": "You feel sick. You can walk and drink water. Where do you go first?",
                 "options": {
                     "a": "Go to the hospital.",
                     "b": "Call the family doctor.",
                     "c": "Wait until you go back home."
                 },
                 "correct": "b",
-                "explanation": "Call the family doctor. Call 112 or 911 for an emergency."
+                "explanation": "The family doctor is first. Call 112 or 911 when it is an emergency."
             }
         ]
     }

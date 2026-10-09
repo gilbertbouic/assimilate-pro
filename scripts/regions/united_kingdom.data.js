@@ -88,7 +88,7 @@
                 "c": "111 only"
             },
             "correct": "b",
-            "explanation": "Call 999."
+            "explanation": "Call 999 or 112. Call 111 for medical advice."
         }
     ],
     "countries": {

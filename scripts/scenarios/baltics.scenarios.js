@@ -19,7 +19,7 @@
                 "dos": [
                     "Use the state website.",
                     "Save the PDF.",
-                    "Go to the office on the list."
+                    "Ask which step needs a visit."
                 ],
                 "donts": [
                     "Do not use a look-alike site.",
