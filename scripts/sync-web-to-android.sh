@@ -4,22 +4,20 @@ set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 ASSETS="$ROOT/app/src/main/assets"
 
-mkdir -p "$ASSETS/scripts/core" "$ASSETS/scripts/regions" "$ASSETS/scripts/scenarios" "$ASSETS/styles" "$ASSETS/fonts" "$ASSETS/assets/figures" "$ASSETS/icons"
+mkdir -p "$ASSETS/scripts/core" "$ASSETS/scripts/regions" "$ASSETS/scripts/scenarios" "$ASSETS/styles"
 
 cp -f "$ROOT/index.html" "$ASSETS/index.html"
 cp -f "$ROOT/PRIVACY.md" "$ASSETS/PRIVACY.md"
-cp -f "$ROOT/favicon-32.png" "$ASSETS/favicon-32.png"
 cp -f "$ROOT/styles/"*.css "$ASSETS/styles/"
 cp -f "$ROOT/scripts/app.js" "$ASSETS/scripts/"
 cp -f "$ROOT/scripts/i18n.js" "$ASSETS/scripts/"
 cp -f "$ROOT/scripts/navigation.js" "$ASSETS/scripts/"
 cp -f "$ROOT/scripts/interactive.js" "$ASSETS/scripts/"
-cp -f "$ROOT/scripts/optimus.js" "$ASSETS/scripts/"
-cp -f "$ROOT/fonts/"*.ttf "$ASSETS/fonts/"
 cp -f "$ROOT/scripts/core/"*.js "$ASSETS/scripts/core/"
 cp -f "$ROOT/scripts/regions/"*.js "$ASSETS/scripts/regions/"
 cp -f "$ROOT/scripts/scenarios/"*.js "$ASSETS/scripts/scenarios/"
-cp -f "$ROOT/assets/figures/"*.png "$ASSETS/assets/figures/"
-cp -f "$ROOT/icons/"* "$ASSETS/icons/" 2>/dev/null || true
+
+# Service worker is not required inside file:// WebView; keep optional copy
+cp -f "$ROOT/sw.js" "$ASSETS/scripts/sw.js" 2>/dev/null || true
 
 echo "Synced website → $ASSETS"

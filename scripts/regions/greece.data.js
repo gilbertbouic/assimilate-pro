@@ -1,84 +1,88 @@
 /**
- * Greece
+ * Greece (2026 edition)
  */
 (function () {
     'use strict';
 
     const greeceData = {
-    "id": "quiz_greece",
-    "title": "Greece",
-    "region": "greece",
-    "category": "general",
-    "questions": [
-        {
-            "question": "What is a normal day like?",
-            "options": {
-                "a": "Every shop closes at 16:00 forever.",
-                "b": "Evenings are late. Family meals matter.",
-                "c": "No one goes out on a weekday."
+        id: 'quiz_greece',
+        title: 'Greece Cultural Quiz',
+        region: 'greece',
+        category: 'general',
+        questions: [
+            {
+                question: 'Daily rhythm in Greece often includes…',
+                options: {
+                    a: 'Everything closing at 16:00 forever',
+                    b: 'Later evenings, strong café culture, and family meal time - especially outside tourist rush hours',
+                    c: 'No social life on weekdays'
+                },
+                correct: 'b',
+                explanation:
+                    'Social life runs later than in northern Europe. Adjust expectations for dinner and opening hours.'
             },
-            "correct": "b",
-            "explanation": "Dinner is late. Plan for it."
-        },
-        {
-            "question": "What are AFM and AMKA?",
-            "options": {
-                "a": "Stickers.",
-                "b": "Numbers you need for tax, health, and work.",
-                "c": "Only for boat owners."
+            {
+                question: 'AFM, AMKA, and residence documents…',
+                options: {
+                    a: 'Are optional decorations',
+                    b: 'Are foundational for tax, health, and legal work - organize appointments and papers early',
+                    c: 'Only matter for yacht owners'
+                },
+                correct: 'b',
+                explanation:
+                    'Greek admin codes unlock banking, work, and healthcare. Expect in-person steps and keep copies.'
             },
-            "correct": "b",
-            "explanation": "Get the numbers. Bring your papers."
-        },
-        {
-            "question": "How do people talk?",
-            "options": {
-                "a": "They never speak.",
-                "b": "They are warm. Ask before you touch.",
-                "c": "Only by letter."
+            {
+                question: 'Communication style is often…',
+                options: {
+                    a: 'Silent and minimal always',
+                    b: 'Expressive and warm - still respect personal boundaries and consent',
+                    c: 'Only written letters'
+                },
+                correct: 'b',
+                explanation:
+                    'Warm expressiveness is common; professionalism and consent still apply at work and in dating.'
             },
-            "correct": "b",
-            "explanation": "Be warm. Ask first."
-        },
-        {
-            "question": "Summer is hot and full of visitors. What do you do?",
-            "options": {
-                "a": "Skip water.",
-                "b": "Drink water. Find a home early.",
-                "c": "Buses never change."
+            {
+                question: 'Summer heat and island/city tourism pressure mean…',
+                options: {
+                    a: 'No need for water or shade',
+                    b: 'Plan hydration, sun protection, and housing early in tourist areas',
+                    c: 'Public transport never changes'
+                },
+                correct: 'b',
+                explanation:
+                    'Heat and tourism affect prices, crowds, and health. Practical planning prevents crises.'
             },
-            "correct": "b",
-            "explanation": "Water, shade, and an early home search."
-        },
-        {
-            "question": "What number do you call for help?",
-            "options": {
-                "a": "911",
-                "b": "112",
-                "c": "999"
-            },
-            "correct": "b",
-            "explanation": "Call 112."
+            {
+                question: 'Emergency number?',
+                options: {
+                    a: '911',
+                    b: '112',
+                    c: '999'
+                },
+                correct: 'b',
+                explanation: '112 is the EU emergency number in Greece.'
+            }
+        ],
+        countries: {
+            greece: {
+                name: 'Greece',
+                emoji: '🇬🇷',
+                sections: [
+                    {
+                        title: 'Essentials (now)',
+                        items: [
+                            'Family networks and neighborhood ties remain strong.',
+                            'Admin can mix digital systems with in-person offices - patience helps.',
+                            'Tourism economies: seasonal work rules and contracts still matter legally.',
+                            'Respect churches and local customs in smaller communities.'
+                        ]
+                    }
+                ]
+            }
         }
-    ],
-    "countries": {
-        "greece": {
-            "name": "Greece",
-            "emoji": "🇬🇷",
-            "sections": [
-                {
-                    "title": "Good to know",
-                    "items": [
-                        "Family and neighbors help.",
-                        "Some steps are on a website. Some are at the office.",
-                        "A seasonal job needs a job paper.",
-                        "Be quiet and kind in a church and a small town."
-                    ]
-                }
-            ]
-        }
-    }
-};
+    };
 
     if (window.CAM_DATA && window.CAM_DATA.registerRegion) {
         window.CAM_DATA.registerRegion('greece', greeceData);

@@ -1,84 +1,88 @@
 /**
- * Balkans
+ * Balkans (2026 edition)
  */
 (function () {
     'use strict';
 
     const balkansData = {
-    "id": "quiz_balkans",
-    "title": "Balkans",
-    "region": "balkans",
-    "category": "general",
-    "questions": [
-        {
-            "question": "A neighbor asks you in for coffee. What do you do?",
-            "options": {
-                "a": "Stay outside.",
-                "b": "Go in. Say thank you. Bring a small gift next time.",
-                "c": "Say no to every drink."
+        id: 'quiz_balkans',
+        title: 'Balkans Cultural Quiz',
+        region: 'balkans',
+        category: 'general',
+        questions: [
+            {
+                question: 'Hospitality in much of the Balkans often means…',
+                options: {
+                    a: 'Guests are ignored',
+                    b: 'Guests are treated generously - bring a small gift and show appreciation',
+                    c: 'You must refuse all food permanently'
+                },
+                correct: 'b',
+                explanation:
+                    'Warm hospitality is a point of pride. Accepting coffee/food politely builds rapport; still respect your boundaries.'
             },
-            "correct": "b",
-            "explanation": "A warm hello builds trust."
-        },
-        {
-            "question": "The office asks for many papers. What do you do?",
-            "options": {
-                "a": "Bring nothing.",
-                "b": "Bring every paper. Keep a copy.",
-                "c": "Bring only English forms."
+            {
+                question: 'Bureaucracy may require…',
+                options: {
+                    a: 'Zero documents',
+                    b: 'Patience, complete paperwork, and sometimes in-person visits - keep copies of everything',
+                    c: 'Only English forms'
+                },
+                correct: 'b',
+                explanation:
+                    'Processes can be slower and more office-based than Nordic e-gov. Persistence and organized files help.'
             },
-            "correct": "b",
-            "explanation": "A full folder makes the visit short."
-        },
-        {
-            "question": "Who helps you find a home and a job?",
-            "options": {
-                "a": "Nobody.",
-                "b": "Family and neighbors help you find a home and a job.",
-                "c": "Friends replace the law."
+            {
+                question: 'Family and community ties…',
+                options: {
+                    a: 'Are irrelevant',
+                    b: 'Often central - introductions and trust networks matter for housing and work',
+                    c: 'Replace all laws'
+                },
+                correct: 'b',
+                explanation:
+                    'Personal networks matter, but always stay within legal work and housing rules.'
             },
-            "correct": "b",
-            "explanation": "People help you. Follow the house rules and the job paper."
-        },
-        {
-            "question": "A new friend talks about old wars. What do you do?",
-            "options": {
-                "a": "Argue on day one.",
-                "b": "Listen. Stay kind.",
-                "c": "Talk only about football."
+            {
+                question: 'Political and historical topics with new acquaintances?',
+                options: {
+                    a: 'Debate aggressively on day one',
+                    b: 'Tread carefully; listen; avoid triumphalist takes on sensitive conflicts',
+                    c: 'Only discuss football forever'
+                },
+                correct: 'b',
+                explanation:
+                    'History is lived memory. Curiosity is fine; arrogance is not.'
             },
-            "correct": "b",
-            "explanation": "Listen first. Kind words keep the peace."
-        },
-        {
-            "question": "What number do you call for help in the EU Balkans?",
-            "options": {
-                "a": "911",
-                "b": "112",
-                "c": "000"
-            },
-            "correct": "b",
-            "explanation": "Call 112."
+            {
+                question: 'Emergency number in EU Balkan states?',
+                options: {
+                    a: '911',
+                    b: '112',
+                    c: '000'
+                },
+                correct: 'b',
+                explanation: '112 is standard in EU countries of the region.'
+            }
+        ],
+        countries: {
+            balkans: {
+                name: 'Balkans',
+                emoji: '🌍',
+                sections: [
+                    {
+                        title: 'Essentials (now)',
+                        items: [
+                            'Warm social culture + formal admin offices can coexist.',
+                            'EU members (e.g. Croatia, Slovenia, Romania, Bulgaria) differ from non-EU neighbors - know which system you are in.',
+                            'Cash may still be common in places, but cards and e-gov are expanding.',
+                            'Learn local quiet hours, garbage rules, and building norms in cities.'
+                        ]
+                    }
+                ]
+            }
         }
-    ],
-    "countries": {
-        "balkans": {
-            "name": "Balkans",
-            "emoji": "🌍",
-            "sections": [
-                {
-                    "title": "Good to know",
-                    "items": [
-                        "People are warm. Offices want papers.",
-                        "Croatia, Slovenia, Romania, and Bulgaria are in the EU. Neighbors have other rules.",
-                        "People pay with cash and with cards.",
-                        "Learn quiet hours and trash day."
-                    ]
-                }
-            ]
-        }
-    }
-};
+    };
 
     if (window.CAM_DATA && window.CAM_DATA.registerRegion) {
         window.CAM_DATA.registerRegion('balkans', balkansData);

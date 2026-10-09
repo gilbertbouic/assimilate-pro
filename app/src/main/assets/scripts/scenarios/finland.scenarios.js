@@ -1,34 +1,30 @@
 (function () {
     'use strict';
     const data = {
-    "social": {
-        "id": "scenario_fi_social",
-        "title": "Quiet is normal",
-        "region": "finland",
-        "category": "social",
-        "roles": [
-            "professional",
-            "student",
-            "spouse"
-        ],
-        "steps": [
-            {
-                "title": "Lunch is quiet",
-                "description": "Coworkers are kind and quiet.",
-                "dos": [
-                    "Let the quiet be.",
-                    "Be on time.",
-                    "Join a club."
-                ],
-                "donts": [
-                    "Do not force small talk.",
-                    "Do not stand too close.",
-                    "Do not call quiet rude."
-                ]
-            }
-        ]
-    }
-};
+        social: {
+            id: 'scenario_fi_social',
+            title: 'Comfortable Quiet',
+            region: 'finland',
+            category: 'social',
+            roles: ['professional', 'student', 'spouse'],
+            steps: [
+                {
+                    title: 'Elevator and lunch',
+                    description: 'Coworkers are friendly but not chatty.',
+                    dos: [
+                        'Accept silence without taking offense.',
+                        'Be reliable - trust compounds slowly.',
+                        'Join optional activities (sports, hobby clubs) for deeper ties.'
+                    ],
+                    donts: [
+                        'Don’t force continuous small talk.',
+                        'Don’t stand too close.',
+                        'Don’t treat reserved culture as rudeness.'
+                    ]
+                }
+            ]
+        }
+    };
     if (window.CAM_SCENARIOS && window.CAM_SCENARIOS.registerRegion) {
         window.CAM_SCENARIOS.registerRegion('finland', data);
     }
