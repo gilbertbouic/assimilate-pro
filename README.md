@@ -10,6 +10,18 @@ Practical survival guide for newcomers to Western Europe, the UK, the United Sta
 | **Repository** | https://github.com/gilbertbouic/assimilate-pro |
 | **Android APK** | [Releases](https://github.com/gilbertbouic/assimilate-pro/releases) |
 
+## Download (Android)
+
+**Latest: [Assimilate Pro 2.3.2](https://github.com/gilbertbouic/assimilate-pro/releases/tag/v2.3.2)** - file `Assimilate-Pro-2.3.2.apk`
+
+> **Already have the app? Uninstall it first.** Version 2.3.2 is signed with a new key, so phones cannot update an older Assimilate Pro. Remove the old app, then install 2.3.2. Saved progress on the phone starts again from zero.
+
+SHA-256 for Assimilate-Pro-2.3.2.apk
+
+`0028dffb302cbe5ea416ec5bcba5fefee1f17aea3e103a08d397a087639a197f`
+
+Signing certificate: `CN=Assimilate Pro, O=Mkweli, L=Port Louis, C=MU`, SHA-256 `ebe763e71490d3c170cbb19c62d9ed65d896dc2d10f082c8978e2ab78e3f9dae`
+
 ## Why this name
 
 **Assimilate Pro** is short, memorable, and action-oriented: learn the unwritten rules *and* the systems that gatekeep daily life-so you can settle with confidence, not guesswork.
@@ -54,10 +66,11 @@ WebView shell packaging the same assets. Build with JDK 17.
 ## Releasing a new APK
 
 1. Raise `versionCode` and `versionName` in `app/build.gradle.kts`. The code must be higher than the last release, or phones will refuse the update.
-2. Put the release key in `keystore/` and fill in `keystore.properties` (copy `keystore.properties.template`). Both are ignored by git. Never commit them.
-   Sign with the same key as the last release (2.3.x: certificate `CN=Assimilate Pro, O=Mkweli, C=MU`), or people must uninstall the old app first.
+2. Put the release key in place: copy the private backup `keystore.properties` (kept outside git with the keystore) to the repository root. It is ignored by git. Never commit it or any `.jks` file.
+   Always sign with the 2.3.2 key (certificate `CN=Assimilate Pro, O=Mkweli, L=Port Louis, C=MU`, SHA-256 `ebe763e7…3f9dae`), or phones will refuse the update.
+   The same key is stored as GitHub Actions secrets for future automated builds: `ANDROID_KEYSTORE_BASE64`, `ANDROID_KEYSTORE_PASSWORD`, `ANDROID_KEY_ALIAS`, `ANDROID_KEY_PASSWORD`.
 3. Run `./gradlew assembleRelease`, then check: `apksigner verify --print-certs app/build/outputs/apk/release/app-release.apk`.
-4. Rename the file to `Assimilate-Pro-<version>.apk`, make `SHA256SUMS.txt`, and publish a GitHub release tagged `v<version>` with both files.
+4. Rename the file to `Assimilate-Pro-<version>.apk`, make `SHA256SUMS.txt`, and publish a GitHub release tagged `v<version>` with both files. Then update the version and SHA-256 under "Download (Android)" above.
 
 The website's "Download latest APK" button opens https://github.com/gilbertbouic/assimilate-pro/releases/latest, so it always shows the newest release whatever the file is called.
 
