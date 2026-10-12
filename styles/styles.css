@@ -525,3 +525,10 @@ p { margin: 0 0 0.9em; }
     text-decoration: none;
 }
 .mkweli-parent-logo { height: 24px; width: auto; }
+
+/* Small visit counter in the footer (website only) */
+.site-footer .visit-counter {
+    font-size: 0.8rem;
+    opacity: 0.8;
+    font-variant-numeric: tabular-nums;
+}
