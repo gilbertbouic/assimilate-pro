@@ -1,5 +1,5 @@
 /* Assimilate Pro - offline shell for GitHub Pages / WebView */
-const CACHE = 'assimilate-pro-2.3.2-route-map';
+const CACHE = 'assimilate-pro-2.3.2-route-map-2';
 const ASSETS = [
   './',
   './index.html',
@@ -13,6 +13,7 @@ const ASSETS = [
   './scripts/route.js',
   './scripts/navigation.js',
   './scripts/interactive.js',
+  './scripts/visit-counter.js',
   './manifest.json',
   './PRIVACY.md'
 ];
@@ -34,6 +35,7 @@ self.addEventListener('activate', (event) => {
 self.addEventListener('fetch', (event) => {
   const req = event.request;
   if (req.method !== 'GET') return;
+  if (new URL(req.url).origin !== self.location.origin) return;
   event.respondWith(
     caches.match(req).then((cached) => {
       const fetched = fetch(req)
